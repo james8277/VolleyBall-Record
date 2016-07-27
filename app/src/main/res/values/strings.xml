@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">VolleyBall Record</string>
+    <string name="headline">VolleyBall Record</string>
+    <string name="start_button">Start</string>
+    <string name="continue_button">Continue</string>
+    <string name="record_button">Record</string>
+    <string name="exit_button">Exit</string>
+    <string name="title_activity_initial_set">Information</string>
+    <string name="date_set_headline">Enter Date</string>
+    <string name="next_button">Next</string>
+    <string name="date_team">Enter Teams Name</string>
+    <string name="blue_team">Blue Team</string>
+    <string name="date_vs">V.S.</string>
+    <string name="red_team">Red Team</string>
+    <string name="set_player">Set Player</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="enter_number">Enter Number</string>
+    <string name="enter_button">Enter</string>
+    <string name="set_sub_title">Set Substitute</string>
+    <string name="set_sub_player_name">Enter Player\'s Name</string>
+    <string name="set_sub_player_number">Enter Player\'s Number</string>
+    <string name="enter_place">Enter Player\'s Position</string>
+    <string name="set_sub_button">Add Player</string>
+    <string name="number">Number</string>
+    <string name="name">Name</string>
+    <string name="place">Position</string>
+    <string name="set_start_button">Start</string>
+    <string name="title_activity_play_game">Play Game</string>
+    <string name="start_attack_button">Attack</string>
+    <string name="start_defence_button">Defence</string>
+    <string name="start_set_button">Set</string>
+    <string name="start_serve_button">Serve</string>
+    <string name="start_block_button">Block</string>
+    <string name="start_change_button">Change</string>
+    <string name="start_lchange_button">L Change</string>
+    <string name="mistake_button">Mistake</string>
+    <string name="invalid_button">Invalid</string>
+    <string name="success_button">Success</string>
+    <string name="touch_button">Touch</string>
+    <string name="change_button">Change</string>
+    <string name="initial_score">0</string>
+    <string name="title_activity_activity_start">ActivityStart</string>
+    <string name="blue_win">Blue Win</string>
+    <string name="red_win">Red Win</string>
+    <string name="back">Back</string>
+    <string name="record_select_game">Select Game</string>
+    <string name="game_data">Game Data</string>
+    <string name="title_activity_record">Record</string>
+    <string name="player_data">Player Data</string>
+    <string name="record_total">Total</string>
+    <string name="record_success">Success</string>
+    <string name="record_mistake">Mistake</string>
+    <string name="record_rate">Rate</string>
+    <string name="delete">Delete</string>
+    <string name="set_format">Game Format</string>
+
+</resources>

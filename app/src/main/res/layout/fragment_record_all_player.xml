@@ -1,0 +1,204 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F4F6">
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="@string/game_data"
+                android:textSize="30dp"
+                android:layout_marginTop="20dp"
+                android:id="@+id/game_data_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_0"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/game_data_title"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_1"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_0"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_2"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_1"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_3"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_2"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_4"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_3"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_5"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_4"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_6"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_5"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_7"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_6"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_8"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_7"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_9"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_8"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_10"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_9"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_11"
+                android:text=""
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="80dp"
+                android:layout_below="@id/record_player_10"
+                android:textSize="25sp"
+                android:clickable="false"
+                android:visibility="gone"
+                android:onClick="record_player_function"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:layout_below="@id/record_player_11"
+                android:id="@+id/record_all_player_back"
+                android:text="@string/back"
+                android:textSize="20sp"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

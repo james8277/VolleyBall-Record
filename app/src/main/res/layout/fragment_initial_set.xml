@@ -1,0 +1,118 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F4F6">
+
+    <TextView
+        android:id="@+id/date_headline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_set_headline"
+        android:textSize="40sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/date_next"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="#FFE8EAF6"
+        android:text="@string/next_button"
+        android:layout_centerHorizontal="true"
+        android:textSize="25sp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"/>
+
+    <Spinner
+        android:id="@+id/date_spinner_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/date_headline"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"/>
+
+    <Spinner
+        android:id="@+id/date_spinner_day"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/date_spinner_month"
+        android:layout_marginLeft="20dp"
+        android:layout_below="@id/date_headline"
+        android:layout_marginTop="20dp"/>
+
+    <Spinner
+        android:id="@+id/date_spinner_year"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/date_headline"
+        android:layout_toLeftOf="@id/date_spinner_month"
+        android:layout_marginRight="20dp"/>
+
+    <TextView
+        android:id="@+id/date_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/date_spinner_month"
+        android:text="@string/date_team"
+        android:layout_centerHorizontal="true"
+        android:textSize="30sp"/>
+
+    <TextView
+        android:id="@+id/date_vs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/date_vs"
+        android:textSize="25sp"
+        android:layout_below="@id/date_team"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/date_blue_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@id/date_team"
+        android:inputType="text"
+        android:hint="@string/blue_team"
+        android:layout_alignBaseline="@id/date_vs"
+        android:layout_toLeftOf="@id/date_vs"
+        android:layout_marginRight="20dp"/>
+
+    <EditText
+        android:id="@+id/date_red_team"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:layout_below="@id/date_team"
+        android:inputType="text"
+        android:hint="@string/red_team"
+        android:layout_alignBaseline="@id/date_vs"
+        android:layout_toRightOf="@id/date_vs"
+        android:layout_marginLeft="20dp"/>
+
+
+    <TextView
+        android:id="@+id/set_format"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="30sp"
+        android:layout_below="@id/date_vs"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/set_format" />
+
+
+    <Spinner
+        android:id="@+id/format_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/set_format"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
+        />
+
+</RelativeLayout>

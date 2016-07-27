@@ -1,0 +1,73 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F4F6">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:text="@string/record_button"
+        android:textSize="40sp"
+        android:typeface="serif"
+        android:layout_marginTop="40dp"
+        android:id="@+id/record_record_text"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:text="@string/record_select_game"
+        android:textSize="25sp"
+        android:layout_marginTop="15dp"
+        android:id="@+id/record_select_text"
+        android:layout_below="@id/record_record_text"
+        android:visibility="invisible"/>
+
+    <Spinner
+        android:id="@+id/record_spinner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/record_select_text"
+        android:layout_marginTop="20dp"
+        android:visibility="invisible"
+        android:clickable="false"
+        android:layout_centerHorizontal="true"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/record_spinner"
+        android:text="@string/enter_button"
+        android:textSize="25sp"
+        android:visibility="invisible"
+        android:clickable="false"
+        android:layout_marginTop="30dp"
+        android:id="@+id/record_enter"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/record_back_text"
+        android:text="@string/back"
+        android:background="#FFE8EAF6"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:textSize="25sp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="20dp"
+        android:text="@string/delete"
+        android:id="@+id/record_all_game_delete"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"/>
+
+    </RelativeLayout>

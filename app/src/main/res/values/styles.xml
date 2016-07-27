@@ -1,0 +1,19 @@
+<resources>
+
+    <style name="AppTheme" parent="android:Theme.Holo.Light.DarkActionBar">
+        <item name="android:actionBarStyle">@style/MyActionBar</item>
+    </style>
+
+    <style name="MyActionBar"
+        parent="@android:style/Widget.Holo.Light.ActionBar.Solid.Inverse">
+        <item name="android:background">#303F9F</item>
+        <item name="android:titleTextStyle">@style/MyTitleSize</item>
+        <item name="android:height">55dp</item>
+    </style>
+
+    <style name="MyTitleSize"
+        parent="@android:TextAppearance.Holo.Medium.Inverse">
+        <item name="android:textSize">25sp</item>
+    </style>
+
+</resources>

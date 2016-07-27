@@ -1,0 +1,540 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF5F4F6">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="20dp"
+                android:text="@string/player_data"
+                android:textSize="30sp"
+                android:id="@+id/record_player_data_title"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_data_name"
+                android:text="Name"
+                android:textSize="20sp"
+                android:layout_below="@id/record_player_data_title"
+                android:layout_alignParentLeft="true"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_data_number"
+                android:layout_below="@id/record_player_data_title"
+                android:text="Number"
+                android:textSize="20sp"
+                android:layout_toRightOf="@id/record_player_data_name"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="20dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_player_data_place"
+                android:layout_below="@id/record_player_data_name"
+                android:layout_marginTop="15dp"
+                android:layout_alignLeft="@id/record_player_data_name"
+                android:text="Place"
+                android:textSize="20sp"
+                />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack"
+                android:layout_below="@id/record_player_data_place"
+                android:textSize="23sp"
+                android:text="@string/start_attack_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_all"
+                android:layout_below="@id/record_attack"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_total"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_success"
+                android:layout_below="@id/record_attack"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_success"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_attack_all"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_mistake"
+                android:layout_below="@id/record_attack"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_mistake"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_attack_success"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_rate"
+                android:layout_below="@id/record_attack"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_rate"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_attack_mistake"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_all_number"
+                android:layout_below="@id/record_attack_all"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_attack_all"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_success_number"
+                android:layout_below="@id/record_attack_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_attack_success"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_mistake_number"
+                android:layout_below="@id/record_attack_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_attack_mistake"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_attack_rate_number"
+                android:layout_below="@id/record_attack_rate"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_attack_rate"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence"
+                android:layout_below="@id/record_attack_all_number"
+                android:textSize="23sp"
+                android:text="@string/start_defence_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_all"
+                android:layout_below="@id/record_defence"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_total"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_success"
+                android:layout_below="@id/record_defence"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_success"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_defence_all"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_mistake"
+                android:layout_below="@id/record_defence"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_mistake"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_defence_success"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_rate"
+                android:layout_below="@id/record_defence"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_rate"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_defence_mistake"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_all_number"
+                android:layout_below="@id/record_defence_all"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_defence_all"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_success_number"
+                android:layout_below="@id/record_defence_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_defence_success"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_mistake_number"
+                android:layout_below="@id/record_defence_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_defence_mistake"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_defence_rate_number"
+                android:layout_below="@id/record_defence_rate"
+                android:layout_marginTop="10dp"
+                android:text="  "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_defence_rate"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve"
+                android:layout_below="@id/record_defence_all_number"
+                android:textSize="23sp"
+                android:text="@string/start_serve_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_all"
+                android:layout_below="@id/record_serve"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_total"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_success"
+                android:layout_below="@id/record_serve"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_success"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_serve_all"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_mistake"
+                android:layout_below="@id/record_serve"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_mistake"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_serve_success"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_rate"
+                android:layout_below="@id/record_serve"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_rate"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_serve_mistake"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_all_number"
+                android:layout_below="@id/record_serve_all"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_serve_all"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_success_number"
+                android:layout_below="@id/record_serve_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_serve_success"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_mistake_number"
+                android:layout_below="@id/record_serve_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_serve_mistake"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_serve_rate_number"
+                android:layout_below="@id/record_serve_rate"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_serve_rate"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set"
+                android:layout_below="@id/record_serve_all_number"
+                android:textSize="23sp"
+                android:text="@string/start_set_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_all"
+                android:layout_below="@id/record_set"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_total"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_success"
+                android:layout_below="@id/record_set"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_success"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_set_all"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_mistake"
+                android:layout_below="@id/record_set"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_mistake"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_set_success"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_rate"
+                android:layout_below="@id/record_set"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_rate"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_set_mistake"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_all_number"
+                android:layout_below="@id/record_set_all"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_set_all"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_success_number"
+                android:layout_below="@id/record_set_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_set_success"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_mistake_number"
+                android:layout_below="@id/record_set_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_set_mistake"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_set_rate_number"
+                android:layout_below="@id/record_set_rate"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_set_rate"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block"
+                android:layout_below="@id/record_set_all_number"
+                android:textSize="23sp"
+                android:text="@string/start_block_button"
+                android:layout_marginTop="20dp"
+                android:layout_marginLeft="40dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_all"
+                android:layout_below="@id/record_block"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_total"
+                android:textSize="18sp"
+                android:layout_alignParentLeft="true"
+                android:layout_marginLeft="35dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_success"
+                android:layout_below="@id/record_block"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_success"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_block_all"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_mistake"
+                android:layout_below="@id/record_block"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_mistake"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_block_success"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_rate"
+                android:layout_below="@id/record_block"
+                android:layout_marginTop="15dp"
+                android:text="@string/record_rate"
+                android:textSize="18sp"
+                android:layout_toRightOf="@id/record_block_mistake"
+                android:layout_marginLeft="30dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_all_number"
+                android:layout_below="@id/record_block_all"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_block_all"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_success_number"
+                android:layout_below="@id/record_block_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_block_success"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_mistake_number"
+                android:layout_below="@id/record_block_success"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_block_mistake"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/record_block_rate_number"
+                android:layout_below="@id/record_block_rate"
+                android:layout_marginTop="10dp"
+                android:text=" "
+                android:textSize="15sp"
+                android:layout_alignRight="@id/record_block_rate"/>
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_below="@id/record_block_rate_number"
+                android:layout_marginTop="50dp"
+                android:text="@string/back"
+                android:id="@+id/record_player_data_back"
+                android:textSize="20sp"/>
+
+            </RelativeLayout>
+        </ScrollView>
+    </RelativeLayout>
