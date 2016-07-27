@@ -72,17 +72,17 @@ public class Change extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.change_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.change_player_number_6);
 
-        number_tmp = player_change[games_change.GetOnField((0+(change_round%6))%6)].GetNumber();
+        number_tmp = player_change[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_change[games_change.GetOnField((1+(change_round%6))%6)].GetNumber();
+        number_tmp = player_change[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_change[games_change.GetOnField((2+(change_round%6))%6)].GetNumber();
+        number_tmp = player_change[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_change[games_change.GetOnField((3+(change_round%6))%6)].GetNumber();
+        number_tmp = player_change[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_change[games_change.GetOnField((4+(change_round%6))%6)].GetNumber();
+        number_tmp = player_change[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_change[games_change.GetOnField((5+(change_round%6))%6)].GetNumber();
+        number_tmp = player_change[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable change_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -164,7 +164,11 @@ public class Change extends Fragment {
                     {
                         if(player_list_change[i].equals(tmp_change))
                         {
-                            games_change.Changeplayer(((change_chooice-1)+(change_round%6))%6, sub_chooice);
+                            Player tmp;
+                            tmp = player_change[6+sub_chooice];
+                            player_change[6+sub_chooice] = player_change[change_chooice-1];
+                            player_change[change_chooice-1] = tmp;
+                            //games_change.Changeplayer(((change_chooice-1)+(change_round%6))%6, sub_chooice);
                         }
                     }
                     Fragment fragment_start = new Start();

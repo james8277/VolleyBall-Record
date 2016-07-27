@@ -76,6 +76,10 @@ public class PlayGame extends Activity {
     {
         return player_set_current;
     }
+    public int get_pre_set_player()
+    {
+        return pre_set_player_chooice;
+    }
     public void set_2_player_function(View view)
     {
         Resources res = this.getResources();
@@ -311,5 +315,29 @@ public class PlayGame extends Activity {
             this.overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
         return false;
+    }
+
+    public void rotate(Player[] x)
+    {
+        Player tmp;
+        tmp = x[0];
+
+        for(int i=0;i<5;i++)
+        {
+            x[i] = x[i+1];
+        }
+        x[5] = tmp;
+    }
+
+    public void rerotate(Player[] x)
+    {
+        Player tmp;
+        tmp = x[5];
+
+        for(int i=5;i>0;i--)
+        {
+            x[i] = x[i-1];
+        }
+        x[0] = tmp;
     }
 }

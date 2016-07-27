@@ -62,17 +62,17 @@ public class Block extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.block_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.block_player_number_6);
 
-        number_tmp = player_block[games_block.GetOnField(((block_round%6))%6)].GetNumber();
+        number_tmp = player_block[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_block[games_block.GetOnField((1+(block_round%6))%6)].GetNumber();
+        number_tmp = player_block[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_block[games_block.GetOnField((2+(block_round%6))%6)].GetNumber();
+        number_tmp = player_block[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_block[games_block.GetOnField((3+(block_round%6))%6)].GetNumber();
+        number_tmp = player_block[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_block[games_block.GetOnField((4+(block_round%6))%6)].GetNumber();
+        number_tmp = player_block[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_block[games_block.GetOnField((5+(block_round%6))%6)].GetNumber();
+        number_tmp = player_block[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable block_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -114,11 +114,12 @@ public class Block extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_block.BlueScore();
-                player_block[games_block.GetOnField((block_chooice-1+(block_round%6))%6)].SuccessBlock();
+                player_block[block_chooice-1].SuccessBlock();
                 if(games_block.GetPrevious() == 2)
                 {
                     games_block.SetPrevious(1);
-                    ((PlayGame)getActivity()).SetRound();
+                    ((PlayGame)getActivity()).rotate(player_block);
+                    //((PlayGame)getActivity()).SetRound();
                 }
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -133,7 +134,7 @@ public class Block extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_block.RedScore();
-                player_block[games_block.GetOnField((block_chooice-1+(block_round%6))%6)].MistakeBlock();
+                player_block[block_chooice-1].MistakeBlock();
                 games_block.SetPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -147,7 +148,7 @@ public class Block extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_block[games_block.GetOnField((block_chooice-1+(block_round%6))%6)].InvalidBlock();
+                player_block[block_chooice-1].InvalidBlock();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();
@@ -160,7 +161,7 @@ public class Block extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_block[games_block.GetOnField((block_chooice-1+(block_round%6))%6)].TouchBlock();
+                player_block[block_chooice-1].TouchBlock();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();

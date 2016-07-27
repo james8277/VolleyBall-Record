@@ -62,17 +62,17 @@ public class Set extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.set_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.set_player_number_6);
 
-        number_tmp = player_set[games_set.GetOnField((0+(set_round%6))%6)].GetNumber();
+        number_tmp = player_set[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_set[games_set.GetOnField((1+(set_round%6))%6)].GetNumber();
+        number_tmp = player_set[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_set[games_set.GetOnField((2+(set_round%6))%6)].GetNumber();
+        number_tmp = player_set[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_set[games_set.GetOnField((3+(set_round%6))%6)].GetNumber();
+        number_tmp = player_set[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_set[games_set.GetOnField((4+(set_round%6))%6)].GetNumber();
+        number_tmp = player_set[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_set[games_set.GetOnField((5+(set_round%6))%6)].GetNumber();
+        number_tmp = player_set[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable set_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -113,7 +113,7 @@ public class Set extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_set[games_set.GetOnField((set_chooice-1+(set_round%6))%6)].SuccessSet();
+                player_set[set_chooice-1].SuccessSet();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();
@@ -127,7 +127,7 @@ public class Set extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_set.RedScore();
-                player_set[games_set.GetOnField((set_chooice-1+(set_round%6))%6)].MistakeSet();
+                player_set[set_chooice-1].MistakeSet();
                 games_set.SetPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -141,7 +141,7 @@ public class Set extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_set[games_set.GetOnField((set_chooice-1+(set_round%6))%6)].InvalidSet();
+                player_set[set_chooice-1].InvalidSet();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();

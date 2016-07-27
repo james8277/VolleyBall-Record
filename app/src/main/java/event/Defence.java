@@ -61,17 +61,17 @@ public class Defence extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.defence_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.defence_player_number_6);
 
-        number_tmp = player_defence[games_defence.GetOnField((0+(defence_round%6))%6)].GetNumber();
+        number_tmp = player_defence[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_defence[games_defence.GetOnField((1+(defence_round%6))%6)].GetNumber();
+        number_tmp = player_defence[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_defence[games_defence.GetOnField((2+(defence_round%6))%6)].GetNumber();
+        number_tmp = player_defence[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_defence[games_defence.GetOnField((3+(defence_round%6))%6)].GetNumber();
+        number_tmp = player_defence[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_defence[games_defence.GetOnField((4+(defence_round%6))%6)].GetNumber();
+        number_tmp = player_defence[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_defence[games_defence.GetOnField((5+(defence_round%6))%6)].GetNumber();
+        number_tmp = player_defence[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable defence_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -112,7 +112,7 @@ public class Defence extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_defence[games_defence.GetOnField((defence_chooice-1+(defence_round%6))%6)].SuccessDefence();
+                player_defence[defence_chooice-1].SuccessDefence();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();
@@ -126,7 +126,7 @@ public class Defence extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_defence.RedScore();
-                player_defence[games_defence.GetOnField((defence_chooice-1+(defence_round%6))%6)].MistakeDefence();
+                player_defence[defence_chooice-1].MistakeDefence();
                 games_defence.SetPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -140,7 +140,7 @@ public class Defence extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_defence[games_defence.GetOnField((defence_chooice-1+(defence_round%6))%6)].InvalidDefence();
+                player_defence[defence_chooice-1].InvalidDefence();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();

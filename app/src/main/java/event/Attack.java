@@ -20,7 +20,7 @@ public class Attack extends Fragment {
 
     Games_playing games_attack;
     Player[] player_attack;
-    private int attack_round;
+    //private int attack_round;
     private int attack_chooice;
     String number_tmp;
 
@@ -31,7 +31,7 @@ public class Attack extends Fragment {
 
         games_attack = ((PlayGame)getActivity()).GetGame_play_game();
         player_attack = ((PlayGame)getActivity()).GetPlayers_play_game();
-        attack_round = ((PlayGame)getActivity()).GetRound();
+        //attack_round = ((PlayGame)getActivity()).GetRound();
         attack_chooice = ((PlayGame)getActivity()).GetPlayer_chooice();
 
     }
@@ -63,17 +63,17 @@ public class Attack extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.attack_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.attack_player_number_6);
 
-        number_tmp = player_attack[games_attack.GetOnField((0+(attack_round%6))%6)].GetNumber();
+        number_tmp = player_attack[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_attack[games_attack.GetOnField((1+(attack_round%6))%6)].GetNumber();
+        number_tmp = player_attack[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_attack[games_attack.GetOnField((2+(attack_round%6))%6)].GetNumber();
+        number_tmp = player_attack[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_attack[games_attack.GetOnField((3+(attack_round%6))%6)].GetNumber();
+        number_tmp = player_attack[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_attack[games_attack.GetOnField((4+(attack_round%6))%6)].GetNumber();
+        number_tmp = player_attack[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_attack[games_attack.GetOnField((5+(attack_round%6))%6)].GetNumber();
+        number_tmp = player_attack[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable attack_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -115,11 +115,12 @@ public class Attack extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_attack.BlueScore();
-                player_attack[games_attack.GetOnField((attack_chooice-1+(attack_round%6))%6)].SuccessAttack();
+                player_attack[attack_chooice-1].SuccessAttack();
                 if(games_attack.GetPrevious() == 2)
                 {
                     games_attack.SetPrevious(1);
-                    ((PlayGame)getActivity()).SetRound();
+                    ((PlayGame)getActivity()).rotate(player_attack);
+                    //((PlayGame)getActivity()).SetRound();
                 }
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -134,7 +135,7 @@ public class Attack extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_attack.RedScore();
-                player_attack[games_attack.GetOnField((attack_chooice-1+(attack_round%6))%6)].MistakeAttack();
+                player_attack[attack_chooice-1].MistakeAttack();
                 games_attack.SetPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -148,7 +149,7 @@ public class Attack extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_attack[games_attack.GetOnField((attack_chooice-1+(attack_round%6))%6)].InvalidAttack();
+                player_attack[attack_chooice-1].InvalidAttack();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();

@@ -176,48 +176,80 @@ public class Start extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.start_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.start_player_number_6);
 
-        number_tmp = players_start[game_start.GetOnField((0+(tmp_round%6))%6)].GetNumber();
+        number_tmp = players_start[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = players_start[game_start.GetOnField((1+(tmp_round%6))%6)].GetNumber();
+        number_tmp = players_start[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = players_start[game_start.GetOnField((2+(tmp_round%6))%6)].GetNumber();
+        number_tmp = players_start[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = players_start[game_start.GetOnField((3+(tmp_round%6))%6)].GetNumber();
+        number_tmp = players_start[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = players_start[game_start.GetOnField((4+(tmp_round%6))%6)].GetNumber();
+        number_tmp = players_start[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = players_start[game_start.GetOnField((5+(tmp_round%6))%6)].GetNumber();
+        number_tmp = players_start[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         FragmentTransaction mf = getFragmentManager().beginTransaction();
 
-        if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25)
+        if(game_start.GetBlueSet() != (game_start.GetFormat()+1)/2)
         {
-            if(game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+            //Log.w("BlueSet","set");
+            if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25)
             {
-                game_start.SetRedScore(0);
-                game_start.SetBlueScore(0);
-                game_start.SetBlueSet();
-
-                    /*Fragment fragment_Blue_Set = new SetPlayer_2();
-                    mf.replace(R.id.container_play,fragment_Blue_Set);
-                    mf.commit();*/
-            }
-            if(game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
-            {
-                game_start.SetRedScore(0);
-                game_start.SetBlueScore(0);
-                game_start.SetRedSet();
+                //Log.w("Score","25");
+                if(game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                {
+                    //Log.w("Blue","set");
+                    game_start.SetRedScore(0);
+                    game_start.SetBlueScore(0);
+                    game_start.SetBlueSet();
+                    Fragment fragment_setplayer_2 = new SetPlayer_2();
+                    mf.replace(R.id.container_play, fragment_setplayer_2);
+                    mf.commit();
+                }
+                if(game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+                {
+                    //Log.w("Red","set");
+                    game_start.SetRedScore(0);
+                    game_start.SetBlueScore(0);
+                    game_start.SetRedSet();
+                    Fragment fragment_setplayer_2 = new SetPlayer_2();
+                    mf.replace(R.id.container_play, fragment_setplayer_2);
+                    mf.commit();
+                }
             }
         }
-
-        if(game_start.GetBlueSet() == (game_start.GetFormat()+1)/2)
+        else if(game_start.GetRedSet() != (game_start.GetFormat()+1)/2)
+        {
+            if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25)
+            {
+                if(game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                {
+                    game_start.SetRedScore(0);
+                    game_start.SetBlueScore(0);
+                    game_start.SetBlueSet();
+                    Fragment fragment_setplayer_2 = new SetPlayer_2();
+                    mf.replace(R.id.container_play, fragment_setplayer_2);
+                    mf.commit();
+                }
+                if(game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+                {
+                    game_start.SetRedScore(0);
+                    game_start.SetBlueScore(0);
+                    game_start.SetRedSet();
+                    Fragment fragment_setplayer_2 = new SetPlayer_2();
+                    mf.replace(R.id.container_play, fragment_setplayer_2);
+                    mf.commit();
+                }
+            }
+        }
+        else if(game_start.GetBlueSet() == (game_start.GetFormat()+1)/2)
         {
             Fragment fragment_blue_win = new BlueWin();
             mf.replace(R.id.container_play,fragment_blue_win);
             mf.commit();
         }
-        else if(game_start.GetRedSet() ==( game_start.GetFormat()+1)/2)
+        else if(game_start.GetRedSet() == (game_start.GetFormat()+1)/2)
         {
             Fragment fragment_red_win = new RedWin();
             mf.replace(R.id.container_play,fragment_red_win);

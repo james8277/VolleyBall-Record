@@ -61,17 +61,17 @@ public class Serve extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.serve_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.serve_player_number_6);
 
-        number_tmp = player_serve[games_serve.GetOnField((0+(serve_round%6))%6)].GetNumber();
+        number_tmp = player_serve[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_serve[games_serve.GetOnField((1+(serve_round%6))%6)].GetNumber();
+        number_tmp = player_serve[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_serve[games_serve.GetOnField((2+(serve_round%6))%6)].GetNumber();
+        number_tmp = player_serve[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_serve[games_serve.GetOnField((3+(serve_round%6))%6)].GetNumber();
+        number_tmp = player_serve[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_serve[games_serve.GetOnField((4+(serve_round%6))%6)].GetNumber();
+        number_tmp = player_serve[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_serve[games_serve.GetOnField((5+(serve_round%6))%6)].GetNumber();
+        number_tmp = player_serve[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable serve_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -113,11 +113,12 @@ public class Serve extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_serve.BlueScore();
-                player_serve[games_serve.GetOnField((serve_chooice-1+(serve_round%6))%6)].SuccessServe();
+                player_serve[serve_chooice-1].SuccessServe();
                 if(games_serve.GetPrevious() == 2)
                 {
                     games_serve.SetPrevious(1);
-                    ((PlayGame)getActivity()).SetRound();
+                    ((PlayGame)getActivity()).rotate(player_serve);
+                    //((PlayGame)getActivity()).SetRound();
                 }
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -132,7 +133,7 @@ public class Serve extends Fragment {
                 Fragment fragment_start = new Start();
 
                 games_serve.RedScore();
-                player_serve[games_serve.GetOnField((serve_chooice-1+(serve_round%6))%6)].MistakeServe();
+                player_serve[serve_chooice-1].MistakeServe();
                 games_serve.SetPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -146,7 +147,7 @@ public class Serve extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_serve[games_serve.GetOnField((serve_chooice-1+(serve_round%6))%6)].InvalidServe();
+                player_serve[serve_chooice-1].InvalidServe();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).SetPlayer_Chooice();
