@@ -15,6 +15,8 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Objects;
+
 import Struct.Games_playing;
 import Struct.Player;
 import james.volleyballrecord.DataBaseHelper;
@@ -76,7 +78,7 @@ public class SetSubstitute extends Fragment {
                 Log.w(String.valueOf(SubNumber),"SubNumber");
                 Log.w(String.valueOf(LNumber),"LNumber");
 
-                if(SubNumber < 6)
+                if(SubNumber < 6 && !Objects.equals(sub_player_number_editText.getText().toString(), ""))
                 {
                     player_set_sub[SubNumber+6].SetName(sub_player_name_editText.getText().toString());
                     player_set_sub[SubNumber+6].SetNumber(sub_player_number_editText.getText().toString());
@@ -173,6 +175,10 @@ public class SetSubstitute extends Fragment {
                                 break;
                         }
                     }
+                }
+                else if(Objects.equals(sub_player_number_editText.getText().toString(), ""))
+                {
+                    Toast.makeText(getActivity(),"You need to enter the player's number.",Toast.LENGTH_LONG).show();
                 }
                 else
                 {
