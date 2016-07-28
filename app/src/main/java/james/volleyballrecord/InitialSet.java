@@ -118,6 +118,7 @@ public class InitialSet extends Activity {
         }
 
         int player_chooice = view.getId();
+//        Log.w("view id", Integer.toString(player_chooice));
         Button button_player_chooice;
         button_player_chooice = (Button)findViewById(player_chooice);
 

@@ -190,79 +190,86 @@ public class Start extends Fragment {
         player_number_name_6.setText(number_tmp);
 
         FragmentTransaction mf = getFragmentManager().beginTransaction();
+        Fragment fragment_Blue_win = new BlueWin();
+        Fragment fragment_Red_win = new RedWin();
+        Fragment fragment_set_player_2 = new SetPlayer_2();
 
-        if(game_start.GetBlueSet() != (game_start.GetFormat()+1)/2)
+        if(game_start.GetFormat() == 3 && game_start.GetBlueSet() == 1 && game_start.GetRedSet() == 1)
         {
-            //Log.w("BlueSet","set");
-            if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25)
+            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
             {
-                //Log.w("Score","25");
-                if(game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                if (game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
                 {
-                    //Log.w("Blue","set");
-                    game_start.SetRedScore(0);
-                    game_start.SetBlueScore(0);
-                    game_start.SetBlueSet();
-                    Fragment fragment_setplayer_2 = new SetPlayer_2();
-                    mf.replace(R.id.container_play, fragment_setplayer_2);
-                    mf.commit();
-                }
-                if(game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
-                {
-                    //Log.w("Red","set");
-                    game_start.SetRedScore(0);
-                    game_start.SetBlueScore(0);
-                    game_start.SetRedSet();
-                    Fragment fragment_setplayer_2 = new SetPlayer_2();
-                    mf.replace(R.id.container_play, fragment_setplayer_2);
+                    mf.replace(R.id.container_play,fragment_Blue_win);
                     mf.commit();
                 }
             }
-        }
-        else if(game_start.GetRedSet() != (game_start.GetFormat()+1)/2)
-        {
-            if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25)
+            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
             {
-                if(game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                if (game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
                 {
-                    game_start.SetRedScore(0);
-                    game_start.SetBlueScore(0);
-                    game_start.SetBlueSet();
-                    Fragment fragment_setplayer_2 = new SetPlayer_2();
-                    mf.replace(R.id.container_play, fragment_setplayer_2);
-                    mf.commit();
-                }
-                if(game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
-                {
-                    game_start.SetRedScore(0);
-                    game_start.SetBlueScore(0);
-                    game_start.SetRedSet();
-                    Fragment fragment_setplayer_2 = new SetPlayer_2();
-                    mf.replace(R.id.container_play, fragment_setplayer_2);
-                    mf.commit();
+                    mf.replace(R.id.container_play,fragment_Red_win);
                 }
             }
         }
-        else if(game_start.GetBlueSet() == (game_start.GetFormat()+1)/2)
+
+        if(game_start.GetFormat() == 5 && game_start.GetBlueSet() == 2 && game_start.GetRedSet() == 2)
         {
-            Fragment fragment_blue_win = new BlueWin();
-            mf.replace(R.id.container_play,fragment_blue_win);
-            mf.commit();
-        }
-        else if(game_start.GetRedSet() == (game_start.GetFormat()+1)/2)
-        {
-            Fragment fragment_red_win = new RedWin();
-            mf.replace(R.id.container_play,fragment_red_win);
-            mf.commit();
+            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
+            {
+                if (game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                {
+                    mf.replace(R.id.container_play,fragment_Blue_win);
+                    mf.commit();
+                }
+            }
+            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
+            {
+                if (game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+                {
+                    mf.replace(R.id.container_play,fragment_Red_win);
+                }
+            }
         }
 
-        /*String Date = game_start.GetYear() + " " + game_start.GetMonth() + " " + game_start.GetDay();
-        Log.w("Date_Start",Date);
+        if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25) {
+            if (game_start.GetBlueScore() - game_start.GetRedScore() >= 2) {
+                game_start.SetBlueSet();
+                game_start.SetBlueScore(0);
+                game_start.SetRedScore(0);
 
-        Log.w("BlueSet",Integer.toString(game_start.GetBlueSet()));
-        Log.w("RedSet", Integer.toString(game_start.GetRedSet()));
-        Log.w("Format_Start",Integer.toString(game_start.GetFormat()));
-        Log.w("(Format+1)/2", Integer.toString((game_start.GetFormat() + 1)/2));*/
+
+
+                if(game_start.GetBlueSet() == (game_start.GetFormat()+1)/2)
+                {
+                    mf.replace(R.id.container_play,fragment_Blue_win);
+                    mf.commit();
+                }
+                else
+                {
+                    mf.replace(R.id.container_play,fragment_set_player_2);
+                    mf.commit();
+                }
+            }
+            if (game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+            {
+                game_start.SetRedSet();
+                game_start.SetBlueScore(0);
+                game_start.SetRedScore(0);
+
+                if(game_start.GetRedSet() == (game_start.GetFormat()+1)/2)
+                {
+                    mf.replace(R.id.container_play,fragment_Red_win);
+                }
+                else
+                {
+                    mf.replace(R.id.container_play,fragment_set_player_2);
+                    mf.commit();
+                }
+
+            }
+        }
+
 
         return view;
     }
