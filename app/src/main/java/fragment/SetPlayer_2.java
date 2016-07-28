@@ -5,7 +5,6 @@ import android.app.FragmentTransaction;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +13,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Struct.Games_playing;
 import Struct.Player;
@@ -29,7 +29,6 @@ public class SetPlayer_2 extends Fragment {
 
     String[] Player_Array;
 
-    String set_2_player_place;
     int set_2_tmp_player_chooice;
 
     int spinner_number;
@@ -121,7 +120,24 @@ public class SetPlayer_2 extends Fragment {
 
                 set_2_tmp_player_chooice = ((PlayGame)getActivity()).get_set_2_player_chooice();
 
-                player_tmp[set_2_tmp_player_chooice] = player_spinner[player_select];
+                boolean change = false;
+//                Log.w("player_name", player_tmp[set_2_tmp_player_chooice].GetNumber());
+                if(player_tmp[set_2_tmp_player_chooice].GetName() != "")
+                {
+//                    Log.w("change","true");
+                    Player tmp;
+                    tmp = player_tmp[set_2_tmp_player_chooice];
+                    player_tmp[set_2_tmp_player_chooice] = player_spinner[player_select];
+                    player_spinner[player_select] = tmp;
+
+                    change = true;
+                    player_set--;
+                    ((PlayGame)getActivity()).set_player_number_less();
+                }
+                else
+                {
+                    player_tmp[set_2_tmp_player_chooice] = player_spinner[player_select];
+                }
 
                 switch (set_2_tmp_player_chooice) {
                     case 0:
@@ -144,10 +160,13 @@ public class SetPlayer_2 extends Fragment {
                         break;
                 }
 
-                for(int i=player_select;i<6+game_set_player_2.GetSubNumber()-player_set-1;i++)
+                if(!change)
                 {
-                    Log.w("i",Integer.toString(i));
-                    player_spinner[i] = player_spinner[i+1];
+                    for(int i=player_select;i<6+game_set_player_2.GetSubNumber()-player_set-1;i++)
+                    {
+//                    Log.w("i",Integer.toString(i));
+                        player_spinner[i] = player_spinner[i+1];
+                    }
                 }
                 player_set++;
                 ((PlayGame)getActivity()).set_player_number();
@@ -178,18 +197,40 @@ public class SetPlayer_2 extends Fragment {
             @Override
             public void onClick(View view) {
 
+//                for(int i=0;i<6;i++)
+//                {
+//                    Log.w("player_tmp",player_tmp[i].GetNumber());
+//                }
+                boolean AllSet = true;
                 for(int i=0;i<6;i++)
                 {
-                    Log.w("player_tmp",player_tmp[i].GetNumber());
+                    if(player_tmp[i].GetNumber() == "")
+                    {
+//                        Log.w("all_set","false");
+                        AllSet = false;
+                        break;
+                    }
                 }
 
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
-                ((PlayGame)getActivity()).reset_set_player_number();
-                ((PlayGame)getActivity()).Set_Player_2(player_tmp);
-                FragmentTransaction mf = getFragmentManager().beginTransaction();
-                Fragment fragment_start = new Start();
-                mf.replace(R.id.container_play,fragment_start);
-                mf.commit();
+                for(int i=0;i<game_set_player_2.GetSubNumber();i++)
+                {
+                    player_tmp[6+i] = player_spinner[i];
+                }
+
+                if(AllSet)
+                {
+                    ((PlayGame)getActivity()).SetPlayer_Chooice();
+                    ((PlayGame)getActivity()).reset_set_player_number();
+                    ((PlayGame)getActivity()).Set_Player_2(player_tmp);
+                    FragmentTransaction mf = getFragmentManager().beginTransaction();
+                    Fragment fragment_start = new Start();
+                    mf.replace(R.id.container_play,fragment_start);
+                    mf.commit();
+                }
+                else
+                {
+                    Toast.makeText(getActivity(),"You need to setup all player to continue.",Toast.LENGTH_LONG).show();
+                }
             }
         });
 

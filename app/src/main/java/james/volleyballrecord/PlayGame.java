@@ -19,10 +19,10 @@ import Struct.Games_playing;
 import Struct.Player;
 import event.Attack;
 import event.Block;
+import event.Change;
 import event.Defence;
 import event.Serve;
 import event.Set;
-import fragment.SetPlayer_2;
 import fragment.Start;
 
 
@@ -220,7 +220,7 @@ public class PlayGame extends Activity {
                     mf.commit();
                     break;
                 case R.id.start_change:
-                    Fragment start_fragment_change = new SetPlayer_2();
+                    Fragment start_fragment_change = new Change();
                     mf.replace(R.id.container_play,start_fragment_change);
                     mf.commit();
                     break;
@@ -287,6 +287,10 @@ public class PlayGame extends Activity {
     public void set_player_number()
     {
         player_set++;
+    }
+    public void set_player_number_less()
+    {
+        player_set--;
     }
     public void reset_set_player_number()
     {
