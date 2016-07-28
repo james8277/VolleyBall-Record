@@ -134,7 +134,7 @@ public class SetPlayer extends Fragment {
             @Override
             public void onClick(View view) {
                 FragmentTransaction mf = getFragmentManager().beginTransaction();
-                mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
+//                mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
                 Fragment fragment_set_substitute = new SetSubstitute();
                 mf.replace(R.id.container_set, fragment_set_substitute);
                 mf.commit();

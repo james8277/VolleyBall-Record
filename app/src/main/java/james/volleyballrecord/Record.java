@@ -77,7 +77,7 @@ public class Record extends Activity {
     {
         int tmp_click_id = view.getId();
         FragmentTransaction mf = getFragmentManager().beginTransaction();
-        mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
+//        mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
 
         switch (tmp_click_id)
         {

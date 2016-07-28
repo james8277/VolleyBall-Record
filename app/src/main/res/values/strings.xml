@@ -55,5 +55,6 @@
     <string name="record_rate">Rate</string>
     <string name="delete">Delete</string>
     <string name="set_format">Game Format</string>
+    <string name="Re_rotate">Previous</string>
 
 </resources>

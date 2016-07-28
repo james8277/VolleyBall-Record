@@ -343,6 +343,14 @@
         android:layout_marginRight="15dp"
         />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/re_rotate"
+        android:textSize="15sp"
+        android:text="@string/Re_rotate"
+        android:layout_alignBottom="@id/start_court"
+        android:layout_alignRight="@id/start_court"/>
 
 
 </RelativeLayout>

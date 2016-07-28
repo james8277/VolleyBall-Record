@@ -91,7 +91,7 @@ public class RecordAllGame extends Fragment {
                 ((Record)getActivity()).Set_select_game(select_number);
                // Log.w("select_game_record_all_game",String.valueOf(select_number));
                 FragmentTransaction mf = getFragmentManager().beginTransaction();
-                mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
+//                mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
                 Fragment fragment_record_all_player = new RecordAllPlayer();
                 mf.replace(R.id.container_record,fragment_record_all_player);
                 mf.commit();

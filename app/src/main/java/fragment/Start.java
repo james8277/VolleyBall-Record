@@ -270,6 +270,20 @@ public class Start extends Fragment {
             }
         }
 
+        TextView textView_re_rotate = (TextView)view.findViewById(R.id.re_rotate);
+        textView_re_rotate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                Log.w("previous","clicked");
+                ((PlayGame)getActivity()).rerotate(players_start);
+
+                FragmentTransaction mf = getFragmentManager().beginTransaction();
+                Fragment fragment_rotate = new Start();
+                mf.replace(R.id.container_play, fragment_rotate);
+                mf.commit();
+            }
+        });
 
         return view;
     }

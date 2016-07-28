@@ -81,7 +81,7 @@ public class RecordAllPlayer extends Fragment {
             public void onClick(View view) {
                 FragmentTransaction mf = getFragmentManager().beginTransaction();
                 Fragment fragment_all_game_record = new RecordAllGame();
-                mf.setCustomAnimations(R.anim.fragment_left_in,R.anim.fragment_right_out);
+//                mf.setCustomAnimations(R.anim.fragment_left_in,R.anim.fragment_right_out);
                 mf.replace(R.id.container_record,fragment_all_game_record);
                 mf.commit();
             }
