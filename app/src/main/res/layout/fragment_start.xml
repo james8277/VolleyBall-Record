@@ -353,4 +353,14 @@
         android:layout_alignRight="@id/start_court"/>
 
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/rotate"
+        android:textSize="15sp"
+        android:text="@string/rotate"
+        android:layout_alignBottom="@id/start_court"
+        android:layout_alignLeft="@id/start_court"/>
+
+
 </RelativeLayout>

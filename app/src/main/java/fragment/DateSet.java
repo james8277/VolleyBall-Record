@@ -172,7 +172,7 @@ public class DateSet extends Fragment {
 
                 game_set_date.SetBlueName(editText_blue.getText().toString());
                 game_set_date.SetRedName(editText_red.getText().toString());
-//                mf.setCustomAnimations(R.anim.fragment_left_in, R.anim.fragment_left_out);
+                mf.setCustomAnimations(R.animator.fragment_right_in, R.animator.fragment_left_out);
                 mf.replace(R.id.container_set, fragment_setplayer);
                 mf.commit();
             }
