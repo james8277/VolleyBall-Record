@@ -51,6 +51,8 @@ public class MainMenu extends Activity {
         button_continue.setTypeface(font);
         Button button_record = (Button)findViewById(R.id.mainmenu_recordbutton);
         button_record.setTypeface(font);
+        Button button_help = (Button)findViewById(R.id.mainmenu_help);
+        button_help.setTypeface(font);
         Button button_exit = (Button)findViewById(R.id.mainmenu_exitbutton);
         button_exit.setTypeface(font);
 
@@ -91,6 +93,23 @@ public class MainMenu extends Activity {
                 }
             }
         });
+
+        button_help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                Intent intent_help = new Intent();
+                Bundle bundle_help = new Bundle();
+                bundle_help.putBoolean("is_game_playing",MainMenu_is_Game_Playing);
+                intent_help.putExtras(bundle_help);
+                intent_help.setClass(MainMenu.this,Help.class);
+                MainMenu.this.finish();
+
+                startActivity(intent_help);
+                MainMenu.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
+            }
+        });
+
 
         button_record.setOnClickListener(new View.OnClickListener() {
             @Override

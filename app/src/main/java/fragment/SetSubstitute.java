@@ -30,7 +30,7 @@ public class SetSubstitute extends Fragment {
     Player[] player_set_sub;
     int SubNumber;
     int LNumber;
-    String[] Position = {"S", "L", "WS", "MB"};
+    String[] Position;
     ArrayAdapter<String> sub_adapter;
     String place_tmp;
     private DataBaseHelper dataBaseHelper;
@@ -44,6 +44,12 @@ public class SetSubstitute extends Fragment {
         LNumber = game_set_sub.GetLnumber();
         dataBaseHelper = new DataBaseHelper(getActivity());
         dataBaseHelper.deleteTable();
+
+        Position = new String[4];
+        Position[0] = getString(R.string.S);
+        Position[1] = getString(R.string.MB);
+        Position[2] = getString(R.string.WS);
+        Position[3] = getString(R.string.L);
     }
 
     @Override
@@ -178,11 +184,11 @@ public class SetSubstitute extends Fragment {
                 }
                 else if(Objects.equals(sub_player_number_editText.getText().toString(), ""))
                 {
-                    Toast.makeText(getActivity(),"You need to enter the player's number.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),R.string.set_sub_number_confirm,Toast.LENGTH_LONG).show();
                 }
                 else
                 {
-                    Toast.makeText(getActivity(),"You can't add more than 6 player.",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getActivity(),R.string.set_sub_player_confirm,Toast.LENGTH_SHORT).show();
                 }
 
                 sub_player_name_editText.setText("");

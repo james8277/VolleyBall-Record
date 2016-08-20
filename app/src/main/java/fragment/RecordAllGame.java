@@ -60,7 +60,7 @@ public class RecordAllGame extends Fragment {
         }
         else
         {
-            Toast.makeText(getActivity(),"There are no Game Data.",Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),R.string.No_game_data,Toast.LENGTH_SHORT).show();
         }
 
         for(int i=0;i<tmp_number;i++)
@@ -118,9 +118,9 @@ public class RecordAllGame extends Fragment {
             @Override
             public void onClick(View view) {
                 final AlertDialog.Builder dialog_delete = new AlertDialog.Builder(getActivity());
-                dialog_delete.setMessage("Are you sure you want delete all data?");
-                dialog_delete.setTitle("Warning");
-                dialog_delete.setPositiveButton("Yes",new DialogInterface.OnClickListener() {
+                dialog_delete.setMessage(R.string.delete_comfirm);
+                dialog_delete.setTitle(R.string.Warning);
+                dialog_delete.setPositiveButton(R.string.Yes,new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
@@ -133,12 +133,12 @@ public class RecordAllGame extends Fragment {
                         intent.putExtras(bundle_back);
                         intent.setClass(getActivity(), MainMenu.class);
                         startActivity(intent);
-                        Toast.makeText(getActivity(), "You have deleted all Data.", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), R.string.deleted_all, Toast.LENGTH_SHORT).show();
                         getActivity().finish();
                         getActivity().overridePendingTransition(R.anim.left_in, R.anim.right_out);
                     }
                 });
-                dialog_delete.setNegativeButton("Cancel",new DialogInterface.OnClickListener() {
+                dialog_delete.setNegativeButton(R.string.Cancel,new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();

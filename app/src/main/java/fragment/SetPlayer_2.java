@@ -229,7 +229,7 @@ public class SetPlayer_2 extends Fragment {
                 }
                 else
                 {
-                    Toast.makeText(getActivity(),"You need to setup all player to continue.",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getActivity(),R.string.set_player_2_all,Toast.LENGTH_LONG).show();
                 }
             }
         });

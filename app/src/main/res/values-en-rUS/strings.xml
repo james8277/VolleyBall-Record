@@ -60,15 +60,14 @@
     <string name="click_player">Click the player to setup.</string>
     <string name="set_sub_number_confirm">You need to enter the player\'s number.</string>
     <string name="set_sub_player_confirm">You can\'t add more than 6 player.</string>
-
     <string name="S">S</string>
     <string name="MB">MB</string>
     <string name="WS">WS</string>
     <string name="L">L</string>
     <string name="set_player_2_all">You need to setup all player to continue.</string>
-    <string name="BO3">BO3</string>
-    <string name="BO5">BO5</string>
-    <string name="BO1">BO1</string>
+    <string name="BO3">Best of 3</string>
+    <string name="BO5">Best of 5</string>
+    <string name="BO1">Best of 1</string>
     <string name="No_game_data">There are no Game Data.</string>
     <string name="delete_comfirm">Are you sure you want delete all data?</string>
     <string name="deleted_all">You have deleted all Data.</string>
@@ -78,4 +77,5 @@
     <string name="help">Help</string>
     <string name="title_activity_help">Help</string>
     <string name="use_info">Help</string>
+
 </resources>

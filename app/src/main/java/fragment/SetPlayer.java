@@ -26,7 +26,7 @@ public class SetPlayer extends Fragment {
 
     Games_playing game_set_player;
     Player[] player_set_player;
-    String[] Position = {"S", "L", "WS", "MB"};
+    String[] Position;
     String set_player_place;
     int set_tmp_player_chooice;
 
@@ -35,6 +35,12 @@ public class SetPlayer extends Fragment {
         super.onCreate(savedInstanceState);
         game_set_player = ((InitialSet)getActivity()).GetGame();
         player_set_player = ((InitialSet)getActivity()).GetPlayer();
+
+        Position = new String[4];
+        Position[0] = getString(R.string.S);
+        Position[1] = getString(R.string.MB);
+        Position[2] = getString(R.string.WS);
+        Position[3] = getString(R.string.L);
     }
 
     @Override
@@ -46,7 +52,7 @@ public class SetPlayer extends Fragment {
 
         if(((InitialSet)getActivity()).GetToast_Test() == 0)
         {
-            Toast.makeText(getActivity(),"Click the player to setup.",Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),R.string.click_player,Toast.LENGTH_LONG).show();
             ((InitialSet)getActivity()).SetToast_Test();
         }
 

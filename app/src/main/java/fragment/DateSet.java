@@ -29,9 +29,7 @@ public class DateSet extends Fragment {
             "January", "February", "March", "April", "May", "June", "July", "August", "September", "October"
             , "November", "December"};
     String year_Array[];
-    String format_Array[] = {
-            "Best of 1","Best of 3", "Best of 5",
-    };
+    String format_Array[];
 
 
     Spinner year_spinner;
@@ -64,6 +62,12 @@ public class DateSet extends Fragment {
         }
 
         game_set_date = ((InitialSet)getActivity()).GetGame();
+
+        format_Array = new String[3];
+        format_Array[0] = getString(R.string.BO1);
+        format_Array[1] = getString(R.string.BO3);
+        format_Array[2] = getString(R.string.BO5);
+
     }
     public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
     {
