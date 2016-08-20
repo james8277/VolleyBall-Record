@@ -77,5 +77,31 @@
     <string name="help">Help</string>
     <string name="title_activity_help">Help</string>
     <string name="use_info">Help</string>
+    <string name="help_1">Click Start to begin recording the Game.</string>
+    <string name="help_2">First, setup the informations about this game.</string>
+    <string name="help_3">Click the picture of the stickman to setup the player. When you click the stickman, It will surround by the yellow points to show which player you have selected.</string>
+    <string name="help_4">In this screen, enter the substitute player\'s Name and Number and then click Enter button to create new player. Notice : You can\'t enter a player without the player\'s Number.</string>
+    <string name="help_5">When recording the game, click the stickman first and choice which action does he do.</string>
+    <string name="action_intro_Attack">Attack</string>
+    <string name="action_intro_Attack_2">Success: This attack gets one point for the team.</string>
+    <string name="action_intro_Attack_1">Player spikes or usese other way make ball to the other side.</string>
+    <string name="action_intro_Attack_3">Mistake: This attack causes the oppenent get one point.</string>
+    <string name="action_intro_Attack_4">Invalid: This attack didn\'t take point to both side.</string>
+    <string name="action_intro_Defence">Defence</string>
+    <string name="action_intro_Defence_1">Player saves the ball.</string>
+    <string name="action_intro_Defence_2">Success: This defence is good for the team to the next touch.</string>
+    <string name="action_intro_Defence_3">Mistake: This defence causes the oppenent get one point.</string>
+    <string name="action_intro_Defence_4">Invalid: This defence didnt lost point but no good for the team to the next touch.</string>
+    <string name="action_intro_Block">Block</string>
+    <string name="action_intro_Block_1">Player blocks the opponent\'s attack.</string>
+    <string name="action_intro_Block_2">Success: This block gets one point for the team.</string>
+    <string name="action_intro_Block_3">Mistake: This attack causes the oppenent get one point.</string>
+    <string name="action_intro_Block_4">Invalid: This attack didn\'t take point to both side and player didn\'t touch..</string>
+    <string name="action_intro_Block_5">Touch: The player touches the ball and teammates save it.</string>
+    <string name="action_intro_Serve">Serve</string>
+    <string name="action_intro_Serve_1">Player serves the ball.</string>
+    <string name="action_intro_Serve_2">Success: This serve is an Ace(Score with the serve).</string>
+    <string name="action_intro_Serve_3">Mistake: This serve causes the oppenent get one point.</string>
+    <string name="action_intro_Serve_4">Invalid: This serve didn\'t take point to both side.</string>
 
 </resources>

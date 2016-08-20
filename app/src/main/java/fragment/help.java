@@ -26,4 +26,6 @@ public class help extends Fragment {
 
        return view;
     }
+
+
 }

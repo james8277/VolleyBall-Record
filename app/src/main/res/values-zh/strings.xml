@@ -73,8 +73,34 @@
     <string name="Yes">確定</string>
     <string name="Cancel">取消</string>
     <string name="Warning">警告</string>
-    <string name="help">幫助</string>
     <string name="title_activity_help">幫助</string>
     <string name="use_info">使用說明</string>
+    <string name="help_1">點擊開始記錄來開始記錄比賽</string>
+    <string name="help_2">首先設定比賽的資訊(日期、隊伍等)</string>
+    <string name="help_3">點擊畫面中的人物圖案來設定球員資訊。當你點擊畫面中的人物，人物圖案會出現黃色點點來顯示你所選取的球員。</string>
+    <string name="help_4">輸入球員的姓名及號碼來設定替補球員(無法在沒有輸入球員號碼的情況下新增球員)。</string>
+    <string name="help_5">在記錄比賽時，先點選球員在選取該球員進行的動作。</string>
+    <string name="action_intro_Attack">攻擊</string>
+    <string name="help">說明</string>
+    <string name="action_intro_Attack_2">成功: 此次攻擊獲得一分。</string>
+    <string name="action_intro_Attack_1">球員使用扣球或是其他方式將球送至對面。</string>
+    <string name="action_intro_Attack_3"> 失誤: 此次攻擊使對方獲得一分。</string>
+    <string name="action_intro_Attack_4"> 無效: 此次攻擊雙方都沒有得分。</string>
+    <string name="action_intro_Defence">防守</string>
+    <string name="action_intro_Defence_1">球員將球接起。</string>
+    <string name="action_intro_Defence_2">成功: 此次防守讓球隊可以順利的進行下一次觸球。</string>
+    <string name="action_intro_Defence_3">失誤: 此次防守使對方獲得一分。</string>
+    <string name="action_intro_Defence_4">無效: 此次防守對防沒有得分但是球隊不好處理下一次觸球。</string>
+    <string name="action_intro_Block">攔網</string>
+    <string name="action_intro_Block_1">球員攔網防守對方的扣球。</string>
+    <string name="action_intro_Block_2">成功: 此次攔網獲得一分。</string>
+    <string name="action_intro_Block_3">失誤: 此次攔網出界或直接落地使對方獲得一分。</string>
+    <string name="action_intro_Block_4">無效: 此次攔網雙方都沒有得分並且球員沒有碰到球。</string>
+    <string name="action_intro_Block_5">觸擊: 此次攔網球員碰到球且隊友進行防守。</string>
+    <string name="action_intro_Serve">發球</string>
+    <string name="action_intro_Serve_1">球員進行發球。</string>
+    <string name="action_intro_Serve_2">成功: 發球直接得分。</string>
+    <string name="action_intro_Serve_3">失誤: 此次發球出界使對方獲得一分。</string>
+    <string name="action_intro_Serve_4">無效: 此次發球雙方都沒有得分。</string>
 
 </resources>

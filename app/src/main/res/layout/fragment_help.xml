@@ -15,21 +15,234 @@
             android:layout_marginTop="20dp">
 
             <TextView
-                android:id="@+id/help_1"
+                android:id="@+id/help_headline"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:text="@string/use_info"
-                android:textSize="30sp"
+                android:textSize="35sp"
                 android:layout_marginTop="10dp"/>
 
             <TextView
+                android:id="@+id/help_action_intro_Attack_Title"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent" />
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/help_headline"
+                android:textSize="25sp"
+                android:text="@string/action_intro_Attack"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Attack_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/help_action_intro_Attack_Title"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Attack_1"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Attack_Success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Attack_1"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Attack_2"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Attack_Mistake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Attack_Success"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Attack_3"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Attack_Invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Attack_Mistake"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Attack_4"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Defence_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/help_action_intro_Attack_Invalid"
+                android:textSize="25sp"
+                android:text="@string/action_intro_Defence"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Defence_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/help_action_intro_Defence_Title"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Defence_1"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Defence_Success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Defence_1"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Defence_2"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Defence_Mistake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Defence_Success"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Defence_3"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Defence_Invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Defence_Mistake"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Defence_4"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Block_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/help_action_intro_Defence_Invalid"
+                android:textSize="25sp"
+                android:text="@string/action_intro_Block"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Block_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/help_action_intro_Block_Title"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Block_1"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Block_Success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Block_1"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Block_2"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Block_Mistake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Block_Success"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Block_3"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Block_Invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Block_Mistake"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Block_4"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Block_Touch"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Block_Invalid"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Block_5"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Serve_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_below="@id/help_action_intro_Block_Touch"
+                android:textSize="25sp"
+                android:text="@string/action_intro_Serve"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Serve_1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="5dp"
+                android:layout_below="@id/help_action_intro_Serve_Title"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Serve_1"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Serve_Success"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Serve_1"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Serve_2"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Serve_Mistake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Serve_Success"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Serve_3"/>
+
+            <TextView
+                android:id="@+id/help_action_intro_Serve_Invalid"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="20dp"
+                android:layout_marginLeft="20dp"
+                android:layout_below="@id/help_action_intro_Serve_Mistake"
+                android:textSize="18sp"
+                android:text="@string/action_intro_Serve_4"
+                android:layout_marginBottom="100dp"/>
 
         </RelativeLayout>
-
-
 
     </ScrollView>
 
