@@ -196,6 +196,15 @@ public class SetSubstitute extends Fragment {
             @Override
             public void onClick(View view) {
 
+
+                for(int i=0;i<12;i++)
+                {
+                    if(player_set_sub[i].GetNumber() == "")
+                    {
+//                        player_set_sub[i].SetNumber(null);
+                    }
+                }
+
                 Intent intent = new Intent();
                 intent.setClass(getActivity(), PlayGame.class);
                 startActivity(intent);

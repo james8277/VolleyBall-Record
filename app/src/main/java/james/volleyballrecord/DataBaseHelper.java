@@ -321,7 +321,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     public void addDataTmp(Games_playing games_playings,Player[] players)
     {
-        //Log.w("db_add_tmp","add");
+        Log.w("db_add_tmp","add");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
@@ -336,7 +336,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         cv.put(KEY_SUB_NUMBER,games_playings.GetSubNumber());
         cv.put(KEY_L_NUMBER,games_playings.GetLnumber());
 
-//        Log.w("game_set_data_db",players[0].GetNumber());
+        Log.w("game_set_data_db", "8" + players[0].GetNumber() + "7");
 
         for(int i=0;i<12;i++)
         {
@@ -507,7 +507,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         for(int i=0;i<12;i++)
         {
-            players[i].SetNumber(String.valueOf(c.getInt(i)));
+            players[i].SetNumber(c.getString(i));
             players[i].SetName(c.getString(i+12));
             players[i].SetPlace(c.getString(i+24));
 
@@ -721,7 +721,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 //        Log.w("sub_0_name_get_all_db",c.getString(18) + " db");
         for(int i=0;i<12;i++)
         {
-            players[i].SetNumber(String.valueOf(c.getInt(i)));
+            players[i].SetNumber(c.getString(i));
             players[i].SetName(c.getString(i+12));
             players[i].SetPlace(c.getString(i+24));
 

@@ -50,7 +50,7 @@ public class InitialSet extends Activity {
         }
         for(int i=0;i<12;i++)
         {
-            player_set[i].SetNumber(String.valueOf(i));
+//            player_set[i].SetNumber(String.valueOf(i));
         }
     }
     public Games_playing GetGame()
@@ -137,6 +137,7 @@ public class InitialSet extends Activity {
         set_player_spinner.setClickable(true);
         textView_enter.setClickable(true);
 
+
         switch (player_chooice)
         {
             case R.id.set_player_1_data:
@@ -170,6 +171,9 @@ public class InitialSet extends Activity {
                 pre_set_player_chooice = player_chooice;
                 break;
         }
+
+        set_player_name.setText(player_set[player_set_current].GetName());
+        set_player_number.setText(player_set[player_set_current].GetNumber());
     }
 
     @Override

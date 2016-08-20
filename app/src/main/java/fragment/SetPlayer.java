@@ -59,17 +59,17 @@ public class SetPlayer extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.set_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.set_player_number_6);
 
-        number_tmp = player_set_player[game_set_player.GetOnField(0)].GetNumber();
+        number_tmp = player_set_player[0].GetNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_set_player[game_set_player.GetOnField(1)].GetNumber();
+        number_tmp = player_set_player[1].GetNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_set_player[game_set_player.GetOnField(2)].GetNumber();
+        number_tmp = player_set_player[2].GetNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_set_player[game_set_player.GetOnField(3)].GetNumber();
+        number_tmp = player_set_player[3].GetNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_set_player[game_set_player.GetOnField(4)].GetNumber();
+        number_tmp = player_set_player[4].GetNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_set_player[game_set_player.GetOnField(5)].GetNumber();
+        number_tmp = player_set_player[5].GetNumber();
         player_number_name_6.setText(number_tmp);
 
         final Spinner place_spinner = (Spinner)view.findViewById(R.id.set_place_spinner);
@@ -133,6 +133,8 @@ public class SetPlayer extends Fragment {
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+
                 FragmentTransaction mf = getFragmentManager().beginTransaction();
                 mf.setCustomAnimations(R.animator.fragment_right_in,R.animator.fragment_left_out);
                 Fragment fragment_set_substitute = new SetSubstitute();

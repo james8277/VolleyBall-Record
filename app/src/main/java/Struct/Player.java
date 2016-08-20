@@ -73,6 +73,7 @@ public class Player
 	
 	public void SetNumber(String x)
 	{
+//		Log.w("set number",x);
 		number = x;
 	}
 	public void SetName(String x)

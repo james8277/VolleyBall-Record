@@ -21,12 +21,10 @@ public class Start extends Fragment {
 
     Games_playing game_start;
     Player[] players_start;
-    private int tmp_round;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        tmp_round = ((PlayGame)getActivity()).GetRound();
 
         players_start = new Player[12];
         Player tmp;
