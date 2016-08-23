@@ -104,4 +104,11 @@
     <string name="action_intro_Serve_2">action_intro_Serve_2</string>
     <string name="action_intro_Serve_3">action_intro_Serve_3</string>
     <string name="action_intro_Serve_4">action_intro_Serve_4</string>
+    <string name="Win">Win</string>
+    <string name="NoplayerChange">There are no player to change</string>
+    <string name="NoGamePlaying">There are no game playing</string>
+    <string name="serve_team">Serve Team</string>
+    <string name="Set_Serve_Team">Click the arrow above to set the serve team.</string>
+    <string name="help_intro">Help introduction</string>
+    <string name="action_intro">Action_intro</string>
 </resources>

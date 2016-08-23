@@ -38,7 +38,7 @@ public class BlueWin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_blue_win, container, false);
 
         TextView textView_blue = (TextView)view.findViewById(R.id.blue_win);
-        textView_blue.setText(games_playing_blue_win.GetBlueName() + "  Win");
+        textView_blue.setText(games_playing_blue_win.GetBlueName() +"  " + this.getResources().getText(R.string.Win));
 
         Button button_back = (Button)view.findViewById(R.id.blue_win_back);
         button_back.setOnClickListener(new View.OnClickListener() {

@@ -52,7 +52,7 @@ public class SetPlayer extends Fragment {
 
         if(((InitialSet)getActivity()).GetToast_Test() == 0)
         {
-            Toast.makeText(getActivity(),R.string.click_player,Toast.LENGTH_LONG).show();
+            Toast.makeText(getActivity(),R.string.click_player,Toast.LENGTH_SHORT).show();
             ((InitialSet)getActivity()).SetToast_Test();
         }
 

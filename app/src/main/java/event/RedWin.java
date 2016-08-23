@@ -44,7 +44,7 @@ public class RedWin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_red_win, container, false);
 
         TextView textView_blue = (TextView)view.findViewById(R.id.red_win);
-        textView_blue.setText(games_playing_red_win.GetBlueName() + "  Win");
+        textView_blue.setText(games_playing_red_win.GetBlueName() + "  " + this.getResources().getText(R.string.Win));
 
 
         Button button_back = (Button)view.findViewById(R.id.red_win_back);

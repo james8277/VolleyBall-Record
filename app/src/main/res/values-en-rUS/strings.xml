@@ -55,8 +55,8 @@
     <string name="record_rate">Rate</string>
     <string name="delete">Delete</string>
     <string name="set_format">Game Format</string>
-    <string name="Re_rotate">Previous</string>
-    <string name="rotate">Rotate</string>
+    <string name="Re_rotate">Previous round</string>
+    <string name="rotate">Next round</string>
     <string name="click_player">Click the player to setup.</string>
     <string name="set_sub_number_confirm">You need to enter the player\'s number.</string>
     <string name="set_sub_player_confirm">You can\'t add more than 6 player.</string>
@@ -103,5 +103,12 @@
     <string name="action_intro_Serve_2">Success: This serve is an Ace(Score with the serve).</string>
     <string name="action_intro_Serve_3">Mistake: This serve causes the oppenent get one point.</string>
     <string name="action_intro_Serve_4">Invalid: This serve didn\'t take point to both side.</string>
+    <string name="Win">  Win</string>
+    <string name="NoplayerChange">There are no player to change</string>
+    <string name="NoGamePlaying">There are no game playing</string>
+    <string name="serve_team">Serve Team</string>
+    <string name="Set_Serve_Team">Click the arrow above to set the serve team.</string>
+    <string name="help_intro">When recording the game, tap the player\'s picture and then choose the action. The action is introduce in the bottom. You can click the score under team\'s name which is on the top of the screen to set the score. Also click the arrow to set the serve team. If there are problems, please let me know. I will be glad to hlep you, and improve this app. Thanks for using this app and hope you enjoy it.</string>
+    <string name="action_intro">Action introduction</string>
 
 </resources>

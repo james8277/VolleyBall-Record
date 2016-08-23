@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Struct.Games_playing;
 import Struct.Player;
@@ -86,6 +87,8 @@ public class PlayGame extends Activity {
 
             dataBaseHelper.deleteTable();
         }
+
+        Toast.makeText(this,R.string.Set_Serve_Team,Toast.LENGTH_SHORT).show();
 
         FragmentTransaction mf = getFragmentManager().beginTransaction();
         Fragment fragment_start = new Start();

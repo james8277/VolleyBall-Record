@@ -18,7 +18,7 @@ public class Games_playing
 	private String Month;
 	private String Day;
 
-	private  int Format;
+	private int Format;
 	
 	private int Lnumber;
 	private int RedChange;
@@ -56,7 +56,7 @@ public class Games_playing
 		Month = "";
 		Day = "";
 		
-		previousScore = 0;
+		previousScore = 1;
 		subNumber = 0;
 
 		BlueSet = 0;
@@ -213,15 +213,15 @@ public class Games_playing
 
 	public void SetFormat(String f)
 	{
-		if(f.equals("Best of 1"))
+		if(f.equals("Best of 1") || f.equals("一局決勝"))
 		{
 			Format = 1;
 		}
-		if(f.equals("Best of 3"))
+		if(f.equals("Best of 3") || f.equals("三戰兩勝"))
 		{
 			Format = 3;
 		}
-		if(f.equals("Best of 5"))
+		if(f.equals("Best of 5") || f.equals("五戰三勝"))
 		{
 			Format = 5;
 		}

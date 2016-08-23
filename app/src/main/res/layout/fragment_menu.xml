@@ -69,7 +69,6 @@
         android:layout_below="@id/mainmenu_help"
         android:text="@string/exit_button"
         android:layout_marginTop="5dp"
-        android:textSize="20sp"
-        />
+        android:textSize="20sp"/>
 
 </RelativeLayout>

@@ -289,7 +289,7 @@
         android:text="@string/red_team"
         android:textSize="20sp"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="70dp"/>
+        android:layout_marginRight="60dp"/>
 
     <TextView
         android:id="@+id/start_blue_name"
@@ -299,7 +299,7 @@
         android:text="@string/blue_team"
         android:textSize="20sp"
         android:layout_alignParentLeft="true"
-        android:layout_marginLeft="70dp"/>
+        android:layout_marginLeft="60dp"/>
 
     <TextView
         android:id="@+id/start_blue_score"
@@ -310,6 +310,21 @@
         android:layout_below="@+id/start_blue_name"
         android:text="@string/initial_score"
         android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/serve_team"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_centerHorizontal="true"
+        android:layout_alignBottom="@id/start_blue_score" />
+
+    <TextView
+        android:id="@+id/start_serve_team_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@id/serve_team"
+        android:text="@string/serve_team"/>
 
     <TextView
         android:id="@+id/start_red_score"
@@ -350,7 +365,7 @@
         android:textSize="15sp"
         android:text="@string/Re_rotate"
         android:layout_alignBottom="@id/start_court"
-        android:layout_alignRight="@id/start_court"/>
+        android:layout_alignLeft="@id/start_court"/>
 
 
     <TextView
@@ -360,7 +375,7 @@
         android:textSize="15sp"
         android:text="@string/rotate"
         android:layout_alignBottom="@id/start_court"
-        android:layout_alignLeft="@id/start_court"/>
+        android:layout_alignRight="@id/start_court"/>
 
 
 </RelativeLayout>

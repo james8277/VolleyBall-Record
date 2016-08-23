@@ -85,7 +85,7 @@
         android:layout_toRightOf="@+id/set_sub_name_title"
         android:layout_alignBottom="@+id/set_sub_number_title"
         android:text="@string/place"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="50dp"
         android:textSize="17sp"/>
 
     <TextView

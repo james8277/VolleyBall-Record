@@ -181,7 +181,7 @@ public class Change extends Fragment {
         }
         else
         {
-            Toast.makeText(getActivity(), "There are no player to change", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(), R.string.NoplayerChange , Toast.LENGTH_SHORT).show();
         }
 
         TextView textView_back = (TextView)view.findViewById(R.id.change_back);

@@ -1,4 +1,11 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".Menu" >
+    tools:context=".MainMenu" >
+
+    <item
+        android:id="@+id/about"
+        android:title="123"
+        android:icon="@drawable/setting"
+        android:orderInCategory="1"
+        android:showAsAction="always" />
 </menu>

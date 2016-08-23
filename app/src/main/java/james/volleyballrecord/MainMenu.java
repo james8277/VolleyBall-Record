@@ -80,7 +80,7 @@ public class MainMenu extends Activity {
 
                 if(!MainMenu_is_Game_Playing)
                 {
-                    Toast.makeText(MainMenu.this,"There are no game playing",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainMenu.this, R.string.NoGamePlaying,Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
