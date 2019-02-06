@@ -108,7 +108,7 @@
     <string name="NoGamePlaying">There are no game playing</string>
     <string name="serve_team">Serve Team</string>
     <string name="Set_Serve_Team">Click the arrow above to set the serve team.</string>
-    <string name="help_intro">When recording the game, tap the player\'s picture and then choose the action. The action is introduce in the bottom. You can click the score under team\'s name which is on the top of the screen to set the score. Also click the arrow to set the serve team. If there are problems, please let me know. I will be glad to hlep you, and improve this app. Thanks for using this app and hope you enjoy it.</string>
+    <string name="help_intro">During the game, tap player\'s picture and then choose the action. The action is introduce in the bottom. You can click the score under team\'s name which is on the top of the screen to set the score. Also you can click the arrow to set the serve team. If there are problems, please let me know. I will be glad to hlep you, and improve this app. Thanks for using this app and hope you enjoy it.</string>
     <string name="action_intro">Action introduction</string>
 
 </resources>

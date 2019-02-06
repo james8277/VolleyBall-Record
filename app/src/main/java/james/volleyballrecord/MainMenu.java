@@ -5,6 +5,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
@@ -17,32 +18,46 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+
 public class MainMenu extends Activity {
 
+    //TAG Name
+    private static final String TAG = MainMenu.class.getSimpleName();
     private boolean MainMenu_is_Game_Playing = false;
 
     private DataBaseHelper dataBaseHelper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        //Setup bundle to get flag from other activity
         Bundle bundle = this.getIntent().getExtras();
-        MainMenu_is_Game_Playing = bundle.getBoolean("is_game_playing");
+        if (bundle != null) {
+            MainMenu_is_Game_Playing = bundle.getBoolean("is_game_playing");
+        }
+        else{
+            Log.e(TAG, "No Bundle");
+        }
 
+        //Setup content for this activity
         setContentView(R.layout.activity_menu);
+        //Create new Database
         dataBaseHelper = new DataBaseHelper(this);
 
         if (savedInstanceState == null) {
+            //Go to next view
             getFragmentManager().beginTransaction().add(R.id.container_menu, new PlaceholderFragment()).commit();
         }
     }
 
     @Override
-    protected void onStart()
-    {
+    protected void onStart() {
         super.onStart();
+        //Set font for the string
         Typeface font = Typeface.createFromAsset(getResources().getAssets(),"fonts/Roboto-BlackItalic.ttf");
 
+        //Setup all resource
         TextView headline = (TextView)findViewById(R.id.mainmenu_headline);
         headline.setTypeface(font);
         Button button_start = (Button)findViewById(R.id.mainmenu_startbutton);
@@ -56,90 +71,108 @@ public class MainMenu extends Activity {
         Button button_exit = (Button)findViewById(R.id.mainmenu_exitbutton);
         button_exit.setTypeface(font);
 
+        //Set start button listener
         button_start.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Log.w("Start","On_clicked");
 
+                //Go to InitialSet activity
                 Intent intent_start = new Intent();
                 intent_start.setClass(MainMenu.this,InitialSet.class);
-
+                //Finish this activity
                 MainMenu.this.finish();
-
+                //Start new activity
                 startActivity(intent_start);
+                //Set change activity animation
                 MainMenu.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
 
+        //Set continue button listener
         button_continue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Log.w("Continue","On_clicked");
 
-                if(!MainMenu_is_Game_Playing)
-                {
+                //Check if there is a game playing
+                if(!MainMenu_is_Game_Playing) {
                     Toast.makeText(MainMenu.this, R.string.NoGamePlaying,Toast.LENGTH_SHORT).show();
                 }
-                else
-                {
+                else {
+                    //Go to PlayGame activity
                     Intent intent_play_game = new Intent();
                     intent_play_game.setClass(MainMenu.this,PlayGame.class);
+                    //Finish this activity
                     MainMenu.this.finish();
-
+                    //Start new activity
                     startActivity(intent_play_game);
+                    //Set change activity animation
                     MainMenu.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
                 }
             }
         });
 
+        //Set help button listener
         button_help.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
+                //Go to Help activity and setup bundle to save the flag is_game_playing
                 Intent intent_help = new Intent();
                 Bundle bundle_help = new Bundle();
                 bundle_help.putBoolean("is_game_playing",MainMenu_is_Game_Playing);
                 intent_help.putExtras(bundle_help);
                 intent_help.setClass(MainMenu.this,Help.class);
+                //Finish this activity
                 MainMenu.this.finish();
-
+                //Start new activity
                 startActivity(intent_help);
+                //Set change activity animation
                 MainMenu.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
 
 
+        //Set record button listener
         button_record.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
                 Log.w("Record","On_clicked");
 //                dataBaseHelper.getGameALl(1);
+
+                //Go to Record activity and setup bundle to save the flag is_game_playing
                 Intent intent_record = new Intent();
                 Bundle bundle_record = new Bundle();
                 bundle_record.putBoolean("is_game_playing",MainMenu_is_Game_Playing);
                 intent_record.putExtras(bundle_record);
                 intent_record.setClass(MainMenu.this,Record.class);
+                //Finish this activity
                 MainMenu.this.finish();
-
+                //Start new activity
                 startActivity(intent_record);
+                //Set change activity animation
                 MainMenu.this.overridePendingTransition(R.anim.right_in, R.anim.left_out);
             }
         });
 
+        //Set exit button listener
         button_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dataBaseHelper.deleteTable();
 //                dataBaseHelper.deleteTableAll();
+//              //Finish this activity
                 MainMenu.this.finish();
             }
         });
     }
 
 
+    //Setup top-right setting button
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -147,6 +180,7 @@ public class MainMenu extends Activity {
         return true;
     }
 
+    //Selected item
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
 
@@ -171,13 +205,26 @@ public class MainMenu extends Activity {
         }
     }
 
+    //Check if back button is pressed in 2 sec
+    private boolean backPressed = false;
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
-            this.finish();
+    public void onBackPressed() {
+
+        if(backPressed){
+            super.onBackPressed();
+            return;
         }
-        return false;
+
+        backPressed = true;
+        Toast.makeText(this,"Click Back again to exit",Toast.LENGTH_SHORT).show();
+
+        //Handler to check back is pressed in 2 sec
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                backPressed = false;
+            }
+        },2000);
+
     }
 }
