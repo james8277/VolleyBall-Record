@@ -17,7 +17,7 @@ import android.widget.Toast;
 
 import java.util.Objects;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.DataBaseHelper;
 import james.volleyballrecord.InitialSet;
@@ -26,7 +26,7 @@ import james.volleyballrecord.R;
 
 public class SetSubstitute extends Fragment {
 
-    Games_playing game_set_sub;
+    GameData game_set_sub;
     Player[] player_set_sub;
     int SubNumber;
     int LNumber;
@@ -38,8 +38,8 @@ public class SetSubstitute extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        game_set_sub = ((InitialSet)getActivity()).GetGame();
-        player_set_sub = ((InitialSet)getActivity()).GetPlayer();
+        game_set_sub = ((InitialSet)getActivity()).getGame();
+        player_set_sub = ((InitialSet)getActivity()).getPlayer();
         SubNumber = game_set_sub.GetSubNumber();
         LNumber = game_set_sub.GetLnumber();
         dataBaseHelper = new DataBaseHelper(getActivity());

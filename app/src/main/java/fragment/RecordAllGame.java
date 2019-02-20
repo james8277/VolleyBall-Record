@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import james.volleyballrecord.DataBaseHelper;
 import james.volleyballrecord.MainMenu;
 import james.volleyballrecord.R;
@@ -25,7 +25,7 @@ import james.volleyballrecord.Record;
 public class RecordAllGame extends Fragment {
 
     DataBaseHelper dataBaseHelper;
-    Games_playing[] games_playing_record;
+    GameData[] gameData_record;
     String[] game_information;
     private int select_number;
 
@@ -34,7 +34,7 @@ public class RecordAllGame extends Fragment {
         super.onCreate(savedInstanceState);
 
         dataBaseHelper = new DataBaseHelper(getActivity());
-        games_playing_record = dataBaseHelper.GetAllGame();
+        gameData_record = dataBaseHelper.GetAllGame();
 
     }
 
@@ -65,8 +65,8 @@ public class RecordAllGame extends Fragment {
 
         for(int i=0;i<tmp_number;i++)
         {
-            game_information[i] = games_playing_record[i].GetBlueName() + "  V.S.  " + games_playing_record[i].GetRedName() + "   " +
-                    games_playing_record[i].GetYear() + " / " + games_playing_record[i].GetMonth() + " / " + games_playing_record[i].GetDay() + "";
+            game_information[i] = gameData_record[i].GetBlueName() + "  V.S.  " + gameData_record[i].GetRedName() + "   " +
+                    gameData_record[i].GetYear() + " / " + gameData_record[i].GetMonth() + " / " + gameData_record[i].GetDay() + "";
         }
         ArrayAdapter<String> record_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, game_information);
         record_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

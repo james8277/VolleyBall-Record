@@ -2,16 +2,23 @@ package james.volleyballrecord;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.util.Log;
 
+import java.util.Locale;
+
 
 public class ActivityStart extends Activity {
+
+    private static final String TAG = ActivityStart.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //Set Language
+        changeSetLanguage();
 
         //Setup the content of first activity
         setContentView(R.layout.activity_activity_start);
@@ -34,10 +41,33 @@ public class ActivityStart extends Activity {
         //Start new activity
         startActivity(intent);
 
-        Log.w("Activity_Start", "finished");
+        Log.w(TAG, "finished");
 
         //Finish this activity
         this.finish();
+    }
+
+    private void changeSetLanguage(){
+
+        //Get local language, default is Chinese
+        int setLanguage = getSharedPreferences("VolleyBall Record",MODE_PRIVATE)
+                .getInt("Language", 0);
+
+//        Log.e(TAG, "language = " + setLanguage);
+
+        Configuration configuration =  getBaseContext().getResources().getConfiguration();
+
+        switch (setLanguage){
+            case 0:
+                configuration.setLocale(Locale.TRADITIONAL_CHINESE);
+                break;
+            case 1:
+                configuration.setLocale(Locale.ENGLISH);
+                break;
+        }
+
+        getBaseContext().getResources().updateConfiguration(configuration, getBaseContext().getResources().getDisplayMetrics());
+//        getBaseContext().createConfigurationContext(configuration);
     }
 
 }

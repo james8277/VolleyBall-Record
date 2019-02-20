@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.DataBaseHelper;
 import james.volleyballrecord.R;
@@ -22,7 +22,7 @@ public class RecordAllPlayer extends Fragment {
     DataBaseHelper dataBaseHelper_record_all_player;
     private int select_game_number_record_all_player;
     String[] player_list;
-    Games_playing[] record_all_player_game;
+    GameData[] record_all_player_game;
     private int SubNumber;
 
     @Override

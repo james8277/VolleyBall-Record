@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import fragment.Start;
 import james.volleyballrecord.PlayGame;
@@ -18,7 +18,7 @@ import james.volleyballrecord.R;
 
 public class Defence extends Fragment {
 
-    Games_playing games_defence;
+    GameData games_defence;
     Player[] player_defence;
     private int defence_round;
     private int defence_chooice;

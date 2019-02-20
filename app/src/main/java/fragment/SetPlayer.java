@@ -17,14 +17,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.InitialSet;
 import james.volleyballrecord.R;
 
 public class SetPlayer extends Fragment {
 
-    Games_playing game_set_player;
+    GameData game_set_player;
     Player[] player_set_player;
     String[] Position;
     String set_player_place;
@@ -33,8 +33,8 @@ public class SetPlayer extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        game_set_player = ((InitialSet)getActivity()).GetGame();
-        player_set_player = ((InitialSet)getActivity()).GetPlayer();
+        game_set_player = ((InitialSet)getActivity()).getGame();
+        player_set_player = ((InitialSet)getActivity()).getPlayer();
 
         Position = new String[4];
         Position[0] = getString(R.string.S);
@@ -50,10 +50,9 @@ public class SetPlayer extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_set_player, container, false);
 
-        if(((InitialSet)getActivity()).GetToast_Test() == 0)
-        {
+        if(!((InitialSet)getActivity()).getToasted()) {
             Toast.makeText(getActivity(),R.string.click_player,Toast.LENGTH_SHORT).show();
-            ((InitialSet)getActivity()).SetToast_Test();
+            ((InitialSet)getActivity()).setToasted();
         }
 
         String number_tmp;

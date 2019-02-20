@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.DataBaseHelper;
 import james.volleyballrecord.MainMenu;
@@ -19,7 +19,7 @@ import james.volleyballrecord.R;
 
 public class RedWin extends Fragment {
 
-    Games_playing games_playing_red_win;
+    GameData gameData_red_win;
     Player[] players_red_win;
     DataBaseHelper dataBaseHelper;
 
@@ -27,13 +27,13 @@ public class RedWin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        games_playing_red_win = ((PlayGame)getActivity()).GetGame_play_game();
+        gameData_red_win = ((PlayGame)getActivity()).GetGame_play_game();
         players_red_win = ((PlayGame)getActivity()).GetPlayers_play_game();
         dataBaseHelper = new DataBaseHelper(getActivity());
         Log.w("total_attack_red_win", String.valueOf(players_red_win[0].GetTotalAttack()));
         Log.w("success_attack_red_win", String.valueOf(players_red_win[0].GetSuccessAttack()));
         Log.w("mistake_attack_red_win", String.valueOf(players_red_win[0].GetMistakeAttack()));
-        dataBaseHelper.addAll(games_playing_red_win, players_red_win);
+        dataBaseHelper.addAll(gameData_red_win, players_red_win);
 
 //        Log.w("sub_0_name_red_win",players_red_win[6].GetName());
     }
@@ -44,7 +44,7 @@ public class RedWin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_red_win, container, false);
 
         TextView textView_blue = (TextView)view.findViewById(R.id.red_win);
-        textView_blue.setText(games_playing_red_win.GetBlueName() + "  " + this.getResources().getText(R.string.Win));
+        textView_blue.setText(gameData_red_win.GetBlueName() + "  " + this.getResources().getText(R.string.Win));
 
 
         Button button_back = (Button)view.findViewById(R.id.red_win_back);

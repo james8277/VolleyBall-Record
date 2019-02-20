@@ -15,14 +15,14 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.PlayGame;
 import james.volleyballrecord.R;
 
 public class SetPlayer_2 extends Fragment {
 
-    Games_playing game_set_player_2;
+    GameData game_set_player_2;
     Player[] player_set_player_2;
     Player[] player_tmp;
     Player[] player_spinner;

@@ -13,7 +13,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import event.BlueWin;
 import event.RedWin;
@@ -22,7 +22,7 @@ import james.volleyballrecord.R;
 
 public class Start extends Fragment {
 
-    Games_playing game_start;
+    GameData game_start;
     Player[] players_start;
 
     @Override
@@ -31,12 +31,11 @@ public class Start extends Fragment {
 
         players_start = new Player[12];
         Player tmp;
-        for(int i=0;i<12;i++)
-        {
+        for(int i=0;i<12;i++) {
             tmp = new Player();
             players_start[i] = tmp;
         }
-        game_start = new Games_playing();
+        game_start = new GameData();
 
 
         game_start =  ((PlayGame)getActivity()).GetGame_play_game();
@@ -365,7 +364,7 @@ public class Start extends Fragment {
             public void onClick(View view) {
 
 //                Log.w("previous","clicked");
-                ((PlayGame)getActivity()).rerotate(players_start);
+                ((PlayGame)getActivity()).reRotate(players_start);
 
                 FragmentTransaction mf = getFragmentManager().beginTransaction();
                 Fragment fragment_rotate = new Start();

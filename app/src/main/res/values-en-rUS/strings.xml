@@ -110,5 +110,13 @@
     <string name="Set_Serve_Team">Click the arrow above to set the serve team.</string>
     <string name="help_intro">During the game, tap player\'s picture and then choose the action. The action is introduce in the bottom. You can click the score under team\'s name which is on the top of the screen to set the score. Also you can click the arrow to set the serve team. If there are problems, please let me know. I will be glad to hlep you, and improve this app. Thanks for using this app and hope you enjoy it.</string>
     <string name="action_intro">Action introduction</string>
+    <string name="language">Language</string>
+    <string name="setLanguage">Set Language</string>
+    <string name="changeLanguage">Language Changed</string>
+    <string-array name="languageArray">
+        <item>Chinese</item>
+        <item>English</item>
+    </string-array>
+    <string name="exitToast">Press back or exit button to exit the app.</string>
 
 </resources>

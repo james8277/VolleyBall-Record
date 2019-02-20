@@ -13,14 +13,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.InitialSet;
 import james.volleyballrecord.R;
 
 public class DateSet extends Fragment {
 
-    Games_playing game_set_date;
+    GameData game_set_date;
     Player[] player_set_date;
     String tmp;
 
@@ -61,7 +61,7 @@ public class DateSet extends Fragment {
             year_Array[i] = String.valueOf(i+2012);
         }
 
-        game_set_date = ((InitialSet)getActivity()).GetGame();
+        game_set_date = ((InitialSet)getActivity()).getGame();
 
         format_Array = new String[3];
         format_Array[0] = getString(R.string.BO1);

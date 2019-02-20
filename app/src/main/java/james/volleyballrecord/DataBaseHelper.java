@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 
 /**
@@ -250,7 +250,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
 
 
-    public void addAll(Games_playing games_playings,Player[] players)
+    public void addAll(GameData games_playings, Player[] players)
     {
         //Log.w("db_add_all","add");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -319,7 +319,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         db.insert(TABLE_ALL,null,cv);
     }
 
-    public void addDataTmp(Games_playing games_playings,Player[] players)
+    public void addDataTmp(GameData games_playings, Player[] players)
     {
         Log.w("db_add_tmp","add");
         SQLiteDatabase db = this.getWritableDatabase();
@@ -369,11 +369,11 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
 
 
-    public Games_playing getGameTmp()
+    public GameData getGameTmp()
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Games_playing games_playing;
-        games_playing = new Games_playing();
+        GameData gameData;
+        gameData = new GameData();
 
         Cursor c = db.rawQuery("SELECT" + " year_game,month_game,day_game" +
                 ",blue_team,red_team" +
@@ -384,21 +384,21 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         c.moveToFirst();
 
-        games_playing.SetYear(c.getString(0));
-        games_playing.SetMonth(c.getString(1));
-        games_playing.SetDay(c.getString(2));
-        games_playing.SetBlueName(c.getString(3));
-        games_playing.SetRedName(c.getString(4));
-        games_playing.SetFormat_int(c.getInt(5));
-        games_playing.SetSubNumber_Data(c.getInt(6));
-        games_playing.SetLNumber_Data(c.getInt(7));
-        games_playing.SetBlueScore(c.getInt(8));
-        games_playing.SetRedScore(c.getInt(9));
+        gameData.SetYear(c.getString(0));
+        gameData.SetMonth(c.getString(1));
+        gameData.SetDay(c.getString(2));
+        gameData.SetBlueName(c.getString(3));
+        gameData.SetRedName(c.getString(4));
+        gameData.SetFormat_int(c.getInt(5));
+        gameData.SetSubNumber_Data(c.getInt(6));
+        gameData.SetLNumber_Data(c.getInt(7));
+        gameData.SetBlueScore(c.getInt(8));
+        gameData.SetRedScore(c.getInt(9));
 
 //        Log.w("blue_name_db",c.getString(3));
 //        Log.w("red_name_db",c.getString(4));
 
-        return games_playing;
+        return gameData;
     }
 
     public Player[] getPlayerTmp()
@@ -565,10 +565,10 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public Games_playing[] GetAllGame()
+    public GameData[] GetAllGame()
     {
         SQLiteDatabase db = this.getReadableDatabase();
-        Games_playing[] tmp_games_playing;
+        GameData[] tmp_gameData;
 
         Cursor c = db.rawQuery("SELECT" + " _ID,year_game,month_game,day_game" +
                 ",blue_team,red_team" +
@@ -579,13 +579,13 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
 
         int tmp_number = GetData_number();
-        Games_playing tmp_game;
-        tmp_games_playing = new Games_playing[tmp_number];
+        GameData tmp_game;
+        tmp_gameData = new GameData[tmp_number];
 
         for(int i=0;i<tmp_number;i++)
         {
-            tmp_game = new Games_playing();
-            tmp_games_playing[i] = tmp_game;
+            tmp_game = new GameData();
+            tmp_gameData[i] = tmp_game;
         }
 
         if(tmp_number != 0)
@@ -593,22 +593,22 @@ public class DataBaseHelper extends SQLiteOpenHelper{
             c.moveToFirst();
             for(int i=0;i<tmp_number;i++)
             {
-                tmp_games_playing[i].SetYear(c.getString(1));
-                tmp_games_playing[i].SetMonth(c.getString(2));
-                tmp_games_playing[i].SetDay(c.getString(3));
-                tmp_games_playing[i].SetBlueName(c.getString(4));
-                tmp_games_playing[i].SetRedName(c.getString(5));
-                tmp_games_playing[i].SetFormat_int(c.getInt(6));
-                tmp_games_playing[i].SetSubNumber_Data(c.getInt(7));
-                tmp_games_playing[i].SetLNumber_Data(c.getInt(8));
-                tmp_games_playing[i].SetBlueScore(c.getInt(9));
-                tmp_games_playing[i].SetRedScore(c.getInt(10));
+                tmp_gameData[i].SetYear(c.getString(1));
+                tmp_gameData[i].SetMonth(c.getString(2));
+                tmp_gameData[i].SetDay(c.getString(3));
+                tmp_gameData[i].SetBlueName(c.getString(4));
+                tmp_gameData[i].SetRedName(c.getString(5));
+                tmp_gameData[i].SetFormat_int(c.getInt(6));
+                tmp_gameData[i].SetSubNumber_Data(c.getInt(7));
+                tmp_gameData[i].SetLNumber_Data(c.getInt(8));
+                tmp_gameData[i].SetBlueScore(c.getInt(9));
+                tmp_gameData[i].SetRedScore(c.getInt(10));
 
                 c.moveToNext();
             }
         }
 
-        return  tmp_games_playing;
+        return tmp_gameData;
     }
 
     public Player[] getPlayerAll(int x)

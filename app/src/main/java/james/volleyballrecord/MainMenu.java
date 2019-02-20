@@ -1,8 +1,15 @@
 package james.volleyballrecord;
 
 import android.app.Activity;
+import android.app.AlarmManager;
+import android.app.AlertDialog;
 import android.app.Fragment;
+import android.app.PendingIntent;
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -17,6 +24,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Locale;
 
 
 public class MainMenu extends Activity {
@@ -25,11 +33,19 @@ public class MainMenu extends Activity {
     private static final String TAG = MainMenu.class.getSimpleName();
     private boolean MainMenu_is_Game_Playing = false;
 
+    private String[] languageArray;
+
     private DataBaseHelper dataBaseHelper;
+
+    //Check if back button is pressed in 2 sec
+    private boolean exitPressed = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+        languageArray = getResources().getStringArray(R.array.languageArray);
 
         //Setup bundle to get flag from other activity
         Bundle bundle = this.getIntent().getExtras();
@@ -68,6 +84,8 @@ public class MainMenu extends Activity {
         button_record.setTypeface(font);
         Button button_help = (Button)findViewById(R.id.mainmenu_help);
         button_help.setTypeface(font);
+        Button button_language = (Button)findViewById(R.id.mainmenu_language);
+        button_language.setTypeface(font);
         Button button_exit = (Button)findViewById(R.id.mainmenu_exitbutton);
         button_exit.setTypeface(font);
 
@@ -159,14 +177,57 @@ public class MainMenu extends Activity {
             }
         });
 
+        button_language.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                AlertDialog languageDialog = new AlertDialog.Builder(MainMenu.this)
+                        .setTitle(R.string.setLanguage)
+                        .setItems(languageArray, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+
+                                if(!changeSetLanguage(i)){
+                                    return;
+                                }
+
+                                SharedPreferences language = getSharedPreferences("VolleyBall Record", MODE_PRIVATE);
+                                language.edit().putInt("Language",i).commit();
+
+                                Intent intent = new Intent(MainMenu.this, ActivityStart.class);
+                                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                startActivity(intent);
+                                System.exit(0);
+                            }
+                        }).create();
+
+                languageDialog.show();
+            }
+        });
+
+
         //Set exit button listener
         button_exit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 dataBaseHelper.deleteTable();
 //                dataBaseHelper.deleteTableAll();
-//              //Finish this activity
-                MainMenu.this.finish();
+//              //Finish this activity'
+
+                if(exitPressed){
+                    MainMenu.this.finish();
+                }
+                exitPressed = true;
+
+                Toast.makeText(MainMenu.this,R.string.exitToast,Toast.LENGTH_SHORT).show();
+
+                //Handler to check back is pressed in 2 sec
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        exitPressed = false;
+                    }
+                },2000);
             }
         });
     }
@@ -205,26 +266,37 @@ public class MainMenu extends Activity {
         }
     }
 
-    //Check if back button is pressed in 2 sec
-    private boolean backPressed = false;
     @Override
     public void onBackPressed() {
 
-        if(backPressed){
+        if(exitPressed){
             super.onBackPressed();
             return;
         }
 
-        backPressed = true;
-        Toast.makeText(this,"Click Back again to exit",Toast.LENGTH_SHORT).show();
+        exitPressed = true;
+        Toast.makeText(this,R.string.exitToast,Toast.LENGTH_SHORT).show();
 
         //Handler to check back is pressed in 2 sec
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                backPressed = false;
+                exitPressed = false;
             }
         },2000);
+    }
 
+    private boolean changeSetLanguage(int language){
+
+        //Get local language, default is Chinese
+        int setLanguage = getSharedPreferences("VolleyBall Record",MODE_PRIVATE)
+                .getInt("Language", 0);
+
+        if(language == setLanguage){
+            return false;
+        }
+        else {
+            return true;
+        }
     }
 }

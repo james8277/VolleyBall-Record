@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import fragment.Start;
 import james.volleyballrecord.PlayGame;
@@ -18,7 +18,7 @@ import james.volleyballrecord.R;
 
 public class Serve extends Fragment {
 
-    Games_playing games_serve;
+    GameData games_serve;
     Player[] player_serve;
     private int serve_round;
     private int serve_chooice;

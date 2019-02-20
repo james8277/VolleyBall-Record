@@ -14,7 +14,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import fragment.Start;
 import james.volleyballrecord.PlayGame;
@@ -22,7 +22,7 @@ import james.volleyballrecord.R;
 
 public class Change extends Fragment {
 
-    Games_playing games_change;
+    GameData games_change;
     Player[] player_change;
     private int change_round;
     private int change_chooice;

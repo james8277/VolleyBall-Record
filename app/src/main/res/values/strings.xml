@@ -109,5 +109,12 @@
     <string name="Set_Serve_Team">點擊上方箭頭設定發球方</string>
     <string name="help_intro">當在記錄比賽時，點擊畫面上球員的圖案，然後選擇球員的行動，各項行動將在下方進行說明。 你也可以點擊畫面上方的兩隊的分數來設定，並且可以點擊上方的箭頭來選擇發球方。 如果有任何問題，請在商店中提出，我會盡快做出回答或修正。謝謝你使用這個程式，希望你喜歡。</string>
     <string name="action_intro">動作說明</string>
-
+    <string name="language">語言</string>
+    <string name="setLanguage">設定語言</string>
+    <string name="changeLanguage">改變語言</string>
+    <string name="exitToast">再按一次離開或是返回鍵推出程式</string>
+    <string-array name="languageArray">
+        <item>中文</item>
+        <item>英文</item>
+    </string-array>
 </resources>

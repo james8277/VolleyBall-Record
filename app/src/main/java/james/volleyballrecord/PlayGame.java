@@ -16,7 +16,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import event.Attack;
 import event.Block;
@@ -40,34 +40,28 @@ public class PlayGame extends Activity {
     private int pre_set_player_chooice = 0;
     private int player_set_current;
 
-    Player[] players_play_game;
-    Games_playing game_play_game;
+    private Player[] players_play_game;
+    private GameData game_play_game;
 
     private int play_round = 0;
 
-    public int GetRound()
-    {
+    public int GetRound(){
         return  play_round;
     }
 
-    public Games_playing GetGame_play_game()
-    {
+    public GameData GetGame_play_game() {
         return game_play_game;
     }
-    public Player[] GetPlayers_play_game()
-    {
+    public Player[] GetPlayers_play_game() {
         return players_play_game;
     }
-    public int GetPlayer_chooice()
-    {
+    public int GetPlayer_chooice(){
         return start_player_chooice_next;
     }
-    public void SetRound()
-    {
+    public void SetRound() {
         play_round++;
     }
-    public void SetPlayer_Chooice()
-    {
+    public void SetPlayer_Chooice() {
         start_player_chooice = false;
     }
 
@@ -78,8 +72,7 @@ public class PlayGame extends Activity {
         setContentView(R.layout.activity_play_game);
         dataBaseHelper = new DataBaseHelper(this);
 
-        if (!is_Initial_Set)
-        {
+        if (!is_Initial_Set) {
             game_play_game = dataBaseHelper.getGameTmp();
             players_play_game = dataBaseHelper.getPlayerTmp();
 //            is_Initial_Set = true;
@@ -119,24 +112,22 @@ public class PlayGame extends Activity {
         players_play_game = x;
     }
 
-    public void start_player_function(View view)
-    {
+    public void start_player_function(View view) {
         Resources res = this.getResources();
         Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
         Drawable tmp_photo_2 = res.getDrawable(R.drawable.player_2);
 
 
 
-        if(!start_event_chooice)
-        {
+        if(!start_event_chooice) {
+
             Button button_player_before = (Button)findViewById(start_pre_player_chooice);
             button_player_before.setBackground(tmp_photo);
 
             int player_current_id = view.getId();
             Button button_player_current = (Button)findViewById(player_current_id);
 
-            switch (player_current_id)
-            {
+            switch (player_current_id) {
                 case R.id.start_player_1:
                     button_player_current.setBackground(tmp_photo_2);
                     start_player_chooice = true;
@@ -180,8 +171,7 @@ public class PlayGame extends Activity {
     }
     TextView textView_lchange;
 
-    public void start_event_function(View view)
-    {
+    public void start_event_function(View view) {
         int start_event_current_id = view.getId();
         FragmentTransaction mf = getFragmentManager().beginTransaction();
 
@@ -193,10 +183,8 @@ public class PlayGame extends Activity {
 //            textView_lchange.setClickable(true);
 //        }
 
-        if(start_player_chooice)
-        {
-            switch (start_event_current_id)
-            {
+        if(start_player_chooice) {
+            switch (start_event_current_id) {
                 case R.id.start_attack:
                     Fragment start_fragment_attack = new Attack();
                     mf.replace(R.id.container_play, start_fragment_attack);
@@ -239,10 +227,9 @@ public class PlayGame extends Activity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent();
             intent.setClass(this,MainMenu.class);
             Bundle bundle = new Bundle();
@@ -257,25 +244,19 @@ public class PlayGame extends Activity {
         return false;
     }
 
-    public void rotate(Player[] x)
-    {
-        Player tmp;
-        tmp = x[0];
+    public void rotate(Player[] x) {
+        Player tmp = x[0];
 
-        for(int i=0;i<5;i++)
-        {
+        for(int i=0;i<5;i++) {
             x[i] = x[i+1];
         }
         x[5] = tmp;
     }
 
-    public void rerotate(Player[] x)
-    {
-        Player tmp;
-        tmp = x[5];
+    public void reRotate(Player[] x) {
+        Player tmp = x[5];
 
-        for(int i=5;i>0;i--)
-        {
+        for(int i=5;i>0;i--) {
             x[i] = x[i-1];
         }
         x[0] = tmp;
@@ -287,26 +268,21 @@ public class PlayGame extends Activity {
     }
 
     private int player_set = 0;
-    public void set_player_number()
-    {
+    public void set_player_number() {
         player_set++;
     }
-    public void set_player_number_less()
-    {
+    public void set_player_number_less() {
         player_set--;
     }
-    public void reset_set_player_number()
-    {
+    public void reset_set_player_number() {
         player_set = 0;
     }
-    public void set_2_player_function(View view)
-    {
+    public void set_2_player_function(View view) {
         Resources res = this.getResources();
         Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
         Drawable tmp_photo_2 = res.getDrawable(R.drawable.player_2);
 
-        if(pre_set_player_chooice != 0)
-        {
+        if(pre_set_player_chooice != 0) {
             Button pre_player_button = (Button)findViewById(pre_set_player_chooice);
             pre_player_button.setBackground(tmp_photo);
         }
@@ -322,14 +298,12 @@ public class PlayGame extends Activity {
         set_player_spinner.setClickable(true);
         textView_enter.setClickable(true);
 
-        if(6+game_play_game.GetSubNumber()-player_set != 0)
-        {
+        if(6+game_play_game.GetSubNumber()-player_set != 0) {
             set_player_spinner.setVisibility(View.VISIBLE);
             textView_enter.setVisibility(View.VISIBLE);
         }
 
-        switch (player_chooice)
-        {
+        switch (player_chooice) {
             case R.id.set_2_player_1_data:
                 button_player_chooice.setBackground(tmp_photo_2);
                 player_set_current = 0;

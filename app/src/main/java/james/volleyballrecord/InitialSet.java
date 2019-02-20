@@ -14,51 +14,58 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-import Struct.Games_playing;
+import Struct.GameData;
 import Struct.Player;
 import fragment.DateSet;
 
 
 public class InitialSet extends Activity {
 
-    Games_playing game_set;
+    //GameData at set activity
+    private GameData gameData_set;
+    //Player Data at set activity
     private Player[] player_set;
 
-    int Toast_Test = 0;
-    public int GetToast_Test()
-    {
-        return  Toast_Test;
-    }
-    public void SetToast_Test()
-    {
-        Toast_Test++;
+    private boolean isToast = false;
+
+    public boolean getToasted(){
+        //check if it is the first time to toast
+        return isToast;
     }
 
-    public void iniGame()
-    {
-        game_set = new Games_playing();
+    public void setToasted(){
+        //it was already toasted
+        isToast = true;
     }
-    public void iniplayer()
-    {
+
+    public void initGame() {
+        //Initialize the Game Data
+        gameData_set = new GameData();
+    }
+
+    //Initialize player data
+    public void initPlayer() {
+
+        //Initial 12 player
         player_set = new Player[12];
         Player tmp;
-
-        for(int i=0;i<12;i++)
-        {
+        for(int i=0;i<12;i++) {
             tmp = new Player();
             player_set[i] = tmp;
         }
-        for(int i=0;i<12;i++)
-        {
+
+        //Set default player's number
+//        for(int i=0;i<12;i++) {
 //            player_set[i].SetNumber(String.valueOf(i));
-        }
+//        }
     }
-    public Games_playing GetGame()
-    {
-        return game_set;
+
+    //Get Game Data
+    public GameData getGame() {
+        return gameData_set;
     }
-    public Player[] GetPlayer()
-    {
+    //Get Player Data
+    public Player[] getPlayer() {
         return player_set;
     }
 
@@ -75,8 +82,8 @@ public class InitialSet extends Activity {
             actionBar.setTitle("Information");
         }*/
 
-        iniGame();
-        iniplayer();
+        initGame();
+        initPlayer();
     }
 
     @Override
