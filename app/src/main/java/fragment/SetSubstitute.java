@@ -19,8 +19,8 @@ import java.util.Objects;
 
 import Struct.GameData;
 import Struct.Player;
+import james.volleyballrecord.Activity_InitialSet;
 import james.volleyballrecord.DataBaseHelper;
-import james.volleyballrecord.InitialSet;
 import james.volleyballrecord.PlayGame;
 import james.volleyballrecord.R;
 
@@ -38,8 +38,8 @@ public class SetSubstitute extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        game_set_sub = ((InitialSet)getActivity()).getGame();
-        player_set_sub = ((InitialSet)getActivity()).getPlayer();
+        game_set_sub = ((Activity_InitialSet)getActivity()).getGame();
+        player_set_sub = ((Activity_InitialSet)getActivity()).getPlayer();
         SubNumber = game_set_sub.GetSubNumber();
         LNumber = game_set_sub.GetLnumber();
         dataBaseHelper = new DataBaseHelper(getActivity());

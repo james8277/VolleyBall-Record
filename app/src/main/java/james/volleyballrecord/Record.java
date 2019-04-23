@@ -61,7 +61,7 @@ public class Record extends Activity {
         if(keyCode == KeyEvent.KEYCODE_BACK)
         {
             Intent intent = new Intent();
-            intent.setClass(this,MainMenu.class);
+            intent.setClass(this, Activity_AppMenu.class);
             Bundle bundle = new Bundle();
             bundle.putBoolean("is_game_playing",is_game_playing_record);
             intent.putExtras(bundle);

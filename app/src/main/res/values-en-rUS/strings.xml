@@ -118,5 +118,6 @@
         <item>English</item>
     </string-array>
     <string name="exitToast">Press back or exit button to exit the app.</string>
+    <string name="setting">Setting</string>
 
 </resources>

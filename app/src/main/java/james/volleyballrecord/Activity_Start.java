@@ -10,9 +10,9 @@ import android.util.Log;
 import java.util.Locale;
 
 
-public class ActivityStart extends Activity {
+public class Activity_Start extends Activity {
 
-    private static final String TAG = ActivityStart.class.getSimpleName();
+    private static final String TAG = Activity_Start.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,13 +27,12 @@ public class ActivityStart extends Activity {
         DisplayMetrics metrics = new DisplayMetrics();
         //Get the Metric of the device
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
-
         Log.w("windows_size", metrics.widthPixels + " X " + metrics.heightPixels);
 
         //Setup intent to go to next activity
         Intent intent = new Intent();
         //Go to MainMenu activity
-        intent.setClass(this, MainMenu.class);
+        intent.setClass(this, Activity_AppMenu.class);
         //Setup bundle to set is_game_playing as false
         Bundle bundle = new Bundle();
         bundle.putBoolean("is_game_playing",false);
@@ -55,7 +54,7 @@ public class ActivityStart extends Activity {
 
 //        Log.e(TAG, "language = " + setLanguage);
 
-        Configuration configuration =  getBaseContext().getResources().getConfiguration();
+        Configuration configuration =    getBaseContext().getResources().getConfiguration();
 
         switch (setLanguage){
             case 0:

@@ -12,8 +12,8 @@ import android.widget.TextView;
 
 import Struct.GameData;
 import Struct.Player;
+import james.volleyballrecord.Activity_AppMenu;
 import james.volleyballrecord.DataBaseHelper;
-import james.volleyballrecord.MainMenu;
 import james.volleyballrecord.PlayGame;
 import james.volleyballrecord.R;
 
@@ -52,7 +52,7 @@ public class RedWin extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent();
-                intent.setClass(getActivity(), MainMenu.class);
+                intent.setClass(getActivity(), Activity_AppMenu.class);
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("is_game_playing",false);
                 intent.putExtras(bundle);

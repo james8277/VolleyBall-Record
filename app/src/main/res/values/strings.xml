@@ -113,6 +113,7 @@
     <string name="setLanguage">設定語言</string>
     <string name="changeLanguage">改變語言</string>
     <string name="exitToast">再按一次離開或是返回鍵推出程式</string>
+    <string name="setting">設定</string>
     <string-array name="languageArray">
         <item>中文</item>
         <item>英文</item>

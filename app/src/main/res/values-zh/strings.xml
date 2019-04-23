@@ -117,5 +117,6 @@
         <item>英文</item>
     </string-array>
     <string name="exitToast">再按一次離開或是返回鍵推出程式</string>
+    <string name="setting">設定</string>
 
 </resources>

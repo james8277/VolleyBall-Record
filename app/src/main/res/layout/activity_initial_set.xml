@@ -3,5 +3,5 @@
     android:id="@+id/container_set"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="james.volleyballrecord.InitialSet"
+    tools:context="james.volleyballrecord.Activity_InitialSet"
     tools:ignore="MergeRootFrame" />

@@ -1,10 +1,14 @@
 package james.volleyballrecord;
 
 import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -13,14 +17,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import Struct.GameData;
 import Struct.Player;
-import fragment.DateSet;
+import fragment.Fragment_SetDate;
 
 
-public class InitialSet extends Activity {
+public class Activity_InitialSet extends Activity {
 
+
+    private static final String TAG = Activity_InitialSet.class.getSimpleName();
     //GameData at set activity
     private GameData gameData_set;
     //Player Data at set activity
@@ -75,7 +82,14 @@ public class InitialSet extends Activity {
         setContentView(R.layout.activity_initial_set);
 
         if (savedInstanceState == null) {
-            getFragmentManager().beginTransaction().add(R.id.container_set, new DateSet()).commit();
+            FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+            Fragment fragment_SetDate = new Fragment_SetDate();
+            //Add animation to go to and exit from help fragment
+            fragmentTransaction.setCustomAnimations(0, 0
+                            , R.animator.fragment_left_in, R.animator.fragment_right_out);
+            fragmentTransaction.replace(R.id.container_set,fragment_SetDate);
+            fragmentTransaction.addToBackStack(null);
+            fragmentTransaction.commit();
         }
         /*ActionBar actionBar = getActionBar();
         if (actionBar != null) {
@@ -112,14 +126,12 @@ public class InitialSet extends Activity {
     }
 
 
-    public void set_player_function(View view)
-    {
+    public void set_player_function(View view) {
         Resources res = this.getResources();
         Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
         Drawable tmp_photo_2 = res.getDrawable(R.drawable.player_2);
 
-        if(pre_set_player_chooice != 0)
-        {
+        if(pre_set_player_chooice != 0) {
             Button pre_player_button = (Button)findViewById(pre_set_player_chooice);
             pre_player_button.setBackground(tmp_photo);
         }
@@ -145,8 +157,7 @@ public class InitialSet extends Activity {
         textView_enter.setClickable(true);
 
 
-        switch (player_chooice)
-        {
+        switch (player_chooice) {
             case R.id.set_player_1_data:
                 button_player_chooice.setBackground(tmp_photo_2);
                 player_set_current = 0;
@@ -183,13 +194,13 @@ public class InitialSet extends Activity {
         set_player_number.setText(player_set[player_set_current].GetNumber());
     }
 
+
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
+    public void onBackPressed() {
+
+        if(getFragmentManager().getBackStackEntryCount() == 1){
             Intent intent = new Intent();
-            intent.setClass(this,MainMenu.class);
+            intent.setClass(this, Activity_AppMenu.class);
             Bundle bundle = new Bundle();
             bundle.putBoolean("is_game_playing",false);
             intent.putExtras(bundle);
@@ -198,6 +209,8 @@ public class InitialSet extends Activity {
 
             this.overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
-        return false;
+        else {
+            getFragmentManager().popBackStack();
+        }
     }
 }

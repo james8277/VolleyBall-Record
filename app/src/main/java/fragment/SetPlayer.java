@@ -19,7 +19,7 @@ import android.widget.Toast;
 
 import Struct.GameData;
 import Struct.Player;
-import james.volleyballrecord.InitialSet;
+import james.volleyballrecord.Activity_InitialSet;
 import james.volleyballrecord.R;
 
 public class SetPlayer extends Fragment {
@@ -33,8 +33,8 @@ public class SetPlayer extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        game_set_player = ((InitialSet)getActivity()).getGame();
-        player_set_player = ((InitialSet)getActivity()).getPlayer();
+        game_set_player = ((Activity_InitialSet)getActivity()).getGame();
+        player_set_player = ((Activity_InitialSet)getActivity()).getPlayer();
 
         Position = new String[4];
         Position[0] = getString(R.string.S);
@@ -50,9 +50,9 @@ public class SetPlayer extends Fragment {
 
         final View view = inflater.inflate(R.layout.fragment_set_player, container, false);
 
-        if(!((InitialSet)getActivity()).getToasted()) {
+        if(!((Activity_InitialSet)getActivity()).getToasted()) {
             Toast.makeText(getActivity(),R.string.click_player,Toast.LENGTH_SHORT).show();
-            ((InitialSet)getActivity()).setToasted();
+            ((Activity_InitialSet)getActivity()).setToasted();
         }
 
         String number_tmp;
@@ -104,7 +104,7 @@ public class SetPlayer extends Fragment {
             public void onClick(View view_1) {
                 EditText set_player_name = (EditText)view.findViewById(R.id.set_name);
                 EditText set_player_number = (EditText)view.findViewById(R.id.set_number);
-                set_tmp_player_chooice = ((InitialSet)getActivity()).get_set_player_chooice();
+                set_tmp_player_chooice = ((Activity_InitialSet)getActivity()).get_set_player_chooice();
 
                 player_set_player[set_tmp_player_chooice].SetPlace(set_player_place);
                 player_set_player[set_tmp_player_chooice].SetName(set_player_name.getText().toString());
@@ -123,7 +123,7 @@ public class SetPlayer extends Fragment {
                 set_player_number.setClickable(false);
                 place_spinner.setClickable(false);
 
-                int tmp = ((InitialSet)getActivity()).getPre_set_player_chooice_id();
+                int tmp = ((Activity_InitialSet)getActivity()).getPre_set_player_chooice_id();
                 Button button_enter = (Button)view.findViewById(tmp);
                 button_enter.setBackground(tmp_photo);
 

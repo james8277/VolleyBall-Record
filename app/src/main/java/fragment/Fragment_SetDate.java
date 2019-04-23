@@ -15,10 +15,10 @@ import android.widget.Spinner;
 
 import Struct.GameData;
 import Struct.Player;
-import james.volleyballrecord.InitialSet;
+import james.volleyballrecord.Activity_InitialSet;
 import james.volleyballrecord.R;
 
-public class DateSet extends Fragment {
+public class Fragment_SetDate extends Fragment {
 
     GameData game_set_date;
     Player[] player_set_date;
@@ -47,8 +47,7 @@ public class DateSet extends Fragment {
     ArrayAdapter<String> format_adapter;
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         day_Array = new String[31];
         for(int i=0;i<31;i++)
@@ -61,7 +60,7 @@ public class DateSet extends Fragment {
             year_Array[i] = String.valueOf(i+2012);
         }
 
-        game_set_date = ((InitialSet)getActivity()).getGame();
+        game_set_date = ((Activity_InitialSet)getActivity()).getGame();
 
         format_Array = new String[3];
         format_Array[0] = getString(R.string.BO1);
@@ -156,29 +155,26 @@ public class DateSet extends Fragment {
                 game_set_date.SetHome(BlueTeamName.getText().toString());
                 game_set_date.SetAway(RedTeamName.getText().toString());
 
-
-                FragmentTransaction mf = getFragmentManager().beginTransaction();
-                Fragment fragment_setplayer = new SetPlayer();
-
                 String Date = game_set_date.GetYear() + " " + game_set_date.GetMonth() + " " + game_set_date.GetDay();
                 Log.w("Date",Date);
-
                 String Team = game_set_date.GetHomeName() + " " + game_set_date.GetAwayName();
                 Log.w("Team", Team);
-
                 int tmp = game_set_date.GetFormat();
                 String tmp_string = Integer.toString(tmp);
                 Log.w("Format_DateSet", tmp_string);
 
-
                 EditText editText_blue = (EditText) getActivity().findViewById(R.id.date_blue_team);
                 EditText editText_red = (EditText) getActivity().findViewById(R.id.date_red_team);
 
+                FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
+                Fragment fragment_setPlayer = new SetPlayer();
                 game_set_date.SetBlueName(editText_blue.getText().toString());
                 game_set_date.SetRedName(editText_red.getText().toString());
-                mf.setCustomAnimations(R.animator.fragment_right_in, R.animator.fragment_left_out);
-                mf.replace(R.id.container_set, fragment_setplayer);
-                mf.commit();
+                fragmentTransaction.setCustomAnimations(R.animator.fragment_right_in, R.animator.fragment_left_out
+                                        , R.animator.fragment_left_in, R.animator.fragment_right_out);
+                fragmentTransaction.replace(R.id.container_set, fragment_setPlayer);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
             }
         });
 

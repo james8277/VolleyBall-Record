@@ -17,8 +17,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import Struct.GameData;
+import james.volleyballrecord.Activity_AppMenu;
 import james.volleyballrecord.DataBaseHelper;
-import james.volleyballrecord.MainMenu;
 import james.volleyballrecord.R;
 import james.volleyballrecord.Record;
 
@@ -106,7 +106,7 @@ public class RecordAllGame extends Fragment {
                 Bundle bundle_back = new Bundle();
                 bundle_back.putBoolean("is_game_playing",((Record)getActivity()).Get_is_game_playing());
                 intent.putExtras(bundle_back);
-                intent.setClass(getActivity(), MainMenu.class);
+                intent.setClass(getActivity(), Activity_AppMenu.class);
                 startActivity(intent);
                 getActivity().finish();
                 getActivity().overridePendingTransition(R.anim.left_in, R.anim.right_out);
@@ -131,7 +131,7 @@ public class RecordAllGame extends Fragment {
                         Bundle bundle_back = new Bundle();
                         bundle_back.putBoolean("is_game_playing", ((Record) getActivity()).Get_is_game_playing());
                         intent.putExtras(bundle_back);
-                        intent.setClass(getActivity(), MainMenu.class);
+                        intent.setClass(getActivity(), Activity_AppMenu.class);
                         startActivity(intent);
                         Toast.makeText(getActivity(), R.string.deleted_all, Toast.LENGTH_SHORT).show();
                         getActivity().finish();
