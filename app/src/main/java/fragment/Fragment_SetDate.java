@@ -15,94 +15,118 @@ import android.widget.Spinner;
 
 import Struct.GameData;
 import Struct.Player;
+import james.volleyballrecord.Activity_AppMenu;
 import james.volleyballrecord.Activity_InitialSet;
 import james.volleyballrecord.R;
 
 public class Fragment_SetDate extends Fragment {
 
-    GameData game_set_date;
-    Player[] player_set_date;
-    String tmp;
+    //TAG Name
+    private static final String TAG = Activity_AppMenu.class.getSimpleName();
+    //Game Data
+    private GameData gameData_set;
 
-    String day_Array[];
-    String month_Array[] = {
+    //Array for day selected
+    private String dayArray[];
+    //Array for month selected
+    private String monthArray[] = {
             "January", "February", "March", "April", "May", "June", "July", "August", "September", "October"
             , "November", "December"};
-    String year_Array[];
-    String format_Array[];
+    //Array for year selected
+    private String yearArray[];
+    //Array for format selected
+    private String formatArray[];
 
+    //Spinner for year selection
+    private Spinner yearSpinner;
+    //Spinner for month selection
+    private Spinner monthSpinner;
+    //Spinner for day selection
+    private Spinner daySpinner;
+    //Spinner for format selection
+    private Spinner formatSpinner;
+    //Button to next fragment
+    private Button button_next;
 
-    Spinner year_spinner;
-    Spinner month_spinner;
-    Spinner day_spinner;
-    Spinner format_spinner;
-    Button button_next;
+    //EditText for two teams
+    private EditText BlueTeamName;
+    private EditText RedTeamName;
 
-    EditText BlueTeamName;
-    EditText RedTeamName;
-
-    ArrayAdapter<String> year_adapter;
-    ArrayAdapter<String> month_adapter;
-    ArrayAdapter<String> day_adapter;
-    ArrayAdapter<String> format_adapter;
+    //Adapter for year selection
+    private ArrayAdapter<String> yearAdapter;
+    //Adapter for month selection
+    private ArrayAdapter<String> monthAdapter;
+    //Adapter for day selection
+    private ArrayAdapter<String> dayAdapter;
+    //Adapter for format selection
+    private ArrayAdapter<String> formatAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        day_Array = new String[31];
-        for(int i=0;i<31;i++)
-        {
-            day_Array[i] = String.valueOf(i+1);
-        }
-        year_Array = new String[30];
-        for(int i=0;i<30;i++)
-        {
-            year_Array[i] = String.valueOf(i+2012);
-        }
 
-        game_set_date = ((Activity_InitialSet)getActivity()).getGame();
+        //Initialize day array
+        dayArray = new String[31];
+        for(int i=0;i<31;i++) {
+            dayArray[i] = String.valueOf(i+1);
+        }
+        //Initialize year array
+        yearArray = new String[30];
+        for(int i=0;i<30;i++) {
+            yearArray[i] = String.valueOf(i+2012);
+        }
+        //Initialize format array
+        formatArray = new String[3];
+        formatArray[0] = getString(R.string.BO1);
+        formatArray[1] = getString(R.string.BO3);
+        formatArray[2] = getString(R.string.BO5);
 
-        format_Array = new String[3];
-        format_Array[0] = getString(R.string.BO1);
-        format_Array[1] = getString(R.string.BO3);
-        format_Array[2] = getString(R.string.BO5);
+
+        //Get Game data from activity
+        gameData_set = ((Activity_InitialSet)getActivity()).getGame();
 
     }
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState)
-    {
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
         super.onCreateView(inflater, container,savedInstanceState);
-        View view = inflater.inflate(R.layout.fragment_initial_set, container, false);
 
-        button_next = (Button)view.findViewById(R.id.date_next);
-        year_spinner = (Spinner)view.findViewById(R.id.date_spinner_year);
-        month_spinner = (Spinner)view.findViewById(R.id.date_spinner_month);
-        day_spinner = (Spinner)view.findViewById(R.id.date_spinner_day);
-        format_spinner = (Spinner)view.findViewById((R.id.format_spinner));
+        View rootView = inflater.inflate(R.layout.fragment_initial_set, container, false);
 
-        BlueTeamName = (EditText)view.findViewById(R.id.date_blue_team);
-        RedTeamName = (EditText)view.findViewById(R.id.date_red_team);
+        //Initialize button and spinner
+        button_next = (Button)rootView.findViewById(R.id.date_next);
+        yearSpinner = (Spinner)rootView.findViewById(R.id.date_spinner_year);
+        monthSpinner = (Spinner)rootView.findViewById(R.id.date_spinner_month);
+        daySpinner = (Spinner)rootView.findViewById(R.id.date_spinner_day);
+        formatSpinner = (Spinner)rootView.findViewById((R.id.format_spinner));
 
-        year_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,year_Array);
-        month_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,month_Array);
-        day_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,day_Array);
-        format_adapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,format_Array);
+        //Initialize editText for two teams
+        BlueTeamName = (EditText)rootView.findViewById(R.id.date_blue_team);
+        RedTeamName = (EditText)rootView.findViewById(R.id.date_red_team);
 
-        year_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        month_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        day_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        format_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
-        year_spinner.setAdapter(year_adapter);
-        month_spinner.setAdapter(month_adapter);
-        day_spinner.setAdapter(day_adapter);
-        format_spinner.setAdapter(format_adapter);
+        yearAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,yearArray);
+        monthAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,monthArray);
+        dayAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,dayArray);
+        formatAdapter = new ArrayAdapter<String>(getActivity(),android.R.layout.simple_spinner_item,formatArray);
 
-        year_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //Change adapter style
+        yearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        monthAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        dayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        formatAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        //Setup adapter for spinner
+        yearSpinner.setAdapter(yearAdapter);
+        monthSpinner.setAdapter(monthAdapter);
+        daySpinner.setAdapter(dayAdapter);
+        formatSpinner.setAdapter(formatAdapter);
+
+        //Get selected year every time it changed
+        yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-
-                tmp = adapterView.getSelectedItem().toString();
-                game_set_date.SetYear(tmp);
+                gameData_set.SetYear(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -110,11 +134,11 @@ public class Fragment_SetDate extends Fragment {
 
             }
         });
-        month_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //Get selected month every time it changed
+        monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                tmp = adapterView.getSelectedItem().toString();
-                game_set_date.SetMonth(tmp);
+                gameData_set.SetMonth(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -122,11 +146,23 @@ public class Fragment_SetDate extends Fragment {
 
             }
         });
-        day_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+        //Get selected day every time it changed
+        daySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                tmp = adapterView.getSelectedItem().toString();
-                game_set_date.SetDay(tmp);
+                gameData_set.SetDay(adapterView.getSelectedItem().toString());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+        //Get selected format every time it changed
+        formatSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                gameData_set.SetFormat(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -135,41 +171,22 @@ public class Fragment_SetDate extends Fragment {
             }
         });
 
-        format_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                tmp = adapterView.getSelectedItem().toString();
-                game_set_date.SetFormat(tmp);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> adapterView) {
-
-            }
-        });
-
+        //Setup all game data when you click next button
         button_next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                game_set_date.SetHome(BlueTeamName.getText().toString());
-                game_set_date.SetAway(RedTeamName.getText().toString());
+                //Set name of two teams
+                gameData_set.SetHome(BlueTeamName.getText().toString());
+                gameData_set.SetAway(RedTeamName.getText().toString());
+                //
+                gameData_set.SetBlueName(BlueTeamName.getText().toString());
+                gameData_set.SetRedName(RedTeamName.getText().toString());
 
-                String Date = game_set_date.GetYear() + " " + game_set_date.GetMonth() + " " + game_set_date.GetDay();
-                Log.w("Date",Date);
-                String Team = game_set_date.GetHomeName() + " " + game_set_date.GetAwayName();
-                Log.w("Team", Team);
-                int tmp = game_set_date.GetFormat();
-                String tmp_string = Integer.toString(tmp);
-                Log.w("Format_DateSet", tmp_string);
-
-                EditText editText_blue = (EditText) getActivity().findViewById(R.id.date_blue_team);
-                EditText editText_red = (EditText) getActivity().findViewById(R.id.date_red_team);
-
+                //Go to next fragment (Set Player)
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
                 Fragment fragment_setPlayer = new SetPlayer();
-                game_set_date.SetBlueName(editText_blue.getText().toString());
-                game_set_date.SetRedName(editText_red.getText().toString());
+                //Set animation for fragment exchange
                 fragmentTransaction.setCustomAnimations(R.animator.fragment_right_in, R.animator.fragment_left_out
                                         , R.animator.fragment_left_in, R.animator.fragment_right_out);
                 fragmentTransaction.replace(R.id.container_set, fragment_setPlayer);
@@ -178,6 +195,6 @@ public class Fragment_SetDate extends Fragment {
             }
         });
 
-        return view;
+        return rootView;
     }
 }

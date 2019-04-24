@@ -10,7 +10,7 @@
         android:id="@+id/set_court" />
 
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/set_player_3_layout"
 
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
 
         </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/set_player_2_layout"
 
         android:layout_width="wrap_content"
@@ -66,7 +66,7 @@
 
         </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/set_player_4_layout"
 
         android:layout_width="wrap_content"
@@ -94,7 +94,7 @@
 
     </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/set_player_1_layout"
         android:layout_below="@id/set_player_2_layout"
         android:layout_marginTop="20dp"
@@ -122,7 +122,7 @@
 
         </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/set_player_5_layout"
 
         android:layout_alignParentLeft="true"
@@ -151,7 +151,7 @@
 
     </RelativeLayout>
 
-    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    <RelativeLayout
         android:id="@+id/set_player_6_layout"
         android:layout_below="@id/set_player_3_layout"
         android:layout_centerHorizontal="true"

@@ -79,9 +79,12 @@ public class Activity_InitialSet extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        //Set content View
         setContentView(R.layout.activity_initial_set);
 
         if (savedInstanceState == null) {
+            //Go to next fragment
             FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
             Fragment fragment_SetDate = new Fragment_SetDate();
             //Add animation to go to and exit from help fragment
@@ -96,7 +99,9 @@ public class Activity_InitialSet extends Activity {
             actionBar.setTitle("Information");
         }*/
 
+        //Initialize Game Data
         initGame();
+        //Initialize Player Data
         initPlayer();
     }
 
@@ -114,91 +119,98 @@ public class Activity_InitialSet extends Activity {
     }
 
 
-    private int pre_set_player_chooice = 0;
-    private int player_set_current;
-    public int get_set_player_chooice()
-    {
-        return player_set_current;
+    //Previous Selected Player
+    private int player_preSelected = 0;
+    //Current Selected Player
+    private int player_currentSelected;
+    //Get Current Selected Player
+    public int getPlayer_currentSelected() {
+        return player_currentSelected;
     }
-    public int getPre_set_player_chooice_id()
-    {
-        return pre_set_player_chooice;
+    //Get Previous Selected Player
+    public int getPlayer_preSelected() {
+        return player_preSelected;
     }
 
 
+    //Function to change player picture
     public void set_player_function(View view) {
-        Resources res = this.getResources();
-        Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
-        Drawable tmp_photo_2 = res.getDrawable(R.drawable.player_2);
 
-        if(pre_set_player_chooice != 0) {
-            Button pre_player_button = (Button)findViewById(pre_set_player_chooice);
-            pre_player_button.setBackground(tmp_photo);
+        //Player drawable (unselected & selected)
+        Drawable drawable_player = getDrawable(R.drawable.player_1);
+        Drawable drawable_player_selected = getDrawable(R.drawable.player_2);
+
+        //Change picture to unselected
+        if(player_preSelected != 0) {
+            Button pre_player_button = (Button)findViewById(player_preSelected);
+            pre_player_button.setBackground(drawable_player);
         }
 
-        int player_chooice = view.getId();
-//        Log.w("view id", Integer.toString(player_chooice));
-        Button button_player_chooice;
-        button_player_chooice = (Button)findViewById(player_chooice);
+        //Get clicked player
+        int player_selected = view.getId();
+        //Get Player Button by using button ID
+        Button button_player_selected = (Button)findViewById(player_selected);
 
+        //Initialize editText and other object
         EditText set_player_name = (EditText)findViewById(R.id.set_name);
         EditText set_player_number = (EditText)findViewById(R.id.set_number);
         Spinner set_player_spinner = (Spinner)findViewById(R.id.set_place_spinner);
         TextView textView_enter = (TextView)findViewById(R.id.set_enter);
 
+        //Set Object to be visible
         set_player_name.setVisibility(View.VISIBLE);
         set_player_number.setVisibility(View.VISIBLE);
         set_player_spinner.setVisibility(View.VISIBLE);
         textView_enter.setVisibility(View.VISIBLE);
 
+        //Set Object as clickable
         set_player_name.setClickable(true);
         set_player_number.setClickable(true);
         set_player_spinner.setClickable(true);
         textView_enter.setClickable(true);
 
 
-        switch (player_chooice) {
+        //Change player picture based on clicked or not
+        switch (player_selected) {
             case R.id.set_player_1_data:
-                button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 0;
-                pre_set_player_chooice = player_chooice;
+                button_player_selected.setBackground(drawable_player_selected);
+                player_currentSelected = 0;
                 break;
             case R.id.set_player_2_data:
-                button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 1;
-                pre_set_player_chooice = player_chooice;
+                button_player_selected.setBackground(drawable_player_selected);
+                player_currentSelected = 1;
                 break;
             case R.id.set_player_3_data:
-                button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 2;
-                pre_set_player_chooice = player_chooice;
+                button_player_selected.setBackground(drawable_player_selected);
+                player_currentSelected = 2;
                 break;
             case R.id.set_player_4_data:
-                button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 3;
-                pre_set_player_chooice = player_chooice;
+                button_player_selected.setBackground(drawable_player_selected);
+                player_currentSelected = 3;
                 break;
             case R.id.set_player_5_data:
-                button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 4;
-                pre_set_player_chooice = player_chooice;
+                button_player_selected.setBackground(drawable_player_selected);
+                player_currentSelected = 4;
                 break;
             case R.id.set_player_6_data:
-                button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 5;
-                pre_set_player_chooice = player_chooice;
+                button_player_selected.setBackground(drawable_player_selected);
+                player_currentSelected = 5;
                 break;
         }
+        player_preSelected = player_selected;
 
-        set_player_name.setText(player_set[player_set_current].GetName());
-        set_player_number.setText(player_set[player_set_current].GetNumber());
+        //Change player name and number
+//        set_player_name.setText(player_set[player_currentSelected].GetName());
+//        set_player_number.setText(player_set[player_currentSelected].GetNumber());
     }
 
 
     @Override
     public void onBackPressed() {
 
+        //Check if this is the only fragment
         if(getFragmentManager().getBackStackEntryCount() == 1){
+            //Go back to AppMenu
             Intent intent = new Intent();
             intent.setClass(this, Activity_AppMenu.class);
             Bundle bundle = new Bundle();
@@ -210,6 +222,7 @@ public class Activity_InitialSet extends Activity {
             this.overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
         else {
+            //Go back to previous fragment
             getFragmentManager().popBackStack();
         }
     }
