@@ -45,13 +45,13 @@ public class RecordAllPlayer extends Fragment {
 
         record_all_player_player = dataBaseHelper_record_all_player.getPlayerAll(select_game_number_record_all_player);
         record_all_player_game = dataBaseHelper_record_all_player.GetAllGame();
-        SubNumber = record_all_player_game[select_game_number_record_all_player].GetSubNumber();
+        SubNumber = record_all_player_game[select_game_number_record_all_player].getSubCount();
 
         Log.w("SubNumber",Integer.toString(SubNumber));
 
         for (int i=0;i<12;i++)
         {
-            player_list[i] = record_all_player_player[i].GetNumber() + "    " + record_all_player_player[i].GetName() + "    " + record_all_player_player[i].GetPlace();
+            player_list[i] = record_all_player_player[i].GetNumber() + "    " + record_all_player_player[i].GetName() + "    " + record_all_player_player[i].GetPosition();
         }
     }
 

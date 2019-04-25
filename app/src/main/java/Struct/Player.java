@@ -6,7 +6,7 @@ public class Player
 {
 	private String number;
 	private String name;
-	private String place;
+	private String position;
 	
 	private int TotalAttack;
 	private int SuccessAttack;
@@ -33,7 +33,7 @@ public class Player
 	{
 		number = "";
 		name = "";
-		place = "";
+		position = "";
 		
 		TotalAttack = 0;
 		SuccessAttack = 0;
@@ -66,9 +66,9 @@ public class Player
 	{
 		return  name;
 	}
-	public String GetPlace()
+	public String GetPosition()
 	{
-		return place;
+		return position;
 	}
 	
 	public void SetNumber(String x)
@@ -80,9 +80,9 @@ public class Player
 	{
 		name = x;
 	}
-	public void SetPlace(String x)
+	public void SetPosition(String x)
 	{
-		place = x;
+		position = x;
 	}
 	
 	public void SuccessAttack()

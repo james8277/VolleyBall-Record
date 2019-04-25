@@ -271,16 +271,16 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
 //        Log.w("id_number_add_all",String.valueOf(tmp_id_number));
         cv.put(KEY_ID,tmp_id_number);
-        cv.put(KEY_YEAR,games_playings.GetYear());
-        cv.put(KEY_MONTH,games_playings.GetMonth());
-        cv.put(KEY_DAY,games_playings.GetDay());
-        cv.put(KEY_BLUE_TEAM,games_playings.GetBlueName());
-        cv.put(KEY_RED_TEAM,games_playings.GetRedName());
-        cv.put(KEY_FORMAT,games_playings.GetFormat());
-        cv.put(KEY_BLUE_SCORE,games_playings.GetBlueScore());
-        cv.put(KEY_RED_SCORE,games_playings.GetRedScore());
-        cv.put(KEY_SUB_NUMBER,games_playings.GetSubNumber());
-        cv.put(KEY_L_NUMBER,games_playings.GetLnumber());
+        cv.put(KEY_YEAR,games_playings.getYear());
+        cv.put(KEY_MONTH,games_playings.getMonth());
+        cv.put(KEY_DAY,games_playings.getDay());
+        cv.put(KEY_BLUE_TEAM,games_playings.getBlueName());
+        cv.put(KEY_RED_TEAM,games_playings.getRedName());
+        cv.put(KEY_FORMAT,games_playings.getFormat());
+        cv.put(KEY_BLUE_SCORE,games_playings.getBlueScore());
+        cv.put(KEY_RED_SCORE,games_playings.getRedScore());
+        cv.put(KEY_SUB_NUMBER,games_playings.getSubCount());
+        cv.put(KEY_L_NUMBER,games_playings.getLCount());
 
 //        Log.w("sub_0_name_db",players[6].GetName());
         //Log.w("total_attack_db",String.valueOf(players[0].GetTotalAttack()));
@@ -293,7 +293,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
             cv.put(KEY_PLAYER+i,players[i].GetNumber());
             cv.put(KEY_PLAYER+i+KEY_NAME,players[i].GetName());
 //            Log.w("sub_all_player_name_db",players[i].GetName() + "   " + i);
-            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].GetPlace());
+            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].GetPosition());
             cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_ALL,players[i].GetTotalAttack());
             cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_SUCCESS,players[i].GetSuccessAttack());
             cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_MISTAKE,players[i].GetMistakeAttack());
@@ -325,16 +325,16 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
 
-        cv.put(KEY_YEAR,games_playings.GetYear());
-        cv.put(KEY_MONTH,games_playings.GetMonth());
-        cv.put(KEY_DAY,games_playings.GetDay());
-        cv.put(KEY_BLUE_TEAM,games_playings.GetBlueName());
-        cv.put(KEY_RED_TEAM,games_playings.GetRedName());
-        cv.put(KEY_FORMAT,games_playings.GetFormat());
-        cv.put(KEY_BLUE_SCORE,games_playings.GetBlueScore());
-        cv.put(KEY_RED_SCORE,games_playings.GetRedScore());
-        cv.put(KEY_SUB_NUMBER,games_playings.GetSubNumber());
-        cv.put(KEY_L_NUMBER,games_playings.GetLnumber());
+        cv.put(KEY_YEAR,games_playings.getYear());
+        cv.put(KEY_MONTH,games_playings.getMonth());
+        cv.put(KEY_DAY,games_playings.getDay());
+        cv.put(KEY_BLUE_TEAM,games_playings.getBlueName());
+        cv.put(KEY_RED_TEAM,games_playings.getRedName());
+        cv.put(KEY_FORMAT,games_playings.getFormat());
+        cv.put(KEY_BLUE_SCORE,games_playings.getBlueScore());
+        cv.put(KEY_RED_SCORE,games_playings.getRedScore());
+        cv.put(KEY_SUB_NUMBER,games_playings.getSubCount());
+        cv.put(KEY_L_NUMBER,games_playings.getLCount());
 
         Log.w("game_set_data_db", "8" + players[0].GetNumber() + "7");
 
@@ -342,7 +342,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         {
             cv.put(KEY_PLAYER+i,players[i].GetNumber());
             cv.put(KEY_PLAYER+i+KEY_NAME,players[i].GetName());
-            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].GetPlace());
+            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].GetPosition());
             cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_ALL,players[i].GetTotalAttack());
             cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_SUCCESS,players[i].GetSuccessAttack());
             cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_MISTAKE,players[i].GetMistakeAttack());
@@ -384,16 +384,16 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         c.moveToFirst();
 
-        gameData.SetYear(c.getString(0));
-        gameData.SetMonth(c.getString(1));
-        gameData.SetDay(c.getString(2));
-        gameData.SetBlueName(c.getString(3));
-        gameData.SetRedName(c.getString(4));
-        gameData.SetFormat_int(c.getInt(5));
-        gameData.SetSubNumber_Data(c.getInt(6));
-        gameData.SetLNumber_Data(c.getInt(7));
-        gameData.SetBlueScore(c.getInt(8));
-        gameData.SetRedScore(c.getInt(9));
+        gameData.setYear(c.getString(0));
+        gameData.setMonth(c.getString(1));
+        gameData.setDay(c.getString(2));
+        gameData.setBlueName(c.getString(3));
+        gameData.setRedName(c.getString(4));
+        gameData.setFormat_int(c.getInt(5));
+        gameData.setSubCount_Data(c.getInt(6));
+        gameData.setLCount_Data(c.getInt(7));
+        gameData.setBlueScore(c.getInt(8));
+        gameData.setRedScore(c.getInt(9));
 
 //        Log.w("blue_name_db",c.getString(3));
 //        Log.w("red_name_db",c.getString(4));
@@ -509,7 +509,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         {
             players[i].SetNumber(c.getString(i));
             players[i].SetName(c.getString(i+12));
-            players[i].SetPlace(c.getString(i+24));
+            players[i].SetPosition(c.getString(i+24));
 
             players[i].SetAllAttack(c.getInt(36+i*16));
             players[i].SetSuccessAttack(c.getInt(37+i*16));
@@ -593,16 +593,16 @@ public class DataBaseHelper extends SQLiteOpenHelper{
             c.moveToFirst();
             for(int i=0;i<tmp_number;i++)
             {
-                tmp_gameData[i].SetYear(c.getString(1));
-                tmp_gameData[i].SetMonth(c.getString(2));
-                tmp_gameData[i].SetDay(c.getString(3));
-                tmp_gameData[i].SetBlueName(c.getString(4));
-                tmp_gameData[i].SetRedName(c.getString(5));
-                tmp_gameData[i].SetFormat_int(c.getInt(6));
-                tmp_gameData[i].SetSubNumber_Data(c.getInt(7));
-                tmp_gameData[i].SetLNumber_Data(c.getInt(8));
-                tmp_gameData[i].SetBlueScore(c.getInt(9));
-                tmp_gameData[i].SetRedScore(c.getInt(10));
+                tmp_gameData[i].setYear(c.getString(1));
+                tmp_gameData[i].setMonth(c.getString(2));
+                tmp_gameData[i].setDay(c.getString(3));
+                tmp_gameData[i].setBlueName(c.getString(4));
+                tmp_gameData[i].setRedName(c.getString(5));
+                tmp_gameData[i].setFormat_int(c.getInt(6));
+                tmp_gameData[i].setSubCount_Data(c.getInt(7));
+                tmp_gameData[i].setLCount_Data(c.getInt(8));
+                tmp_gameData[i].setBlueScore(c.getInt(9));
+                tmp_gameData[i].setRedScore(c.getInt(10));
 
                 c.moveToNext();
             }
@@ -723,7 +723,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         {
             players[i].SetNumber(c.getString(i));
             players[i].SetName(c.getString(i+12));
-            players[i].SetPlace(c.getString(i+24));
+            players[i].SetPosition(c.getString(i+24));
 
             players[i].SetAllAttack(c.getInt(36+i*16));
             players[i].SetSuccessAttack(c.getInt(37+i*16));

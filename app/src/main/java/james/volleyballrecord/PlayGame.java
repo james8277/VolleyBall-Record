@@ -29,19 +29,18 @@ import fragment.Start;
 
 public class PlayGame extends Activity {
 
-    private boolean start_event_chooice = false;
-    private boolean start_player_chooice = false;
-    private int start_pre_player_chooice = R.id.start_player_1;
-    private int start_player_chooice_next;
-    DataBaseHelper dataBaseHelper;
-    private boolean is_Initial_Set = false;
+    private boolean start_playerSelected = false;
+    private int start_prePlayerSelected = R.id.start_player_1;
+    private int start_playerSelectedNext;
+    private DataBaseHelper dataBaseHelper;
+    private boolean isInitialSet = false;
 
 
-    private int pre_set_player_chooice = 0;
-    private int player_set_current;
+    private int set_PrePlayerSelected = 0;
+    private int set_CurrentPlayer;
 
-    private Player[] players_play_game;
-    private GameData game_play_game;
+    private Player[] players_playGame;
+    private GameData game_playGame;
 
     private int play_round = 0;
 
@@ -49,20 +48,20 @@ public class PlayGame extends Activity {
         return  play_round;
     }
 
-    public GameData GetGame_play_game() {
-        return game_play_game;
+    public GameData getGame_playGame() {
+        return game_playGame;
     }
-    public Player[] GetPlayers_play_game() {
-        return players_play_game;
+    public Player[] getPlayers_playGame() {
+        return players_playGame;
     }
-    public int GetPlayer_chooice(){
-        return start_player_chooice_next;
+    public int getPlayerSelected(){
+        return start_playerSelectedNext;
     }
-    public void SetRound() {
+    public void setRound() {
         play_round++;
     }
-    public void SetPlayer_Chooice() {
-        start_player_chooice = false;
+    public void setPlayerSelected() {
+        start_playerSelected = false;
     }
 
 
@@ -72,9 +71,9 @@ public class PlayGame extends Activity {
         setContentView(R.layout.activity_play_game);
         dataBaseHelper = new DataBaseHelper(this);
 
-        if (!is_Initial_Set) {
-            game_play_game = dataBaseHelper.getGameTmp();
-            players_play_game = dataBaseHelper.getPlayerTmp();
+        if (!isInitialSet) {
+            game_playGame = dataBaseHelper.getGameTmp();
+            players_playGame = dataBaseHelper.getPlayerTmp();
 //            is_Initial_Set = true;
 //            Log.w("play_game_initial_set",String.valueOf(is_Initial_Set));
 
@@ -96,8 +95,6 @@ public class PlayGame extends Activity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
-
-
         return true;
     }
 
@@ -107,64 +104,57 @@ public class PlayGame extends Activity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void Set_Player_2(Player[] x)
-    {
-        players_play_game = x;
+    public void Set_Player_2(Player[] x) {
+        players_playGame = x;
     }
 
     public void start_player_function(View view) {
-        Resources res = this.getResources();
-        Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
-        Drawable tmp_photo_2 = res.getDrawable(R.drawable.player_2);
+        Drawable tmp_photo = getDrawable(R.drawable.player_1);
+        Drawable tmp_photo_2 = getDrawable(R.drawable.player_2);
 
+        Button button_player_before = (Button)findViewById(start_prePlayerSelected);
+        button_player_before.setBackground(tmp_photo);
 
+        int player_current_id = view.getId();
+        Button button_player_current = (Button)findViewById(player_current_id);
 
-        if(!start_event_chooice) {
-
-            Button button_player_before = (Button)findViewById(start_pre_player_chooice);
-            button_player_before.setBackground(tmp_photo);
-
-            int player_current_id = view.getId();
-            Button button_player_current = (Button)findViewById(player_current_id);
-
-            switch (player_current_id) {
-                case R.id.start_player_1:
-                    button_player_current.setBackground(tmp_photo_2);
-                    start_player_chooice = true;
-                    start_player_chooice_next = 1;
-                    start_pre_player_chooice = player_current_id;
-                    break;
-                case R.id.start_player_2:
-                    button_player_current.setBackground(tmp_photo_2);
-                    start_player_chooice = true;
-                    start_player_chooice_next = 2;
-                    start_pre_player_chooice = player_current_id;
-                    break;
-                case R.id.start_player_3:
-                    button_player_current.setBackground(tmp_photo_2);
-                    start_player_chooice = true;
-                    start_player_chooice_next = 3;
-                    start_pre_player_chooice = player_current_id;
-                    break;
-                case R.id.start_player_4:
-                    button_player_current.setBackground(tmp_photo_2);
-                    start_player_chooice = true;
-                    start_player_chooice_next = 4;
-                    start_pre_player_chooice = player_current_id;
-                    break;
-                case R.id.start_player_5:
-                    button_player_current.setBackground(tmp_photo_2);
-                    start_player_chooice = true;
-                    start_player_chooice_next = 5;
-                    start_pre_player_chooice = player_current_id;
-                    break;
-                case R.id.start_player_6:
-                    button_player_current.setBackground(tmp_photo_2);
-                    start_player_chooice = true;
-                    start_player_chooice_next = 6;
-                    start_pre_player_chooice = player_current_id;
-                    break;
-            }
+        switch (player_current_id) {
+            case R.id.start_player_1:
+                button_player_current.setBackground(tmp_photo_2);
+                start_playerSelected = true;
+                start_playerSelectedNext = 1;
+                start_prePlayerSelected = player_current_id;
+                break;
+            case R.id.start_player_2:
+                button_player_current.setBackground(tmp_photo_2);
+                start_playerSelected = true;
+                start_playerSelectedNext = 2;
+                start_prePlayerSelected = player_current_id;
+                break;
+            case R.id.start_player_3:
+                button_player_current.setBackground(tmp_photo_2);
+                start_playerSelected = true;
+                start_playerSelectedNext = 3;
+                start_prePlayerSelected = player_current_id;
+                break;
+            case R.id.start_player_4:
+                button_player_current.setBackground(tmp_photo_2);
+                start_playerSelected = true;
+                start_playerSelectedNext = 4;
+                start_prePlayerSelected = player_current_id;
+                break;
+            case R.id.start_player_5:
+                button_player_current.setBackground(tmp_photo_2);
+                start_playerSelected = true;
+                start_playerSelectedNext = 5;
+                start_prePlayerSelected = player_current_id;
+                break;
+            case R.id.start_player_6:
+                button_player_current.setBackground(tmp_photo_2);
+                start_playerSelected = true;
+                start_playerSelectedNext = 6;
+                start_prePlayerSelected = player_current_id;
+                break;
         }
 
 //        Log.w("start_player_chooice",String.valueOf(start_player_chooice));
@@ -183,7 +173,7 @@ public class PlayGame extends Activity {
 //            textView_lchange.setClickable(true);
 //        }
 
-        if(start_player_chooice) {
+        if(start_playerSelected) {
             switch (start_event_current_id) {
                 case R.id.start_attack:
                     Fragment start_fragment_attack = new Attack();
@@ -238,7 +228,7 @@ public class PlayGame extends Activity {
             startActivity(intent);
             this.finish();
 
-            dataBaseHelper.addDataTmp(game_play_game,players_play_game);
+            dataBaseHelper.addDataTmp(game_playGame,players_playGame);
             this.overridePendingTransition(R.anim.left_in, R.anim.right_out);
         }
         return false;
@@ -262,9 +252,8 @@ public class PlayGame extends Activity {
         x[0] = tmp;
     }
 
-    public int get_set_2_player_chooice()
-    {
-        return player_set_current;
+    public int get_set_2_player_chooice() {
+        return set_CurrentPlayer;
     }
 
     private int player_set = 0;
@@ -282,8 +271,8 @@ public class PlayGame extends Activity {
         Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
         Drawable tmp_photo_2 = res.getDrawable(R.drawable.player_2);
 
-        if(pre_set_player_chooice != 0) {
-            Button pre_player_button = (Button)findViewById(pre_set_player_chooice);
+        if(set_PrePlayerSelected != 0) {
+            Button pre_player_button = (Button)findViewById(set_PrePlayerSelected);
             pre_player_button.setBackground(tmp_photo);
         }
 
@@ -298,7 +287,7 @@ public class PlayGame extends Activity {
         set_player_spinner.setClickable(true);
         textView_enter.setClickable(true);
 
-        if(6+game_play_game.GetSubNumber()-player_set != 0) {
+        if(6+game_playGame.getSubCount()-player_set != 0) {
             set_player_spinner.setVisibility(View.VISIBLE);
             textView_enter.setVisibility(View.VISIBLE);
         }
@@ -306,33 +295,33 @@ public class PlayGame extends Activity {
         switch (player_chooice) {
             case R.id.set_2_player_1_data:
                 button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 0;
-                pre_set_player_chooice = player_chooice;
+                set_CurrentPlayer = 0;
+                set_PrePlayerSelected = player_chooice;
                 break;
             case R.id.set_2_player_2_data:
                 button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 1;
-                pre_set_player_chooice = player_chooice;
+                set_CurrentPlayer = 1;
+                set_PrePlayerSelected = player_chooice;
                 break;
             case R.id.set_2_player_3_data:
                 button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 2;
-                pre_set_player_chooice = player_chooice;
+                set_CurrentPlayer = 2;
+                set_PrePlayerSelected = player_chooice;
                 break;
             case R.id.set_2_player_4_data:
                 button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 3;
-                pre_set_player_chooice = player_chooice;
+                set_CurrentPlayer = 3;
+                set_PrePlayerSelected = player_chooice;
                 break;
             case R.id.set_2_player_5_data:
                 button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 4;
-                pre_set_player_chooice = player_chooice;
+                set_CurrentPlayer = 4;
+                set_PrePlayerSelected = player_chooice;
                 break;
             case R.id.set_2_player_6_data:
                 button_player_chooice.setBackground(tmp_photo_2);
-                player_set_current = 5;
-                pre_set_player_chooice = player_chooice;
+                set_CurrentPlayer = 5;
+                set_PrePlayerSelected = player_chooice;
                 break;
         }
     }

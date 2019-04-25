@@ -26,8 +26,8 @@ public class BlueWin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        gameData_blue_win = ((PlayGame)getActivity()).GetGame_play_game();
-        players_blue_win = ((PlayGame)getActivity()).GetPlayers_play_game();
+        gameData_blue_win = ((PlayGame)getActivity()).getGame_playGame();
+        players_blue_win = ((PlayGame)getActivity()).getPlayers_playGame();
         dataBaseHelper = new DataBaseHelper(getActivity());
         dataBaseHelper.addAll(gameData_blue_win,players_blue_win);
     }
@@ -38,7 +38,7 @@ public class BlueWin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_blue_win, container, false);
 
         TextView textView_blue = (TextView)view.findViewById(R.id.blue_win);
-        textView_blue.setText(gameData_blue_win.GetBlueName() +"  " + this.getResources().getText(R.string.Win));
+        textView_blue.setText(gameData_blue_win.getBlueName() +"  " + this.getResources().getText(R.string.Win));
 
         Button button_back = (Button)view.findViewById(R.id.blue_win_back);
         button_back.setOnClickListener(new View.OnClickListener() {

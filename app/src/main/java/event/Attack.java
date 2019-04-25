@@ -29,10 +29,10 @@ public class Attack extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        games_attack = ((PlayGame)getActivity()).GetGame_play_game();
-        player_attack = ((PlayGame)getActivity()).GetPlayers_play_game();
+        games_attack = ((PlayGame)getActivity()).getGame_playGame();
+        player_attack = ((PlayGame)getActivity()).getPlayers_playGame();
         //attack_round = ((PlayGame)getActivity()).GetRound();
-        attack_chooice = ((PlayGame)getActivity()).GetPlayer_chooice();
+        attack_chooice = ((PlayGame)getActivity()).getPlayerSelected();
 
     }
 
@@ -42,19 +42,19 @@ public class Attack extends Fragment {
         View view = inflater.inflate(R.layout.fragment_attack, container, false);
 
         TextView textView_blue_name = (TextView)view.findViewById(R.id.attack_blue_name);
-        textView_blue_name.setText(games_attack.GetBlueName());
+        textView_blue_name.setText(games_attack.getBlueName());
         TextView textView_red_name = (TextView)view.findViewById(R.id.attack_red_name);
-        textView_red_name.setText(games_attack.GetRedName());
+        textView_red_name.setText(games_attack.getRedName());
 
         TextView textView_BlueSet = (TextView)view.findViewById(R.id.BlueSetScore_attack);
-        textView_BlueSet.setText(Integer.toString(games_attack.GetBlueSet()));
+        textView_BlueSet.setText(Integer.toString(games_attack.getBlueSet()));
         TextView textView_RedSet = (TextView)view.findViewById(R.id.RedSetScore_attack);
-        textView_RedSet.setText(Integer.toString(games_attack.GetRedSet()));
+        textView_RedSet.setText(Integer.toString(games_attack.getRedSet()));
 
         TextView textView_attack_blue_score = (TextView)view.findViewById(R.id.attack_blue_score);
         TextView textView_attack_red_score = (TextView)view.findViewById(R.id.attack_red_score);
-        textView_attack_blue_score.setText(String.valueOf(games_attack.GetBlueScore()));
-        textView_attack_red_score.setText(String.valueOf(games_attack.GetRedScore()));
+        textView_attack_blue_score.setText(String.valueOf(games_attack.getBlueScore()));
+        textView_attack_red_score.setText(String.valueOf(games_attack.getRedScore()));
 
         TextView player_number_name_1 = (TextView)view.findViewById(R.id.attack_player_number_1);
         TextView player_number_name_2 = (TextView)view.findViewById(R.id.attack_player_number_2);
@@ -116,15 +116,15 @@ public class Attack extends Fragment {
 
                 games_attack.BlueScore();
                 player_attack[attack_chooice-1].SuccessAttack();
-                if(games_attack.GetPrevious() == 2)
+                if(games_attack.getPrevious() == 2)
                 {
-                    games_attack.SetPrevious(1);
+                    games_attack.setPrevious(1);
                     ((PlayGame)getActivity()).rotate(player_attack);
                     //((PlayGame)getActivity()).SetRound();
                 }
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -136,10 +136,10 @@ public class Attack extends Fragment {
 
                 games_attack.RedScore();
                 player_attack[attack_chooice-1].MistakeAttack();
-                games_attack.SetPrevious(2);
+                games_attack.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -152,7 +152,7 @@ public class Attack extends Fragment {
                 player_attack[attack_chooice-1].InvalidAttack();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 

@@ -38,8 +38,8 @@ public class Start extends Fragment {
         game_start = new GameData();
 
 
-        game_start =  ((PlayGame)getActivity()).GetGame_play_game();
-        players_start = ((PlayGame)getActivity()).GetPlayers_play_game();
+        game_start =  ((PlayGame)getActivity()).getGame_playGame();
+        players_start = ((PlayGame)getActivity()).getPlayers_playGame();
 
 
 //        Log.w("Format",Integer.toString(game_start.GetFormat()));
@@ -58,31 +58,31 @@ public class Start extends Fragment {
         String number_tmp;
 
         TextView textView_blue_name = (TextView)view.findViewById(R.id.start_blue_name);
-        textView_blue_name.setText(game_start.GetBlueName());
+        textView_blue_name.setText(game_start.getBlueName());
         TextView textView_red_name = (TextView)view.findViewById(R.id.start_red_name);
-        textView_red_name.setText(game_start.GetRedName());
+        textView_red_name.setText(game_start.getRedName());
 
         TextView textView_start_blue_score = (TextView)view.findViewById(R.id.start_blue_score);
         TextView textView_start_red_score = (TextView)view.findViewById(R.id.start_red_score);
-        textView_start_blue_score.setText(String.valueOf(game_start.GetBlueScore()));
-        textView_start_red_score.setText(String.valueOf(game_start.GetRedScore()));
+        textView_start_blue_score.setText(String.valueOf(game_start.getBlueScore()));
+        textView_start_red_score.setText(String.valueOf(game_start.getRedScore()));
 
 
         TextView textView_BlueSet = (TextView)view.findViewById(R.id.BlueSetScore_start);
-        textView_BlueSet.setText(Integer.toString(game_start.GetBlueSet()));
+        textView_BlueSet.setText(Integer.toString(game_start.getBlueSet()));
         TextView textView_RedSet = (TextView)view.findViewById(R.id.RedSetScore_start);
-        textView_RedSet.setText(Integer.toString(game_start.GetRedSet()));
+        textView_RedSet.setText(Integer.toString(game_start.getRedSet()));
 
-        final Drawable right_arrow = this.getResources().getDrawable(R.drawable.sortright24);
-        final Drawable left_arrow = this.getResources().getDrawable(R.drawable.sortleft24);
+        final Drawable right_arrow = getActivity().getDrawable(R.drawable.sortright24);
+        final Drawable left_arrow = getActivity().getDrawable(R.drawable.sortleft24);
 
         final Button button_Serve_Team = (Button)view.findViewById(R.id.serve_team);
 
-        if(game_start.GetPrevious() == 1)
+        if(game_start.getPrevious() == 1)
         {
             button_Serve_Team.setBackground(left_arrow);
         }
-        if(game_start.GetPrevious() == 2)
+        if(game_start.getPrevious() == 2)
         {
             button_Serve_Team.setBackground(right_arrow);
         }
@@ -93,14 +93,14 @@ public class Start extends Fragment {
 
                 AlertDialog.Builder dialog_serve_Team= new AlertDialog.Builder(getActivity());
                 dialog_serve_Team.setMessage("Set Serve Team");
-                dialog_serve_Team.setNegativeButton( game_start.GetBlueName() + " ", new DialogInterface.OnClickListener() {
+                dialog_serve_Team.setNegativeButton( game_start.getBlueName() + " ", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                         dialogInterface.dismiss();
 
                         button_Serve_Team.setBackground(left_arrow);
-                        game_start.SetPrevious(1);
+                        game_start.setPrevious(1);
 
                         FragmentTransaction mf = getFragmentManager().beginTransaction();
                         Fragment fragment_start = new Start();
@@ -109,7 +109,7 @@ public class Start extends Fragment {
                     }
                 });
 
-                dialog_serve_Team.setPositiveButton(game_start.GetRedName() + " " , new DialogInterface.OnClickListener() {
+                dialog_serve_Team.setPositiveButton(game_start.getRedName() + " " , new DialogInterface.OnClickListener() {
 
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
@@ -117,7 +117,7 @@ public class Start extends Fragment {
                         dialogInterface.dismiss();
 
                         button_Serve_Team.setBackground(right_arrow);
-                        game_start.SetPrevious(2);
+                        game_start.setPrevious(2);
 
                         FragmentTransaction mf = getFragmentManager().beginTransaction();
                         Fragment fragment_start = new Start();
@@ -142,9 +142,9 @@ public class Start extends Fragment {
                         dialogInterface.dismiss();
                         game_start.BlueScore();
 
-                        if(game_start.GetPrevious() == 2)
+                        if(game_start.getPrevious() == 2)
                         {
-                            game_start.SetPrevious(1);
+                            game_start.setPrevious(1);
                             ((PlayGame)getActivity()).rotate(players_start);
                             //((PlayGame)getActivity()).SetRound();
                         }
@@ -161,7 +161,7 @@ public class Start extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
 
-                        if(game_start.GetBlueScore() != 0)
+                        if(game_start.getBlueScore() != 0)
                         {
                             game_start.BlueScoreMinus();
 
@@ -199,7 +199,7 @@ public class Start extends Fragment {
                         dialogInterface.dismiss();
                         game_start.RedScore();
 
-                        game_start.SetPrevious(2);
+                        game_start.setPrevious(2);
 
                         FragmentTransaction mf = getFragmentManager().beginTransaction();
 
@@ -213,7 +213,7 @@ public class Start extends Fragment {
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
 
-                        if(game_start.GetRedScore() != 0)
+                        if(game_start.getRedScore() != 0)
                         {
                             game_start.RedScoreMinus();
 
@@ -266,38 +266,38 @@ public class Start extends Fragment {
 
 //        Log.w("Format_Start", Integer.toString(game_start.GetFormat()) );
 
-        if(game_start.GetFormat() == 3 && game_start.GetBlueSet() == 1 && game_start.GetRedSet() == 1)
+        if(game_start.getFormat() == 3 && game_start.getBlueSet() == 1 && game_start.getRedSet() == 1)
         {
-            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
             {
-                if (game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                if (game_start.getBlueScore() - game_start.getRedScore() >= 2)
                 {
                     mf.replace(R.id.container_play,fragment_Blue_win);
                     mf.commit();
                 }
             }
-            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
             {
-                if (game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+                if (game_start.getRedScore() - game_start.getBlueScore() >= 2)
                 {
                     mf.replace(R.id.container_play,fragment_Red_win);
                 }
             }
         }
 
-        if(game_start.GetFormat() == 5 && game_start.GetBlueSet() == 2 && game_start.GetRedSet() == 2)
+        if(game_start.getFormat() == 5 && game_start.getBlueSet() == 2 && game_start.getRedSet() == 2)
         {
-            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
             {
-                if (game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+                if (game_start.getBlueScore() - game_start.getRedScore() >= 2)
                 {
                     mf.replace(R.id.container_play,fragment_Blue_win);
                     mf.commit();
                 }
             }
-            if(game_start.GetBlueScore() >= 15 || game_start.GetRedScore() >= 15)
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
             {
-                if (game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+                if (game_start.getRedScore() - game_start.getBlueScore() >= 2)
                 {
                     mf.replace(R.id.container_play,fragment_Red_win);
                 }
@@ -305,21 +305,21 @@ public class Start extends Fragment {
         }
 
 
-        if(game_start.GetBlueScore() >= 25 || game_start.GetRedScore() >= 25) {
+        if(game_start.getBlueScore() >= 25 || game_start.getRedScore() >= 25) {
 
 
-            if (game_start.GetBlueScore() - game_start.GetRedScore() >= 2)
+            if (game_start.getBlueScore() - game_start.getRedScore() >= 2)
             {
                 Log.w("Blue - Red","2");
-                game_start.SetBlueSet();
-                game_start.SetBlueScore(0);
-                game_start.SetRedScore(0);
+                game_start.setBlueSet();
+                game_start.setBlueScore(0);
+                game_start.setRedScore(0);
 
-                Log.w("BlueSet", Integer.toString(game_start.GetBlueSet()));
-                Log.w("RedSet", Integer.toString(game_start.GetRedSet()));
-                Log.w("Format_Start", Integer.toString(((game_start.GetFormat()+1)/2)) );
+                Log.w("BlueSet", Integer.toString(game_start.getBlueSet()));
+                Log.w("RedSet", Integer.toString(game_start.getRedSet()));
+                Log.w("Format_Start", Integer.toString(((game_start.getFormat()+1)/2)) );
 
-                if(game_start.GetBlueSet() == ((game_start.GetFormat()+1)/2) )
+                if(game_start.getBlueSet() == ((game_start.getFormat()+1)/2) )
                 {
                     Log.w("Blue Win","true");
                     mf.replace(R.id.container_play,fragment_Blue_win);
@@ -331,19 +331,19 @@ public class Start extends Fragment {
                     mf.commit();
                 }
             }
-            if (game_start.GetRedScore() - game_start.GetBlueScore() >= 2)
+            if (game_start.getRedScore() - game_start.getBlueScore() >= 2)
             {
                 Log.w("Red - Blue","2");
 
-                game_start.SetRedSet();
-                game_start.SetBlueScore(0);
-                game_start.SetRedScore(0);
+                game_start.setRedSet();
+                game_start.setBlueScore(0);
+                game_start.setRedScore(0);
 
-                Log.w("BlueSet", Integer.toString(game_start.GetBlueSet()));
-                Log.w("RedSet", Integer.toString(game_start.GetRedSet()));
-                Log.w("Format_Start", Integer.toString(((game_start.GetFormat()+1)/2)) );
+                Log.w("BlueSet", Integer.toString(game_start.getBlueSet()));
+                Log.w("RedSet", Integer.toString(game_start.getRedSet()));
+                Log.w("Format_Start", Integer.toString(((game_start.getFormat()+1)/2)) );
 
-                if(game_start.GetRedSet() == ((game_start.GetFormat()+1)/2) )
+                if(game_start.getRedSet() == ((game_start.getFormat()+1)/2) )
                 {
                     Log.w("Red Win","true");
                     mf.replace(R.id.container_play,fragment_Red_win);

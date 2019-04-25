@@ -27,8 +27,8 @@ public class RedWin extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        gameData_red_win = ((PlayGame)getActivity()).GetGame_play_game();
-        players_red_win = ((PlayGame)getActivity()).GetPlayers_play_game();
+        gameData_red_win = ((PlayGame)getActivity()).getGame_playGame();
+        players_red_win = ((PlayGame)getActivity()).getPlayers_playGame();
         dataBaseHelper = new DataBaseHelper(getActivity());
         Log.w("total_attack_red_win", String.valueOf(players_red_win[0].GetTotalAttack()));
         Log.w("success_attack_red_win", String.valueOf(players_red_win[0].GetSuccessAttack()));
@@ -44,7 +44,7 @@ public class RedWin extends Fragment {
         View view = inflater.inflate(R.layout.fragment_red_win, container, false);
 
         TextView textView_blue = (TextView)view.findViewById(R.id.red_win);
-        textView_blue.setText(gameData_red_win.GetBlueName() + "  " + this.getResources().getText(R.string.Win));
+        textView_blue.setText(gameData_red_win.getBlueName() + "  " + this.getResources().getText(R.string.Win));
 
 
         Button button_back = (Button)view.findViewById(R.id.red_win_back);

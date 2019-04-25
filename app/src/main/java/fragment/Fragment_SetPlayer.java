@@ -2,10 +2,8 @@ package fragment;
 
 import android.app.Fragment;
 import android.app.FragmentTransaction;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,21 +15,18 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import org.w3c.dom.Text;
-
-import Struct.GameData;
 import Struct.Player;
 import james.volleyballrecord.Activity_InitialSet;
 import james.volleyballrecord.R;
 
-public class SetPlayer extends Fragment {
+public class Fragment_SetPlayer extends Fragment {
 
-    private static final String TAG = SetPlayer.class.getSimpleName();
+    private static final String TAG = Fragment_SetPlayer.class.getSimpleName();
 
     //Player Data
     private Player[] player_setPlayer;
     //Position Array
-    private String[] Position;
+    private String[] position;
     //Player place
     private String playerPlace;
     //Current selected player
@@ -44,11 +39,11 @@ public class SetPlayer extends Fragment {
         player_setPlayer = ((Activity_InitialSet)getActivity()).getPlayer();
 
         //Initialize position array
-        Position = new String[4];
-        Position[0] = getString(R.string.S);
-        Position[1] = getString(R.string.MB);
-        Position[2] = getString(R.string.WS);
-        Position[3] = getString(R.string.L);
+        position = new String[4];
+        position[0] = getString(R.string.S);
+        position[1] = getString(R.string.MB);
+        position[2] = getString(R.string.WS);
+        position[3] = getString(R.string.L);
     }
 
     @Override
@@ -82,16 +77,16 @@ public class SetPlayer extends Fragment {
         //Spinner for player place
         final Spinner place_spinner = (Spinner)rootView.findViewById(R.id.set_place_spinner);
         //Adapter for player spinner
-        ArrayAdapter<String> place_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, Position);
-        place_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        place_spinner.setAdapter(place_adapter);
+        ArrayAdapter<String> placeAdapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, position);
+        placeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        place_spinner.setAdapter(placeAdapter);
 
         //Get Selected place from spinner
         place_spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
             @Override
             public void onItemSelected(AdapterView<?> arg0, View arg1,int arg2, long arg3) {
-                playerPlace = Position[arg2];
+                playerPlace = position[arg2];
             }
 
             @Override
@@ -118,7 +113,7 @@ public class SetPlayer extends Fragment {
                 currentSelectedPlayer = ((Activity_InitialSet)getActivity()).getPlayer_currentSelected();
 
                 //Update player data
-                player_setPlayer[currentSelectedPlayer].SetPlace(playerPlace);
+                player_setPlayer[currentSelectedPlayer].SetPosition(playerPlace);
                 player_setPlayer[currentSelectedPlayer].SetName(set_player_name.getText().toString());
                 player_setPlayer[currentSelectedPlayer].SetNumber(set_player_number.getText().toString());
 
@@ -178,7 +173,7 @@ public class SetPlayer extends Fragment {
                 //Go to next fragment
                 FragmentTransaction mf = getFragmentManager().beginTransaction();
                 mf.setCustomAnimations(R.animator.fragment_right_in,R.animator.fragment_left_out);
-                Fragment fragment_setSubstitute = new SetSubstitute();
+                Fragment fragment_setSubstitute = new Fragment_SetSubstitute();
                 mf.replace(R.id.container_set, fragment_setSubstitute);
                 mf.commit();
             }

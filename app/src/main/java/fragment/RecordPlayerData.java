@@ -51,7 +51,7 @@ public class RecordPlayerData extends Fragment {
         TextView textView_player_number = (TextView)view.findViewById(R.id.record_player_data_number);
         textView_player_number.setText("Number: " + record_player_data[tmp_select_player].GetNumber());
         TextView textView_player_place = (TextView)view.findViewById(R.id.record_player_data_place);
-        textView_player_place.setText("Place: " + record_player_data[tmp_select_player].GetPlace());
+        textView_player_place.setText("Place: " + record_player_data[tmp_select_player].GetPosition());
 
         TextView textView_attack_all_number = (TextView)view.findViewById(R.id.record_attack_all_number);
         textView_attack_all_number.setText(String.valueOf(record_player_data[tmp_select_player].GetTotalAttack()));

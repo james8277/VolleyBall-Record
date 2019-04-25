@@ -20,14 +20,14 @@ public class GameData
 
 	private int Format;
 	
-	private int Lnumber;
+	private int LCount;
 	private int RedChange;
 	private int BlueChange;
 	
 	private int change;
 	private int previousScore;
 	
-	private int subNumber;
+	private int subCount;
 
 	private int BlueSet;
 	private int RedSet;
@@ -46,8 +46,8 @@ public class GameData
 		
 		BlueScore = 0;
 		RedScore = 0;
-		
-		Lnumber = 0;
+
+		LCount = 0;
 		BlueChange = 0;
 		RedChange = 0;
 		
@@ -56,22 +56,22 @@ public class GameData
 		Day = "";
 		
 		previousScore = 1;
-		subNumber = 0;
+		subCount = 0;
 
 		BlueSet = 0;
 		RedSet = 0;
 	}
 	
-	public void SetBlueName(String x) {
+	public void setBlueName(String x) {
 		BlueName = x;
 	}
-	public void SetRedName(String x) {
+	public void setRedName(String x) {
 		RedName = x;
 	}
-	public void SetHome(String x) {
+	public void setHome(String x) {
 		HomeName = x;
 	}
-	public void SetAway(String x) {
+	public void setAway(String x) {
 		AwayName = x;
 	}
 	
@@ -88,62 +88,62 @@ public class GameData
         RedScore--;
     }
 
-    public void SetBlueScore(int x) {
+    public void setBlueScore(int x) {
         BlueScore = x;
     }
-    public void SetRedScore(int x) {
+    public void setRedScore(int x) {
         RedScore = x;
     }
 	
-	public String GetHomeName() {
+	public String getHomeName() {
 		return HomeName;
 	}
-	public String GetAwayName() {
+	public String getAwayName() {
 		return AwayName;
 	}
-	public String GetBlueName() {
+	public String getBlueName() {
 		return BlueName;
 	}
-	public String GetRedName() {
+	public String getRedName() {
 		return RedName;
 	}
 	
-	public int GetBlueScore() {
+	public int getBlueScore() {
 		return BlueScore;
 	}
-	public int GetRedScore() {
+	public int getRedScore() {
 		return RedScore;
 	}
 	
-	public int GetOnField(int x) {
+	public int getOnField(int x) {
 		return OnField[x];
 	}
-	public int GetSub(int x) {
+	public int getSub(int x) {
 		return Sub[x];
 	}
 	
-	public void Change() {
+	public void change() {
 		change++;
 	}
-	public int GetChange() {
+	public int getChange() {
 		return change;
 	}
 
-	public int GetBlueSet() {
+	public int getBlueSet() {
 		return BlueSet;
 	}
-	public int GetRedSet() {
+	public int getRedSet() {
 		return RedSet;
 	}
 	
-	public void Changeplayer(int x, int y) {
+	public void changePlayer(int x, int y) {
 		int tmp;
 		
 		tmp = OnField[x];
 		OnField[x] = Sub[y];
 		Sub[y] = tmp;
 	}
-	public void LchangePlayer(int x, int y) {
+	public void changeLPlayer(int x, int y) {
 		int tmp;
 		
 		tmp = OnField[x];
@@ -151,7 +151,7 @@ public class GameData
 		L[y] = tmp;
 	}
 	
-	public int GetL(int x) {
+	public int getL(int x) {
 		return L[x];
 	}
 	
@@ -161,24 +161,24 @@ public class GameData
 	public void BlueChange() {
 		BlueChange++;
 	}
-	public void SetDay(String x) {
+	public void setDay(String x) {
 		Day = x;
 	}
-	public void SetMonth(String y) {
+	public void setMonth(String y) {
 		Month = y;
 	}
-	public void SetYear(String z) {
+	public void setYear(String z) {
 		Year = z;
 	}
 
-	public void SetBlueSet() {
+	public void setBlueSet() {
 		BlueSet++;
 	}
-	public void SetRedSet() {
+	public void setRedSet() {
 		RedSet++;
 	}
 
-	public void SetFormat(String f) {
+	public void setFormat(String f) {
 		if(f.equals("Best of 1") || f.equals("一局決勝")) {
 			Format = 1;
 		}
@@ -191,56 +191,52 @@ public class GameData
 		/*int tmp = this.GetFormat();
 		String tmp_string = Integer.toString(tmp);
 		Log.w("Format_game_playing", tmp_string);*/
-
 	}
-	public void SetFormat_int(int i) {
+	public void setFormat_int(int i) {
 			Format = i;
 	}
-	public int GetBlueChange() {
+	public int getBlueChange() {
 		return BlueChange;
 	}
-	public int GetRedChange() {
+	public int getRedChange() {
 		return RedChange;
 	}
-	public String GetYear() {
+	public String getYear() {
 		return Year;
 	}
-	public String GetMonth() {
+	public String getMonth() {
 		return Month;
 	}
-	public String GetDay() {
+	public String getDay() {
 		return Day;
 	}
-	public int GetFormat(){
-
-		//Log.w("Format_Get_Format", Integer.toString(Format));
+	public int getFormat(){
 		return Format;
 	}
-	public void SetLnumber() {
-		Lnumber++;
-	}
-	public int GetLnumber() {
-		return Lnumber;
+	public int getLCount() {
+		return LCount;
 	}
 	
-	public int GetPrevious() {
+	public int getPrevious() {
 		return previousScore;
 	}
-	public void SetPrevious(int x) {
+	public void setPrevious(int x) {
 		previousScore = x;
 	}
 	
-	public void SetSubNumber() {
-		subNumber++;
+	public void setSubCount() {
+		subCount++;
 	}
-	public int GetSubNumber() {
-		return subNumber;
+	public void setLCount() {
+		LCount++;
 	}
-
-    public void SetSubNumber_Data(int x) {
-        subNumber = x;
+	public int getSubCount() {
+		return subCount;
+	}
+    public void setSubCount_Data(int x) {
+		subCount = x;
     }
-    public void SetLNumber_Data(int x) {
-        Lnumber = x;
+    public void setLCount_Data(int x) {
+		LCount = x;
     }
 }

@@ -28,10 +28,10 @@ public class Block extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        games_block = ((PlayGame)getActivity()).GetGame_play_game();
-        player_block = ((PlayGame)getActivity()).GetPlayers_play_game();
+        games_block = ((PlayGame)getActivity()).getGame_playGame();
+        player_block = ((PlayGame)getActivity()).getPlayers_playGame();
         block_round = ((PlayGame)getActivity()).GetRound();
-        block_chooice = ((PlayGame)getActivity()).GetPlayer_chooice();
+        block_chooice = ((PlayGame)getActivity()).getPlayerSelected();
 
     }
 
@@ -41,19 +41,19 @@ public class Block extends Fragment {
         View view = inflater.inflate(R.layout.fragment_block, container, false);
 
         TextView textView_blue_name = (TextView)view.findViewById(R.id.block_blue_name);
-        textView_blue_name.setText(games_block.GetBlueName());
+        textView_blue_name.setText(games_block.getBlueName());
         TextView textView_red_name = (TextView)view.findViewById(R.id.block_red_name);
-        textView_red_name.setText(games_block.GetRedName());
+        textView_red_name.setText(games_block.getRedName());
 
         TextView textView_block_blue_score = (TextView)view.findViewById(R.id.block_blue_score);
         TextView textView_block_red_score = (TextView)view.findViewById(R.id.block_red_score);
-        textView_block_blue_score.setText(String.valueOf(games_block.GetBlueScore()));
-        textView_block_red_score.setText(String.valueOf(games_block.GetRedScore()));
+        textView_block_blue_score.setText(String.valueOf(games_block.getBlueScore()));
+        textView_block_red_score.setText(String.valueOf(games_block.getRedScore()));
 
         TextView textView_BlueSet = (TextView)view.findViewById(R.id.BlueSetScore_block);
-        textView_BlueSet.setText(Integer.toString(games_block.GetBlueSet()));
+        textView_BlueSet.setText(Integer.toString(games_block.getBlueSet()));
         TextView textView_RedSet = (TextView)view.findViewById(R.id.RedSetScore_block);
-        textView_RedSet.setText(Integer.toString(games_block.GetRedSet()));
+        textView_RedSet.setText(Integer.toString(games_block.getRedSet()));
 
         TextView player_number_name_1 = (TextView)view.findViewById(R.id.block_player_number_1);
         TextView player_number_name_2 = (TextView)view.findViewById(R.id.block_player_number_2);
@@ -115,15 +115,15 @@ public class Block extends Fragment {
 
                 games_block.BlueScore();
                 player_block[block_chooice-1].SuccessBlock();
-                if(games_block.GetPrevious() == 2)
+                if(games_block.getPrevious() == 2)
                 {
-                    games_block.SetPrevious(1);
+                    games_block.setPrevious(1);
                     ((PlayGame)getActivity()).rotate(player_block);
                     //((PlayGame)getActivity()).SetRound();
                 }
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -135,10 +135,10 @@ public class Block extends Fragment {
 
                 games_block.RedScore();
                 player_block[block_chooice-1].MistakeBlock();
-                games_block.SetPrevious(2);
+                games_block.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -151,7 +151,7 @@ public class Block extends Fragment {
                 player_block[block_chooice-1].InvalidBlock();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -164,7 +164,7 @@ public class Block extends Fragment {
                 player_block[block_chooice-1].TouchBlock();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 

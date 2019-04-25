@@ -28,10 +28,10 @@ public class Serve extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        games_serve = ((PlayGame)getActivity()).GetGame_play_game();
-        player_serve = ((PlayGame)getActivity()).GetPlayers_play_game();
+        games_serve = ((PlayGame)getActivity()).getGame_playGame();
+        player_serve = ((PlayGame)getActivity()).getPlayers_playGame();
         serve_round = ((PlayGame)getActivity()).GetRound();
-        serve_chooice = ((PlayGame)getActivity()).GetPlayer_chooice();
+        serve_chooice = ((PlayGame)getActivity()).getPlayerSelected();
     }
 
     @Override
@@ -40,19 +40,19 @@ public class Serve extends Fragment {
         View view = inflater.inflate(R.layout.fragment_serve, container, false);
 
         TextView textView_blue_name = (TextView)view.findViewById(R.id.serve_blue_name);
-        textView_blue_name.setText(games_serve.GetBlueName());
+        textView_blue_name.setText(games_serve.getBlueName());
         TextView textView_red_name = (TextView)view.findViewById(R.id.serve_red_name);
-        textView_red_name.setText(games_serve.GetRedName());
+        textView_red_name.setText(games_serve.getRedName());
 
         TextView textView_serve_blue_score = (TextView)view.findViewById(R.id.serve_blue_score);
         TextView textView_serve_red_score = (TextView)view.findViewById(R.id.serve_red_score);
-        textView_serve_blue_score.setText(String.valueOf(games_serve.GetBlueScore()));
-        textView_serve_red_score.setText(String.valueOf(games_serve.GetRedScore()));
+        textView_serve_blue_score.setText(String.valueOf(games_serve.getBlueScore()));
+        textView_serve_red_score.setText(String.valueOf(games_serve.getRedScore()));
 
         TextView textView_BlueSet = (TextView)view.findViewById(R.id.BlueSetScore_serve);
-        textView_BlueSet.setText(Integer.toString(games_serve.GetBlueSet()));
+        textView_BlueSet.setText(Integer.toString(games_serve.getBlueSet()));
         TextView textView_RedSet = (TextView)view.findViewById(R.id.RedSetScore_serve);
-        textView_RedSet.setText(Integer.toString(games_serve.GetRedSet()));
+        textView_RedSet.setText(Integer.toString(games_serve.getRedSet()));
 
         TextView player_number_name_1 = (TextView)view.findViewById(R.id.serve_player_number_1);
         TextView player_number_name_2 = (TextView)view.findViewById(R.id.serve_player_number_2);
@@ -114,15 +114,15 @@ public class Serve extends Fragment {
 
                 games_serve.BlueScore();
                 player_serve[serve_chooice-1].SuccessServe();
-                if(games_serve.GetPrevious() == 2)
+                if(games_serve.getPrevious() == 2)
                 {
-                    games_serve.SetPrevious(1);
+                    games_serve.setPrevious(1);
                     ((PlayGame)getActivity()).rotate(player_serve);
                     //((PlayGame)getActivity()).SetRound();
                 }
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -134,10 +134,10 @@ public class Serve extends Fragment {
 
                 games_serve.RedScore();
                 player_serve[serve_chooice-1].MistakeServe();
-                games_serve.SetPrevious(2);
+                games_serve.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -150,7 +150,7 @@ public class Serve extends Fragment {
                 player_serve[serve_chooice-1].InvalidServe();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 

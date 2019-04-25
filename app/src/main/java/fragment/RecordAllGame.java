@@ -65,8 +65,8 @@ public class RecordAllGame extends Fragment {
 
         for(int i=0;i<tmp_number;i++)
         {
-            game_information[i] = gameData_record[i].GetBlueName() + "  V.S.  " + gameData_record[i].GetRedName() + "   " +
-                    gameData_record[i].GetYear() + " / " + gameData_record[i].GetMonth() + " / " + gameData_record[i].GetDay() + "";
+            game_information[i] = gameData_record[i].getBlueName() + "  V.S.  " + gameData_record[i].getRedName() + "   " +
+                    gameData_record[i].getYear() + " / " + gameData_record[i].getMonth() + " / " + gameData_record[i].getDay() + "";
         }
         ArrayAdapter<String> record_adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item, game_information);
         record_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

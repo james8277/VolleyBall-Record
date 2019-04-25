@@ -41,8 +41,8 @@ public class SetPlayer_2 extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        game_set_player_2 =  ((PlayGame)getActivity()).GetGame_play_game();
-        player_set_player_2 = ((PlayGame)getActivity()).GetPlayers_play_game();
+        game_set_player_2 =  ((PlayGame)getActivity()).getGame_playGame();
+        player_set_player_2 = ((PlayGame)getActivity()).getPlayers_playGame();
 
 
         //Log.w("setplayer_2", "open");
@@ -52,7 +52,7 @@ public class SetPlayer_2 extends Fragment {
         spinner_number = 0;
         player_set = 0;
 
-        Player_Array = new String[6+game_set_player_2.GetSubNumber()-player_set];
+        Player_Array = new String[6+game_set_player_2.getSubCount()-player_set];
 
         for(int i=0;i<12;i++)
         {
@@ -72,7 +72,7 @@ public class SetPlayer_2 extends Fragment {
         final View view = inflater.inflate(R.layout.fragment_set_player_2, container, false);
 
 
-        for(int i=0;i<6+game_set_player_2.GetSubNumber()-player_set;i++)
+        for(int i=0;i<6+game_set_player_2.getSubCount()-player_set;i++)
         {
             Player_Array[i] = player_spinner[i].GetName() + "   " + player_spinner[i].GetNumber();
         }
@@ -106,14 +106,13 @@ public class SetPlayer_2 extends Fragment {
         });
 
         Resources res = this.getResources();
-        final Drawable tmp_photo = res.getDrawable(R.drawable.player_1);
 
         final TextView textView_Enter_2 = (TextView)view.findViewById(R.id.set_2_enter);
         textView_Enter_2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                if(6+game_set_player_2.GetSubNumber()-player_set != 0)
+                if(6+game_set_player_2.getSubCount()-player_set != 0)
                 {
                     place_spinner.setVisibility(View.INVISIBLE);
                 }
@@ -162,7 +161,7 @@ public class SetPlayer_2 extends Fragment {
 
                 if(!change)
                 {
-                    for(int i=player_select;i<6+game_set_player_2.GetSubNumber()-player_set-1;i++)
+                    for(int i=player_select;i<6+game_set_player_2.getSubCount()-player_set-1;i++)
                     {
 //                    Log.w("i",Integer.toString(i));
                         player_spinner[i] = player_spinner[i+1];
@@ -172,8 +171,8 @@ public class SetPlayer_2 extends Fragment {
                 ((PlayGame)getActivity()).set_player_number();
 //                Log.w("player_set",Integer.toString(player_set));
 
-                Player_Array = new String[6+game_set_player_2.GetSubNumber()-player_set];
-                for(int i=0;i<6+game_set_player_2.GetSubNumber()-player_set;i++)
+                Player_Array = new String[6+game_set_player_2.getSubCount()-player_set];
+                for(int i=0;i<6+game_set_player_2.getSubCount()-player_set;i++)
                 {
                     Player_Array[i] = player_spinner[i].GetName() + "   " + player_spinner[i].GetNumber();
                 }
@@ -212,14 +211,14 @@ public class SetPlayer_2 extends Fragment {
                     }
                 }
 
-                for(int i=0;i<game_set_player_2.GetSubNumber();i++)
+                for(int i=0;i<game_set_player_2.getSubCount();i++)
                 {
                     player_tmp[6+i] = player_spinner[i];
                 }
 
                 if(AllSet)
                 {
-                    ((PlayGame)getActivity()).SetPlayer_Chooice();
+                    ((PlayGame)getActivity()).setPlayerSelected();
                     ((PlayGame)getActivity()).reset_set_player_number();
                     ((PlayGame)getActivity()).Set_Player_2(player_tmp);
                     FragmentTransaction mf = getFragmentManager().beginTransaction();

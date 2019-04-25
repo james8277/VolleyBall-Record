@@ -28,10 +28,10 @@ public class Set extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        games_set = ((PlayGame)getActivity()).GetGame_play_game();
-        player_set = ((PlayGame)getActivity()).GetPlayers_play_game();
+        games_set = ((PlayGame)getActivity()).getGame_playGame();
+        player_set = ((PlayGame)getActivity()).getPlayers_playGame();
         set_round = ((PlayGame)getActivity()).GetRound();
-        set_chooice = ((PlayGame)getActivity()).GetPlayer_chooice();
+        set_chooice = ((PlayGame)getActivity()).getPlayerSelected();
 
     }
 
@@ -41,19 +41,19 @@ public class Set extends Fragment {
         View view = inflater.inflate(R.layout.fragment_set, container, false);
 
         TextView textView_blue_name = (TextView)view.findViewById(R.id.set_blue_name);
-        textView_blue_name.setText(games_set.GetBlueName());
+        textView_blue_name.setText(games_set.getBlueName());
         TextView textView_red_name = (TextView)view.findViewById(R.id.set_red_name);
-        textView_red_name.setText(games_set.GetRedName());
+        textView_red_name.setText(games_set.getRedName());
 
         TextView textView_set_blue_score = (TextView)view.findViewById(R.id.set_blue_score);
         TextView textView_set_red_score = (TextView)view.findViewById(R.id.set_red_score);
-        textView_set_blue_score.setText(String.valueOf(games_set.GetBlueScore()));
-        textView_set_red_score.setText(String.valueOf(games_set.GetRedScore()));
+        textView_set_blue_score.setText(String.valueOf(games_set.getBlueScore()));
+        textView_set_red_score.setText(String.valueOf(games_set.getRedScore()));
 
         TextView textView_BlueSet = (TextView)view.findViewById(R.id.BlueSetScore_set);
-        textView_BlueSet.setText(Integer.toString(games_set.GetBlueSet()));
+        textView_BlueSet.setText(Integer.toString(games_set.getBlueSet()));
         TextView textView_RedSet = (TextView)view.findViewById(R.id.RedSetScore_set);
-        textView_RedSet.setText(Integer.toString(games_set.GetRedSet()));
+        textView_RedSet.setText(Integer.toString(games_set.getRedSet()));
 
         TextView player_number_name_1 = (TextView)view.findViewById(R.id.set_player_number_1);
         TextView player_number_name_2 = (TextView)view.findViewById(R.id.set_player_number_2);
@@ -116,7 +116,7 @@ public class Set extends Fragment {
                 player_set[set_chooice-1].SuccessSet();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -128,10 +128,10 @@ public class Set extends Fragment {
 
                 games_set.RedScore();
                 player_set[set_chooice-1].MistakeSet();
-                games_set.SetPrevious(2);
+                games_set.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 
@@ -144,7 +144,7 @@ public class Set extends Fragment {
                 player_set[set_chooice-1].InvalidSet();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
-                ((PlayGame)getActivity()).SetPlayer_Chooice();
+                ((PlayGame)getActivity()).setPlayerSelected();
             }
         });
 

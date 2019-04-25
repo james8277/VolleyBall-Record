@@ -3,7 +3,6 @@ package fragment;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,7 +13,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 
 import Struct.GameData;
-import Struct.Player;
 import james.volleyballrecord.Activity_AppMenu;
 import james.volleyballrecord.Activity_InitialSet;
 import james.volleyballrecord.R;
@@ -126,7 +124,7 @@ public class Fragment_SetDate extends Fragment {
         yearSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                gameData_set.SetYear(adapterView.getSelectedItem().toString());
+                gameData_set.setYear(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -138,7 +136,7 @@ public class Fragment_SetDate extends Fragment {
         monthSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                gameData_set.SetMonth(adapterView.getSelectedItem().toString());
+                gameData_set.setMonth(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -150,7 +148,7 @@ public class Fragment_SetDate extends Fragment {
         daySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                gameData_set.SetDay(adapterView.getSelectedItem().toString());
+                gameData_set.setDay(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -162,7 +160,7 @@ public class Fragment_SetDate extends Fragment {
         formatSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                gameData_set.SetFormat(adapterView.getSelectedItem().toString());
+                gameData_set.setFormat(adapterView.getSelectedItem().toString());
             }
 
             @Override
@@ -177,15 +175,15 @@ public class Fragment_SetDate extends Fragment {
             public void onClick(View view) {
 
                 //Set name of two teams
-                gameData_set.SetHome(BlueTeamName.getText().toString());
-                gameData_set.SetAway(RedTeamName.getText().toString());
+                gameData_set.setHome(BlueTeamName.getText().toString());
+                gameData_set.setAway(RedTeamName.getText().toString());
                 //
-                gameData_set.SetBlueName(BlueTeamName.getText().toString());
-                gameData_set.SetRedName(RedTeamName.getText().toString());
+                gameData_set.setBlueName(BlueTeamName.getText().toString());
+                gameData_set.setRedName(RedTeamName.getText().toString());
 
                 //Go to next fragment (Set Player)
                 FragmentTransaction fragmentTransaction = getFragmentManager().beginTransaction();
-                Fragment fragment_setPlayer = new SetPlayer();
+                Fragment fragment_setPlayer = new Fragment_SetPlayer();
                 //Set animation for fragment exchange
                 fragmentTransaction.setCustomAnimations(R.animator.fragment_right_in, R.animator.fragment_left_out
                                         , R.animator.fragment_left_in, R.animator.fragment_right_out);

@@ -35,21 +35,21 @@
         android:inputType="number"/>
 
     <Spinner
-        android:id="@+id/set_sub_place"
+        android:id="@+id/set_sub_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="@string/enter_place"
         android:textSize="15sp"
-        android:layout_below="@+id/set_sub_number"
+        android:layout_below="@id/set_sub_number"
         android:layout_marginTop="5dp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="40dp"/>
 
     <Button
-        android:id="@+id/set_sub_button"
+        android:id="@+id/add_sub_button"
         android:layout_width="wrap_content"
         android:layout_height="34dp"
-        android:layout_below="@+id/set_sub_number"
+        android:layout_below="@id/set_sub_number"
         android:layout_alignParentRight="true"
         android:layout_marginRight="40dp"
         android:layout_marginTop="5dp"
@@ -61,7 +61,7 @@
         android:id="@+id/set_sub_number_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/set_sub_button"
+        android:layout_below="@id/add_sub_button"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="18dp"
@@ -73,7 +73,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignBottom="@id/set_sub_number_title"
-        android:layout_toRightOf="@+id/set_sub_number_title"
+        android:layout_toRightOf="@id/set_sub_number_title"
         android:layout_marginLeft="50dp"
         android:text="@string/name"
         android:textSize="17sp" />
@@ -82,8 +82,8 @@
         android:id="@+id/set_sub_position_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/set_sub_name_title"
-        android:layout_alignBottom="@+id/set_sub_number_title"
+        android:layout_toRightOf="@id/set_sub_name_title"
+        android:layout_alignBottom="@id/set_sub_number_title"
         android:text="@string/place"
         android:layout_marginLeft="50dp"
         android:textSize="17sp"/>
@@ -103,18 +103,18 @@
         android:id="@+id/sub_1_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sub_1_num"
-        android:layout_alignRight="@+id/set_sub_name_title"
+        android:layout_alignBottom="@id/sub_1_num"
+        android:layout_alignRight="@id/set_sub_name_title"
         android:textSize="15sp"
         android:visibility="invisible"/>
 
     <TextView
-        android:id="@+id/sub_1_place"
+        android:id="@+id/sub_1_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_alignRight="@+id/set_sub_position_title"
-        android:layout_alignBottom="@+id/sub_1_num"
+        android:layout_alignRight="@id/set_sub_position_title"
+        android:layout_alignBottom="@id/sub_1_num"
         android:visibility="invisible"/>
 
     <TextView
@@ -132,18 +132,18 @@
         android:id="@+id/sub_2_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sub_2_num"
-        android:layout_alignRight="@+id/set_sub_name_title"
+        android:layout_alignBottom="@id/sub_2_num"
+        android:layout_alignRight="@id/set_sub_name_title"
         android:textSize="15sp"
         android:visibility="invisible"/>
 
     <TextView
-        android:id="@+id/sub_2_place"
+        android:id="@+id/sub_2_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_alignRight="@+id/set_sub_position_title"
-        android:layout_alignBottom="@+id/sub_2_num"
+        android:layout_alignRight="@id/set_sub_position_title"
+        android:layout_alignBottom="@id/sub_2_num"
         android:visibility="invisible"/>
 
     <TextView
@@ -161,18 +161,18 @@
         android:id="@+id/sub_3_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sub_3_num"
-        android:layout_alignRight="@+id/set_sub_name_title"
+        android:layout_alignBottom="@id/sub_3_num"
+        android:layout_alignRight="@id/set_sub_name_title"
         android:textSize="15sp"
         android:visibility="invisible"/>
 
     <TextView
-        android:id="@+id/sub_3_place"
+        android:id="@+id/sub_3_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_alignRight="@+id/set_sub_position_title"
-        android:layout_alignBottom="@+id/sub_3_num"
+        android:layout_alignRight="@id/set_sub_position_title"
+        android:layout_alignBottom="@id/sub_3_num"
         android:visibility="invisible"/>
 
     <TextView
@@ -190,18 +190,18 @@
         android:id="@+id/sub_4_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sub_4_num"
-        android:layout_alignRight="@+id/set_sub_name_title"
+        android:layout_alignBottom="@id/sub_4_num"
+        android:layout_alignRight="@id/set_sub_name_title"
         android:textSize="15sp"
         android:visibility="invisible"/>
 
     <TextView
-        android:id="@+id/sub_4_place"
+        android:id="@+id/sub_4_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_alignRight="@+id/set_sub_position_title"
-        android:layout_alignBottom="@+id/sub_4_num"
+        android:layout_alignRight="@id/set_sub_position_title"
+        android:layout_alignBottom="@id/sub_4_num"
         android:visibility="invisible"/>
 
     <TextView
@@ -219,18 +219,18 @@
         android:id="@+id/sub_5_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sub_5_num"
-        android:layout_alignRight="@+id/set_sub_name_title"
+        android:layout_alignBottom="@id/sub_5_num"
+        android:layout_alignRight="@id/set_sub_name_title"
         android:textSize="15sp"
         android:visibility="invisible"/>
 
     <TextView
-        android:id="@+id/sub_5_place"
+        android:id="@+id/sub_5_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_alignRight="@+id/set_sub_position_title"
-        android:layout_alignBottom="@+id/sub_5_num"
+        android:layout_alignRight="@id/set_sub_position_title"
+        android:layout_alignBottom="@id/sub_5_num"
         android:visibility="invisible"/>
 
     <TextView
@@ -248,22 +248,22 @@
         android:id="@+id/sub_6_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/sub_6_num"
-        android:layout_alignRight="@+id/set_sub_name_title"
+        android:layout_alignBottom="@id/sub_6_num"
+        android:layout_alignRight="@id/set_sub_name_title"
         android:textSize="15sp"
         android:visibility="invisible"/>
 
     <TextView
-        android:id="@+id/sub_6_place"
+        android:id="@+id/sub_6_position"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="15sp"
-        android:layout_alignRight="@+id/set_sub_position_title"
-        android:layout_alignBottom="@+id/sub_6_num"
+        android:layout_alignRight="@id/set_sub_position_title"
+        android:layout_alignBottom="@id/sub_6_num"
         android:visibility="invisible"/>
 
     <Button
-        android:id="@+id/set_sub_next"
+        android:id="@+id/set_sub_play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="#FFE8EAF6"
