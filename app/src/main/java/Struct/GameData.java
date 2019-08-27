@@ -75,16 +75,16 @@ public class GameData
 		AwayName = x;
 	}
 	
-	public void BlueScore() {
+	public void addBlueScore() {
 		BlueScore++;
 	}
-    public void BlueScoreMinus() {
+    public void subtractBlueScore() {
         BlueScore--;
     }
-	public void RedScore() {
+	public void addRedScore() {
 		RedScore++;
 	}
-    public void RedScoreMinus() {
+    public void subtractRedScore() {
         RedScore--;
     }
 
@@ -138,14 +138,12 @@ public class GameData
 	
 	public void changePlayer(int x, int y) {
 		int tmp;
-		
 		tmp = OnField[x];
 		OnField[x] = Sub[y];
 		Sub[y] = tmp;
 	}
 	public void changeLPlayer(int x, int y) {
 		int tmp;
-		
 		tmp = OnField[x];
 		OnField[x] = L[y];
 		L[y] = tmp;
@@ -155,10 +153,10 @@ public class GameData
 		return L[x];
 	}
 	
-	public void RedChange() {
+	public void redChange() {
 		RedChange++;
 	}
-	public void BlueChange() {
+	public void blueChange() {
 		BlueChange++;
 	}
 	public void setDay(String x) {
@@ -188,11 +186,8 @@ public class GameData
 		if(f.equals("Best of 5") || f.equals("五戰三勝")) {
 			Format = 5;
 		}
-		/*int tmp = this.GetFormat();
-		String tmp_string = Integer.toString(tmp);
-		Log.w("Format_game_playing", tmp_string);*/
 	}
-	public void setFormat_int(int i) {
+	public void setFormat(int i) {
 			Format = i;
 	}
 	public int getBlueChange() {

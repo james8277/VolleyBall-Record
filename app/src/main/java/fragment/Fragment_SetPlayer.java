@@ -67,12 +67,12 @@ public class Fragment_SetPlayer extends Fragment {
         TextView player_number_name_5 = (TextView)rootView.findViewById(R.id.set_player_number_5);
         TextView player_number_name_6 = (TextView)rootView.findViewById(R.id.set_player_number_6);
 
-        player_number_name_1.setText(player_setPlayer[0].GetNumber());
-        player_number_name_2.setText(player_setPlayer[1].GetNumber());
-        player_number_name_3.setText(player_setPlayer[2].GetNumber());
-        player_number_name_4.setText(player_setPlayer[3].GetNumber());
-        player_number_name_5.setText(player_setPlayer[4].GetNumber());
-        player_number_name_6.setText(player_setPlayer[5].GetNumber());
+        player_number_name_1.setText(player_setPlayer[0].getNumber());
+        player_number_name_2.setText(player_setPlayer[1].getNumber());
+        player_number_name_3.setText(player_setPlayer[2].getNumber());
+        player_number_name_4.setText(player_setPlayer[3].getNumber());
+        player_number_name_5.setText(player_setPlayer[4].getNumber());
+        player_number_name_6.setText(player_setPlayer[5].getNumber());
 
         //Spinner for player place
         final Spinner place_spinner = (Spinner)rootView.findViewById(R.id.set_place_spinner);
@@ -113,9 +113,9 @@ public class Fragment_SetPlayer extends Fragment {
                 currentSelectedPlayer = ((Activity_InitialSet)getActivity()).getPlayer_currentSelected();
 
                 //Update player data
-                player_setPlayer[currentSelectedPlayer].SetPosition(playerPlace);
-                player_setPlayer[currentSelectedPlayer].SetName(set_player_name.getText().toString());
-                player_setPlayer[currentSelectedPlayer].SetNumber(set_player_number.getText().toString());
+                player_setPlayer[currentSelectedPlayer].setPosition(playerPlace);
+                player_setPlayer[currentSelectedPlayer].setName(set_player_name.getText().toString());
+                player_setPlayer[currentSelectedPlayer].setNumber(set_player_number.getText().toString());
 
 //                Log.e(TAG, set_player_number.getText().toString());
 

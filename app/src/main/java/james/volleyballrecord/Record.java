@@ -56,10 +56,8 @@ public class Record extends Activity {
     }
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event)
-    {
-        if(keyCode == KeyEvent.KEYCODE_BACK)
-        {
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if(keyCode == KeyEvent.KEYCODE_BACK) {
             Intent intent = new Intent();
             intent.setClass(this, Activity_AppMenu.class);
             Bundle bundle = new Bundle();
@@ -73,14 +71,12 @@ public class Record extends Activity {
         return false;
     }
 
-    public void record_player_function(View view)
-    {
+    public void record_player_function(View view) {
         int tmp_click_id = view.getId();
         FragmentTransaction mf = getFragmentManager().beginTransaction();
 //        mf.setCustomAnimations(R.anim.fragment_right_in,R.anim.fragment_left_out);
 
-        switch (tmp_click_id)
-        {
+        switch (tmp_click_id) {
             case R.id.record_player_0:
                 select_player = 0;
                 break;

@@ -55,7 +55,6 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
 
-
         Log.w("db_create","create");
 
         String sql_all = "CREATE TABLE IF NOT EXISTS allData " +
@@ -250,8 +249,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
     }
 
 
-    public void addAll(GameData games_playings, Player[] players)
-    {
+    public void addAll(GameData games_playings, Player[] players) {
         //Log.w("db_add_all","add");
         SQLiteDatabase db = this.getWritableDatabase();
         SQLiteDatabase db_2 = this.getReadableDatabase();
@@ -283,44 +281,42 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         cv.put(KEY_L_NUMBER,games_playings.getLCount());
 
 //        Log.w("sub_0_name_db",players[6].GetName());
-        //Log.w("total_attack_db",String.valueOf(players[0].GetTotalAttack()));
-        //Log.w("success_attack_db",String.valueOf(players[0].GetSuccessAttack()));
-        //Log.w("mistake_attack_db",String.valueOf(players[0].GetMistakeAttack()));
+        //Log.w("total_attack_db",String.valueOf(players[0].getTotalAttack()));
+        //Log.w("success_attack_db",String.valueOf(players[0].getSuccessAttack()));
+        //Log.w("mistake_attack_db",String.valueOf(players[0].getMistakeAttack()));
 
 
-        for(int i=0;i<12;i++)
-        {
-            cv.put(KEY_PLAYER+i,players[i].GetNumber());
-            cv.put(KEY_PLAYER+i+KEY_NAME,players[i].GetName());
+        for(int i=0;i<12;i++) {
+            cv.put(KEY_PLAYER+i,players[i].getNumber());
+            cv.put(KEY_PLAYER+i+KEY_NAME,players[i].getName());
 //            Log.w("sub_all_player_name_db",players[i].GetName() + "   " + i);
-            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].GetPosition());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_ALL,players[i].GetTotalAttack());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_SUCCESS,players[i].GetSuccessAttack());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_MISTAKE,players[i].GetMistakeAttack());
+            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].getPosition());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_ALL,players[i].getTotalAttack());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_SUCCESS,players[i].getSuccessAttack());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_MISTAKE,players[i].getMistakeAttack());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_ALL,players[i].GetTotalDefence());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_SUCCESS,players[i].GetSuccessDefence());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_MISTAKE,players[i].GetMistakeDefence());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_ALL,players[i].getTotalDefence());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_SUCCESS,players[i].getSuccessDefence());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_MISTAKE,players[i].getMistakeDefence());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_ALL,players[i].GetTotalServe());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_SUCCESS,players[i].GetSuccessServe());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_MISTAKE,players[i].GetMistakeServe());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_ALL,players[i].getTotalServe());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_SUCCESS,players[i].getSuccessServe());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_MISTAKE,players[i].getMistakeServe());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_ALL,players[i].GetTotalBlock());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_SUCCESS,players[i].GetSuccessBlock());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_MISTAKE,players[i].GetMistakeBlock());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_TOUCH,players[i].GetTouchBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_ALL,players[i].getTotalBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_SUCCESS,players[i].getSuccessBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_MISTAKE,players[i].getMistakeBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_TOUCH,players[i].getTouchBlock());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_ALL,players[i].GetTotalSet());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_SUCCESS,players[i].GetSuccessSet());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_MISTAKE,players[i].GetMistakeSet());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_ALL,players[i].getTotalSet());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_SUCCESS,players[i].getSuccessSet());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_MISTAKE,players[i].getMistakeSet());
         }
 
         db.insert(TABLE_ALL,null,cv);
     }
 
-    public void addDataTmp(GameData games_playings, Player[] players)
-    {
+    public void addDataTmp(GameData games_playings, Player[] players) {
         Log.w("db_add_tmp","add");
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
@@ -336,41 +332,39 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         cv.put(KEY_SUB_NUMBER,games_playings.getSubCount());
         cv.put(KEY_L_NUMBER,games_playings.getLCount());
 
-        Log.w("game_set_data_db", "8" + players[0].GetNumber() + "7");
+        Log.w("game_set_data_db", "8" + players[0].getNumber() + "7");
 
-        for(int i=0;i<12;i++)
-        {
-            cv.put(KEY_PLAYER+i,players[i].GetNumber());
-            cv.put(KEY_PLAYER+i+KEY_NAME,players[i].GetName());
-            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].GetPosition());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_ALL,players[i].GetTotalAttack());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_SUCCESS,players[i].GetSuccessAttack());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_MISTAKE,players[i].GetMistakeAttack());
+        for(int i=0;i<12;i++) {
+            cv.put(KEY_PLAYER+i,players[i].getNumber());
+            cv.put(KEY_PLAYER+i+KEY_NAME,players[i].getName());
+            cv.put(KEY_PLAYER+i+KEY_PLACE,players[i].getPosition());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_ALL,players[i].getTotalAttack());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_SUCCESS,players[i].getSuccessAttack());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_ATTACK+KEY_PLAYER_MISTAKE,players[i].getMistakeAttack());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_ALL,players[i].GetTotalDefence());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_SUCCESS,players[i].GetSuccessDefence());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_MISTAKE,players[i].GetMistakeDefence());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_ALL,players[i].getTotalDefence());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_SUCCESS,players[i].getSuccessDefence());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_DEFENCE+KEY_PLAYER_MISTAKE,players[i].getMistakeDefence());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_ALL,players[i].GetTotalServe());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_SUCCESS,players[i].GetSuccessServe());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_MISTAKE,players[i].GetMistakeServe());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_ALL,players[i].getTotalServe());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_SUCCESS,players[i].getSuccessServe());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SERVE+KEY_PLAYER_MISTAKE,players[i].getMistakeServe());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_ALL,players[i].GetTotalBlock());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_SUCCESS,players[i].GetSuccessBlock());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_MISTAKE,players[i].GetMistakeBlock());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_TOUCH,players[i].GetTouchBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_ALL,players[i].getTotalBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_SUCCESS,players[i].getSuccessBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_MISTAKE,players[i].getMistakeBlock());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_BLOCK+KEY_PLAYER_TOUCH,players[i].getTouchBlock());
 
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_ALL,players[i].GetTotalSet());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_SUCCESS,players[i].GetSuccessSet());
-            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_MISTAKE,players[i].GetMistakeSet());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_ALL,players[i].getTotalSet());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_SUCCESS,players[i].getSuccessSet());
+            cv.put(KEY_PLAYER+i+KEY_PLAYER_SET+KEY_PLAYER_MISTAKE,players[i].getMistakeSet());
         }
 
         db.insert(TABLE_TMP,null,cv);
     }
 
 
-    public GameData getGameTmp()
-    {
+    public GameData getGameTmp() {
         SQLiteDatabase db = this.getReadableDatabase();
         GameData gameData;
         gameData = new GameData();
@@ -389,7 +383,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         gameData.setDay(c.getString(2));
         gameData.setBlueName(c.getString(3));
         gameData.setRedName(c.getString(4));
-        gameData.setFormat_int(c.getInt(5));
+        gameData.setFormat(c.getInt(5));
         gameData.setSubCount_Data(c.getInt(6));
         gameData.setLCount_Data(c.getInt(7));
         gameData.setBlueScore(c.getInt(8));
@@ -401,8 +395,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return gameData;
     }
 
-    public Player[] getPlayerTmp()
-    {
+    public Player[] getPlayerTmp() {
         Player player_tmp;
         Player[] players;
         SQLiteDatabase db = this.getReadableDatabase();
@@ -505,27 +498,26 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         c.moveToFirst();
 
-        for(int i=0;i<12;i++)
-        {
-            players[i].SetNumber(c.getString(i));
-            players[i].SetName(c.getString(i+12));
-            players[i].SetPosition(c.getString(i+24));
+        for(int i=0;i<12;i++) {
+            players[i].setNumber(c.getString(i));
+            players[i].setName(c.getString(i+12));
+            players[i].setPosition(c.getString(i+24));
 
-            players[i].SetAllAttack(c.getInt(36+i*16));
-            players[i].SetSuccessAttack(c.getInt(37+i*16));
-            players[i].SetMistakeAttack(c.getInt(38+i*16));
-            players[i].SetAllDefence(c.getInt(39+i*16));
-            players[i].SetSuccessBlock(c.getInt(40+i*16));
-            players[i].SetMistakeDefence(c.getInt(41+i*16));
-            players[i].SetAllServe(c.getInt(42+i*16));
-            players[i].SetSuccessServe(c.getInt(43+i*16));
-            players[i].SetMistakeServe(c.getInt(44+i*16));
-            players[i].SetAllBlock(c.getInt(45+i*16));
-            players[i].SetSuccessBlock(c.getInt(46+i*16));
-            players[i].SetMistakeBlock(c.getInt(47+i*16));
-            players[i].SetTouchBlock(c.getInt(48+i*16));
-            players[i].SetAllSet(c.getInt(49+i*16));
-            players[i].SetSuccessSet(c.getInt(50+i*16));
+            players[i].setAllAttack(c.getInt(36+i*16));
+            players[i].setSuccessAttack(c.getInt(37+i*16));
+            players[i].setMistakeAttack(c.getInt(38+i*16));
+            players[i].setAllDefence(c.getInt(39+i*16));
+            players[i].setSuccessBlock(c.getInt(40+i*16));
+            players[i].setMistakeDefence(c.getInt(41+i*16));
+            players[i].setAllServe(c.getInt(42+i*16));
+            players[i].setSuccessServe(c.getInt(43+i*16));
+            players[i].setMistakeServe(c.getInt(44+i*16));
+            players[i].setAllBlock(c.getInt(45+i*16));
+            players[i].setSuccessBlock(c.getInt(46+i*16));
+            players[i].setMistakeBlock(c.getInt(47+i*16));
+            players[i].setTouchBlock(c.getInt(48+i*16));
+            players[i].setAllSet(c.getInt(49+i*16));
+            players[i].setSuccessSet(c.getInt(50+i*16));
 
 //            Log.w("success_attack_"+i,String.valueOf(c.getInt(37+i*16)));
         }
@@ -540,15 +532,13 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         Log.w("db_delete_db_tmp","delete");
         db.delete(TABLE_TMP, null, null);
     }
-    public void deleteTableAll()
-    {
+    public void deleteTableAll() {
         SQLiteDatabase db = this.getReadableDatabase();
         Log.w("db_delete_db_all","delete");
         db.delete(TABLE_ALL, null, null);
     }
 
-    public int GetData_number()
-    {
+    public int GetData_number() {
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor c = db.rawQuery("SELECT _ID FROM allData",null);
 
@@ -565,8 +555,7 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
     }
 
-    public GameData[] GetAllGame()
-    {
+    public GameData[] GetAllGame() {
         SQLiteDatabase db = this.getReadableDatabase();
         GameData[] tmp_gameData;
 
@@ -582,23 +571,20 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         GameData tmp_game;
         tmp_gameData = new GameData[tmp_number];
 
-        for(int i=0;i<tmp_number;i++)
-        {
+        for(int i=0;i<tmp_number;i++) {
             tmp_game = new GameData();
             tmp_gameData[i] = tmp_game;
         }
 
-        if(tmp_number != 0)
-        {
+        if(tmp_number != 0) {
             c.moveToFirst();
-            for(int i=0;i<tmp_number;i++)
-            {
+            for(int i=0;i<tmp_number;i++) {
                 tmp_gameData[i].setYear(c.getString(1));
                 tmp_gameData[i].setMonth(c.getString(2));
                 tmp_gameData[i].setDay(c.getString(3));
                 tmp_gameData[i].setBlueName(c.getString(4));
                 tmp_gameData[i].setRedName(c.getString(5));
-                tmp_gameData[i].setFormat_int(c.getInt(6));
+                tmp_gameData[i].setFormat(c.getInt(6));
                 tmp_gameData[i].setSubCount_Data(c.getInt(7));
                 tmp_gameData[i].setLCount_Data(c.getInt(8));
                 tmp_gameData[i].setBlueScore(c.getInt(9));
@@ -611,15 +597,13 @@ public class DataBaseHelper extends SQLiteOpenHelper{
         return tmp_gameData;
     }
 
-    public Player[] getPlayerAll(int x)
-    {
+    public Player[] getPlayerAll(int x) {
         Player player_tmp;
         Player[] players;
         SQLiteDatabase db = this.getReadableDatabase();
 
         players = new Player[12];
-        for(int i=0;i<12;i++)
-        {
+        for(int i=0;i<12;i++) {
             player_tmp = new Player();
             players[i] = player_tmp;
         }
@@ -713,34 +697,32 @@ public class DataBaseHelper extends SQLiteOpenHelper{
 
         c.moveToFirst();
 
-        while(c.getInt(228) != x && c.moveToNext())
-        {
+//        while(c.getInt(228) != x && c.moveToNext()) {
 //            Log.w("_id_number_match", x + " " + c.getInt(228));
-        }
+//        }
 
 //        Log.w("sub_0_name_get_all_db",c.getString(18) + " db");
-        for(int i=0;i<12;i++)
-        {
-            players[i].SetNumber(c.getString(i));
-            players[i].SetName(c.getString(i+12));
-            players[i].SetPosition(c.getString(i+24));
+        for(int i=0;i<12;i++) {
+            players[i].setNumber(c.getString(i));
+            players[i].setName(c.getString(i+12));
+            players[i].setPosition(c.getString(i+24));
 
-            players[i].SetAllAttack(c.getInt(36+i*16));
-            players[i].SetSuccessAttack(c.getInt(37+i*16));
-            players[i].SetMistakeAttack(c.getInt(38+i*16));
-            players[i].SetAllDefence(c.getInt(39+i*16));
-            players[i].SetSuccessDefence(c.getInt(40+i*16));
-            players[i].SetMistakeDefence(c.getInt(41+i*16));
-            players[i].SetAllServe(c.getInt(42+i*16));
-            players[i].SetSuccessServe(c.getInt(43+i*16));
-            players[i].SetMistakeServe(c.getInt(44+i*16));
-            players[i].SetAllBlock(c.getInt(45+i*16));
-            players[i].SetSuccessBlock(c.getInt(46+i*16));
-            players[i].SetMistakeBlock(c.getInt(47+i*16));
-            players[i].SetTouchBlock(c.getInt(48+i*16));
-            players[i].SetAllSet(c.getInt(49+i*16));
-            players[i].SetSuccessSet(c.getInt(50+i*16));
-            players[i].SetMistakeSet(c.getInt(51+i*16));
+            players[i].setAllAttack(c.getInt(36+i*16));
+            players[i].setSuccessAttack(c.getInt(37+i*16));
+            players[i].setMistakeAttack(c.getInt(38+i*16));
+            players[i].setAllDefence(c.getInt(39+i*16));
+            players[i].setSuccessDefence(c.getInt(40+i*16));
+            players[i].setMistakeDefence(c.getInt(41+i*16));
+            players[i].setAllServe(c.getInt(42+i*16));
+            players[i].setSuccessServe(c.getInt(43+i*16));
+            players[i].setMistakeServe(c.getInt(44+i*16));
+            players[i].setAllBlock(c.getInt(45+i*16));
+            players[i].setSuccessBlock(c.getInt(46+i*16));
+            players[i].setMistakeBlock(c.getInt(47+i*16));
+            players[i].setTouchBlock(c.getInt(48+i*16));
+            players[i].setAllSet(c.getInt(49+i*16));
+            players[i].setSuccessSet(c.getInt(50+i*16));
+            players[i].setMistakeSet(c.getInt(51+i*16));
         }
 
         return players;

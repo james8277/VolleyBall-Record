@@ -62,17 +62,17 @@ public class Set extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.set_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.set_player_number_6);
 
-        number_tmp = player_set[0].GetNumber();
+        number_tmp = player_set[0].getNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_set[1].GetNumber();
+        number_tmp = player_set[1].getNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_set[2].GetNumber();
+        number_tmp = player_set[2].getNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_set[3].GetNumber();
+        number_tmp = player_set[3].getNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_set[4].GetNumber();
+        number_tmp = player_set[4].getNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_set[5].GetNumber();
+        number_tmp = player_set[5].getNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable set_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -113,7 +113,7 @@ public class Set extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_set[set_chooice-1].SuccessSet();
+                player_set[set_chooice-1].setSuccess();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).setPlayerSelected();
@@ -126,8 +126,8 @@ public class Set extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_set.RedScore();
-                player_set[set_chooice-1].MistakeSet();
+                games_set.addRedScore();
+                player_set[set_chooice-1].setFail();
                 games_set.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -141,7 +141,7 @@ public class Set extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_set[set_chooice-1].InvalidSet();
+                player_set[set_chooice-1].setInvalid();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).setPlayerSelected();

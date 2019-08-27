@@ -45,7 +45,7 @@ public class Start extends Fragment {
 //        Log.w("Format",Integer.toString(game_start.GetFormat()));
  //       Log.w("Format+1/1", Integer.toString(game_start.GetFormat() + 1));
 
-//        Log.w("start_player_0_success_attack",String.valueOf(players_start[0].GetSuccessAttack()));
+//        Log.w("start_player_0_success_attack",String.valueOf(players_start[0].getSuccessAttack()));
 
 //        Log.w("blue score", String.valueOf(game_start.GetBlueScore()));
     }
@@ -78,12 +78,10 @@ public class Start extends Fragment {
 
         final Button button_Serve_Team = (Button)view.findViewById(R.id.serve_team);
 
-        if(game_start.getPrevious() == 1)
-        {
+        if(game_start.getPrevious() == 1) {
             button_Serve_Team.setBackground(left_arrow);
         }
-        if(game_start.getPrevious() == 2)
-        {
+        if(game_start.getPrevious() == 2) {
             button_Serve_Team.setBackground(right_arrow);
         }
 
@@ -140,7 +138,7 @@ public class Start extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        game_start.BlueScore();
+                        game_start.addBlueScore();
 
                         if(game_start.getPrevious() == 2)
                         {
@@ -163,7 +161,7 @@ public class Start extends Fragment {
 
                         if(game_start.getBlueScore() != 0)
                         {
-                            game_start.BlueScoreMinus();
+                            game_start.subtractBlueScore();
 
                             FragmentTransaction mf = getFragmentManager().beginTransaction();
 
@@ -197,7 +195,7 @@ public class Start extends Fragment {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
                         dialogInterface.dismiss();
-                        game_start.RedScore();
+                        game_start.addRedScore();
 
                         game_start.setPrevious(2);
 
@@ -215,7 +213,7 @@ public class Start extends Fragment {
 
                         if(game_start.getRedScore() != 0)
                         {
-                            game_start.RedScoreMinus();
+                            game_start.subtractRedScore();
 
                             FragmentTransaction mf = getFragmentManager().beginTransaction();
 
@@ -245,17 +243,17 @@ public class Start extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.start_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.start_player_number_6);
 
-        number_tmp = players_start[0].GetNumber();
+        number_tmp = players_start[0].getNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = players_start[1].GetNumber();
+        number_tmp = players_start[1].getNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = players_start[2].GetNumber();
+        number_tmp = players_start[2].getNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = players_start[3].GetNumber();
+        number_tmp = players_start[3].getNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = players_start[4].GetNumber();
+        number_tmp = players_start[4].getNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = players_start[5].GetNumber();
+        number_tmp = players_start[5].getNumber();
         player_number_name_6.setText(number_tmp);
 
         FragmentTransaction mf = getFragmentManager().beginTransaction();
@@ -266,39 +264,29 @@ public class Start extends Fragment {
 
 //        Log.w("Format_Start", Integer.toString(game_start.GetFormat()) );
 
-        if(game_start.getFormat() == 3 && game_start.getBlueSet() == 1 && game_start.getRedSet() == 1)
-        {
-            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
-            {
-                if (game_start.getBlueScore() - game_start.getRedScore() >= 2)
-                {
+        if(game_start.getFormat() == 3 && game_start.getBlueSet() == 1 && game_start.getRedSet() == 1) {
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15) {
+                if (game_start.getBlueScore() - game_start.getRedScore() >= 2) {
                     mf.replace(R.id.container_play,fragment_Blue_win);
                     mf.commit();
                 }
             }
-            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
-            {
-                if (game_start.getRedScore() - game_start.getBlueScore() >= 2)
-                {
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15) {
+                if (game_start.getRedScore() - game_start.getBlueScore() >= 2) {
                     mf.replace(R.id.container_play,fragment_Red_win);
                 }
             }
         }
 
-        if(game_start.getFormat() == 5 && game_start.getBlueSet() == 2 && game_start.getRedSet() == 2)
-        {
-            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
-            {
-                if (game_start.getBlueScore() - game_start.getRedScore() >= 2)
-                {
+        if(game_start.getFormat() == 5 && game_start.getBlueSet() == 2 && game_start.getRedSet() == 2) {
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15) {
+                if (game_start.getBlueScore() - game_start.getRedScore() >= 2) {
                     mf.replace(R.id.container_play,fragment_Blue_win);
                     mf.commit();
                 }
             }
-            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15)
-            {
-                if (game_start.getRedScore() - game_start.getBlueScore() >= 2)
-                {
+            if(game_start.getBlueScore() >= 15 || game_start.getRedScore() >= 15) {
+                if (game_start.getRedScore() - game_start.getBlueScore() >= 2) {
                     mf.replace(R.id.container_play,fragment_Red_win);
                 }
             }
@@ -307,9 +295,7 @@ public class Start extends Fragment {
 
         if(game_start.getBlueScore() >= 25 || game_start.getRedScore() >= 25) {
 
-
-            if (game_start.getBlueScore() - game_start.getRedScore() >= 2)
-            {
+            if (game_start.getBlueScore() - game_start.getRedScore() >= 2) {
                 Log.w("Blue - Red","2");
                 game_start.setBlueSet();
                 game_start.setBlueScore(0);
@@ -319,20 +305,17 @@ public class Start extends Fragment {
                 Log.w("RedSet", Integer.toString(game_start.getRedSet()));
                 Log.w("Format_Start", Integer.toString(((game_start.getFormat()+1)/2)) );
 
-                if(game_start.getBlueSet() == ((game_start.getFormat()+1)/2) )
-                {
+                if(game_start.getBlueSet() == ((game_start.getFormat()+1)/2) ) {
                     Log.w("Blue Win","true");
                     mf.replace(R.id.container_play,fragment_Blue_win);
                     mf.commit();
                 }
-                else
-                {
+                else {
                     mf.replace(R.id.container_play,fragment_set_player_2);
                     mf.commit();
                 }
             }
-            if (game_start.getRedScore() - game_start.getBlueScore() >= 2)
-            {
+            if (game_start.getRedScore() - game_start.getBlueScore() >= 2) {
                 Log.w("Red - Blue","2");
 
                 game_start.setRedSet();
@@ -343,14 +326,12 @@ public class Start extends Fragment {
                 Log.w("RedSet", Integer.toString(game_start.getRedSet()));
                 Log.w("Format_Start", Integer.toString(((game_start.getFormat()+1)/2)) );
 
-                if(game_start.getRedSet() == ((game_start.getFormat()+1)/2) )
-                {
+                if(game_start.getRedSet() == ((game_start.getFormat()+1)/2) ) {
                     Log.w("Red Win","true");
                     mf.replace(R.id.container_play,fragment_Red_win);
                     mf.commit();
                 }
-                else
-                {
+                else {
                     mf.replace(R.id.container_play,fragment_set_player_2);
                     mf.commit();
                 }

@@ -30,9 +30,9 @@ public class RedWin extends Fragment {
         gameData_red_win = ((PlayGame)getActivity()).getGame_playGame();
         players_red_win = ((PlayGame)getActivity()).getPlayers_playGame();
         dataBaseHelper = new DataBaseHelper(getActivity());
-        Log.w("total_attack_red_win", String.valueOf(players_red_win[0].GetTotalAttack()));
-        Log.w("success_attack_red_win", String.valueOf(players_red_win[0].GetSuccessAttack()));
-        Log.w("mistake_attack_red_win", String.valueOf(players_red_win[0].GetMistakeAttack()));
+        Log.w("total_attack_red_win", String.valueOf(players_red_win[0].getTotalAttack()));
+        Log.w("success_attack_red_win", String.valueOf(players_red_win[0].getSuccessAttack()));
+        Log.w("mistake_attack_red_win", String.valueOf(players_red_win[0].getMistakeAttack()));
         dataBaseHelper.addAll(gameData_red_win, players_red_win);
 
 //        Log.w("sub_0_name_red_win",players_red_win[6].GetName());
