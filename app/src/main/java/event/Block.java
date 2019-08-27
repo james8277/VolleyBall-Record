@@ -62,17 +62,17 @@ public class Block extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.block_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.block_player_number_6);
 
-        number_tmp = player_block[0].GetNumber();
+        number_tmp = player_block[0].getNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_block[1].GetNumber();
+        number_tmp = player_block[1].getNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_block[2].GetNumber();
+        number_tmp = player_block[2].getNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_block[3].GetNumber();
+        number_tmp = player_block[3].getNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_block[4].GetNumber();
+        number_tmp = player_block[4].getNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_block[5].GetNumber();
+        number_tmp = player_block[5].getNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable block_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -113,8 +113,8 @@ public class Block extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_block.BlueScore();
-                player_block[block_chooice-1].SuccessBlock();
+                games_block.addBlueScore();
+                player_block[block_chooice-1].blockSuccess();
                 if(games_block.getPrevious() == 2)
                 {
                     games_block.setPrevious(1);
@@ -133,8 +133,8 @@ public class Block extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_block.RedScore();
-                player_block[block_chooice-1].MistakeBlock();
+                games_block.addRedScore();
+                player_block[block_chooice-1].blockFail();
                 games_block.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -148,7 +148,7 @@ public class Block extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_block[block_chooice-1].InvalidBlock();
+                player_block[block_chooice-1].blockInvalid();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).setPlayerSelected();
@@ -161,7 +161,7 @@ public class Block extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_block[block_chooice-1].TouchBlock();
+                player_block[block_chooice-1].blockTouch();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).setPlayerSelected();

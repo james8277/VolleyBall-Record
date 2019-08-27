@@ -63,17 +63,17 @@ public class Attack extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.attack_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.attack_player_number_6);
 
-        number_tmp = player_attack[0].GetNumber();
+        number_tmp = player_attack[0].getNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_attack[1].GetNumber();
+        number_tmp = player_attack[1].getNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_attack[2].GetNumber();
+        number_tmp = player_attack[2].getNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_attack[3].GetNumber();
+        number_tmp = player_attack[3].getNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_attack[4].GetNumber();
+        number_tmp = player_attack[4].getNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_attack[5].GetNumber();
+        number_tmp = player_attack[5].getNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable attack_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -114,8 +114,8 @@ public class Attack extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_attack.BlueScore();
-                player_attack[attack_chooice-1].SuccessAttack();
+                games_attack.addBlueScore();
+                player_attack[attack_chooice-1].attackSuccess();
                 if(games_attack.getPrevious() == 2)
                 {
                     games_attack.setPrevious(1);
@@ -134,8 +134,8 @@ public class Attack extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_attack.RedScore();
-                player_attack[attack_chooice-1].MistakeAttack();
+                games_attack.addRedScore();
+                player_attack[attack_chooice-1].attackFail();
                 games_attack.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -149,7 +149,7 @@ public class Attack extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_attack[attack_chooice-1].InvalidAttack();
+                player_attack[attack_chooice-1].attackInvalid();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).setPlayerSelected();

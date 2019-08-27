@@ -72,17 +72,17 @@ public class Change extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.change_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.change_player_number_6);
 
-        number_tmp = player_change[0].GetNumber();
+        number_tmp = player_change[0].getNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_change[1].GetNumber();
+        number_tmp = player_change[1].getNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_change[2].GetNumber();
+        number_tmp = player_change[2].getNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_change[3].GetNumber();
+        number_tmp = player_change[3].getNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_change[4].GetNumber();
+        number_tmp = player_change[4].getNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_change[5].GetNumber();
+        number_tmp = player_change[5].getNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable change_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -120,9 +120,9 @@ public class Change extends Fragment {
 
         for(int i=0;i<subNumber_change;i++)
         {
-            player_list_change[i] = player_change[games_change.getSub(i)].GetNumber() + "      " +
-                    player_change[games_change.getSub(i)].GetName() + "      " +
-                    player_change[games_change.getSub(i)].GetPosition();
+            player_list_change[i] = player_change[games_change.getSub(i)].getNumber() + "      " +
+                    player_change[games_change.getSub(i)].getName() + "      " +
+                    player_change[games_change.getSub(i)].getPosition();
         }
 
         if(subNumber_change > 0)

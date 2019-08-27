@@ -107,9 +107,9 @@ public class Fragment_SetSubstitute extends Fragment {
                 //Check if the sub player is less than 6 and if player's number is null ""
                 if(subPlayerCount < 6 && !Objects.equals(editText_subPlayerNumber.getText().toString(), "")) {
                     //Add sub player into Player array
-                    playerData_sub[subPlayerCount+6].SetName(editText_subPlayerName.getText().toString());
-                    playerData_sub[subPlayerCount+6].SetNumber(editText_subPlayerNumber.getText().toString());
-                    playerData_sub[subPlayerCount+6].SetPosition(playerPosition);
+                    playerData_sub[subPlayerCount+6].setName(editText_subPlayerName.getText().toString());
+                    playerData_sub[subPlayerCount+6].setNumber(editText_subPlayerNumber.getText().toString());
+                    playerData_sub[subPlayerCount+6].setPosition(playerPosition);
                     //Check if the sub player is L
                     if(playerPosition == "L") {
                         //Add L and Sub player count
@@ -134,73 +134,73 @@ public class Fragment_SetSubstitute extends Fragment {
                             case 0:
                                 Log.w("player1", "set");
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_1_num);
-                                tmp.setText(playerData_sub[i+6].GetNumber());
+                                tmp.setText(playerData_sub[i+6].getNumber());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_1_name);
-                                tmp.setText(playerData_sub[i+6].GetName());
+                                tmp.setText(playerData_sub[i+6].getName());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_1_position);
-                                tmp.setText(playerData_sub[i+6].GetPosition());
+                                tmp.setText(playerData_sub[i+6].getPosition());
                                 tmp.setVisibility(View.VISIBLE);
                                 break;
                             case 1:
                                 Log.w("player2", "set");
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_2_num);
-                                tmp.setText(playerData_sub[i+6].GetNumber());
+                                tmp.setText(playerData_sub[i+6].getNumber());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_2_name);
-                                tmp.setText(playerData_sub[i+6].GetName());
+                                tmp.setText(playerData_sub[i+6].getName());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_2_position);
-                                tmp.setText(playerData_sub[i+6].GetPosition());
+                                tmp.setText(playerData_sub[i+6].getPosition());
                                 tmp.setVisibility(View.VISIBLE);
                                 break;
                             case 2:
                                 Log.w("player3", "set");
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_3_num);
-                                tmp.setText(playerData_sub[i+6].GetNumber());
+                                tmp.setText(playerData_sub[i+6].getNumber());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_3_name);
-                                tmp.setText(playerData_sub[i+6].GetName());
+                                tmp.setText(playerData_sub[i+6].getName());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_3_position);
-                                tmp.setText(playerData_sub[i+6].GetPosition());
+                                tmp.setText(playerData_sub[i+6].getPosition());
                                 tmp.setVisibility(View.VISIBLE);
                                 break;
                             case 3:
                                 Log.w("player4", "set");
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_4_num);
-                                tmp.setText(playerData_sub[i+6].GetNumber());
+                                tmp.setText(playerData_sub[i+6].getNumber());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_4_name);
-                                tmp.setText(playerData_sub[i+6].GetName());
+                                tmp.setText(playerData_sub[i+6].getName());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_4_position);
-                                tmp.setText(playerData_sub[i+6].GetPosition());
+                                tmp.setText(playerData_sub[i+6].getPosition());
                                 tmp.setVisibility(View.VISIBLE);
                                 break;
                             case 4:
                                 Log.w("player5", "set");
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_5_num);
-                                tmp.setText(playerData_sub[i+6].GetNumber());
+                                tmp.setText(playerData_sub[i+6].getNumber());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_5_name);
-                                tmp.setText(playerData_sub[i+6].GetName());
+                                tmp.setText(playerData_sub[i+6].getName());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_5_position);
-                                tmp.setText(playerData_sub[i+6].GetPosition());
+                                tmp.setText(playerData_sub[i+6].getPosition());
                                 tmp.setVisibility(View.VISIBLE);
                                 break;
                             case 5:
                                 Log.w("player6", "set");
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_6_num);
-                                tmp.setText(playerData_sub[i+6].GetNumber());
+                                tmp.setText(playerData_sub[i+6].getNumber());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_6_name);
-                                tmp.setText(playerData_sub[i+6].GetName());
+                                tmp.setText(playerData_sub[i+6].getName());
                                 tmp.setVisibility(View.VISIBLE);
                                 tmp = (TextView)getActivity().findViewById(R.id.sub_6_position);
-                                tmp.setText(playerData_sub[i+6].GetPosition());
+                                tmp.setText(playerData_sub[i+6].getPosition());
                                 tmp.setVisibility(View.VISIBLE);
                                 break;
                         }

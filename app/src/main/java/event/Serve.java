@@ -61,17 +61,17 @@ public class Serve extends Fragment {
         TextView player_number_name_5 = (TextView)view.findViewById(R.id.serve_player_number_5);
         TextView player_number_name_6 = (TextView)view.findViewById(R.id.serve_player_number_6);
 
-        number_tmp = player_serve[0].GetNumber();
+        number_tmp = player_serve[0].getNumber();
         player_number_name_1.setText(number_tmp);
-        number_tmp = player_serve[1].GetNumber();
+        number_tmp = player_serve[1].getNumber();
         player_number_name_2.setText(number_tmp);
-        number_tmp = player_serve[2].GetNumber();
+        number_tmp = player_serve[2].getNumber();
         player_number_name_3.setText(number_tmp);
-        number_tmp = player_serve[3].GetNumber();
+        number_tmp = player_serve[3].getNumber();
         player_number_name_4.setText(number_tmp);
-        number_tmp = player_serve[4].GetNumber();
+        number_tmp = player_serve[4].getNumber();
         player_number_name_5.setText(number_tmp);
-        number_tmp = player_serve[5].GetNumber();
+        number_tmp = player_serve[5].getNumber();
         player_number_name_6.setText(number_tmp);
 
         Drawable serve_drawable = getResources().getDrawable(R.drawable.player_2);
@@ -112,8 +112,8 @@ public class Serve extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_serve.BlueScore();
-                player_serve[serve_chooice-1].SuccessServe();
+                games_serve.addBlueScore();
+                player_serve[serve_chooice-1].serveSuccess();
                 if(games_serve.getPrevious() == 2)
                 {
                     games_serve.setPrevious(1);
@@ -132,8 +132,8 @@ public class Serve extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                games_serve.RedScore();
-                player_serve[serve_chooice-1].MistakeServe();
+                games_serve.addRedScore();
+                player_serve[serve_chooice-1].serveFail();
                 games_serve.setPrevious(2);
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
@@ -147,7 +147,7 @@ public class Serve extends Fragment {
             public void onClick(View view) {
                 Fragment fragment_start = new Start();
 
-                player_serve[serve_chooice-1].InvalidServe();
+                player_serve[serve_chooice-1].serveInvalid();
                 mf.replace(R.id.container_play,fragment_start);
                 mf.commit();
                 ((PlayGame)getActivity()).setPlayerSelected();

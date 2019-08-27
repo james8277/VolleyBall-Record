@@ -2,8 +2,7 @@ package Struct;
 
 import java.text.DecimalFormat;
 
-public class Player
-{
+public class Player {
 	private String number;
 	private String name;
 	private String position;
@@ -29,8 +28,7 @@ public class Player
 	private int SuccessSet;
 	private int MistakeSet;
 	
-	public Player()
-	{
+	public Player() {
 		number = "";
 		name = "";
 		position = "";
@@ -58,332 +56,235 @@ public class Player
 	}
 	
 	
-	public String GetNumber()
-	{
+	public String getNumber() {
 		return number;
 	}
-	public String GetName()
-	{
+	public String getName() {
 		return  name;
 	}
-	public String GetPosition()
-	{
+	public String getPosition() {
 		return position;
 	}
 	
-	public void SetNumber(String x)
-	{
-//		Log.w("set number",x);
+	public void setNumber(String x) {
 		number = x;
 	}
-	public void SetName(String x)
-	{
+	public void setName(String x) {
 		name = x;
 	}
-	public void SetPosition(String x)
-	{
+	public void setPosition(String x) {
 		position = x;
 	}
 	
-	public void SuccessAttack()
-	{
+	public void attackSuccess() {
 		TotalAttack++;
 		SuccessAttack++;
 	}
-	public void MistakeAttack()
-	{
+	public void attackFail() {
 		TotalAttack++;
 		MistakeAttack++;
 	}
-	public void InvalidAttack()
-	{
+	public void attackInvalid() {
 		TotalAttack++;
 	}
 	
-	public void SuccessDefence()
-	{
+	public void SuccessDefence() {
 		TotalDefence++;
 		SuccessDefence++;
 	}
-	public void MistakeDefence()
-	{
+	public void defenceFail() {
 		TotalDefence++;
 		MistakeDefence++;
 	}
-	public void InvalidDefence()
-	{
+	public void defenceInvalid() {
 		TotalDefence++;
 	}
 	
-	public void SuccessServe()
-	{
+	public void serveSuccess() {
 		TotalServe++;
 		SuccessServe++;
 	}
-	public void MistakeServe()
-	{
+	public void serveFail() {
 		TotalServe++;
 		MistakeServe++;
 	}
-	public void InvalidServe()
-	{
+	public void serveInvalid() {
 		TotalServe++;
 	}
 	
-	public void SuccessSet()
-	{
+	public void setSuccess() {
 		TotalSet++;
 		SuccessSet++;
 	}
-	public void MistakeSet()
-	{
+	public void setFail() {
 		TotalSet++;
 		MistakeSet++;
 	}
-	public void InvalidSet()
-	{
+	public void setInvalid() {
 		TotalSet++;
 	}
 	
-	public void SuccessBlock()
-	{
+	public void blockSuccess() {
 		SuccessBlock++;
 		TotalBlock++;
 	}
-	public void MistakeBlock()
-	{
+	public void blockFail() {
 		TotalBlock++;
 		MistakeBlock++;
 	}
-	public void TouchBlock()
-	{
+	public void blockTouch() {
 		TotalBlock++;
 		TouchBlock++;
 	}
-	public void InvalidBlock()
-	{
+	public void blockInvalid() {
 		TotalBlock++;
 	}
 	
-	public int GetSuccessAttack()
-	{
+	public int getSuccessAttack() {
 		return SuccessAttack;
 	}
-	public int GetTotalAttack()
-	{
+	public int getTotalAttack() {
 		return TotalAttack;
 	}
-	public int GetMistakeAttack()
-	{
+	public int getMistakeAttack() {
 		return MistakeAttack;
 	}
 	
-	public int GetTotalDefence()
-	{
+	public int getTotalDefence() {
 		return TotalDefence;
 	}
-	public int GetSuccessDefence()
-	{
+	public int getSuccessDefence() {
 		return SuccessDefence;
 	}
-	public int GetMistakeDefence()
-	{
+	public int getMistakeDefence() {
 		return MistakeDefence;
 	}
 	
-	public int GetTotalServe()
-	{
+	public int getTotalServe() {
 		return TotalServe;
 	}
-	public int GetSuccessServe()
-	{
+	public int getSuccessServe() {
 		return SuccessServe;
 	}
-	public int GetMistakeServe()
-	{
+	public int getMistakeServe() {
 		return MistakeServe;
 	}
 	
-	public int GetTotalBlock()
-	{
+	public int getTotalBlock() {
 		return TotalBlock;
 	}
-	public int GetSuccessBlock()
-	{
+	public int getSuccessBlock() {
 		return SuccessBlock;
 	}
-	public int GetMistakeBlock()
-	{
+	public int getMistakeBlock() {
 		return MistakeBlock;
 	}
-	public int GetTouchBlock()
-	{
+	public int getTouchBlock() {
 		return TouchBlock;
 	}
 	
-	public int GetTotalSet()
-	{
+	public int getTotalSet() {
 		return TotalSet;
 	}
-	public int GetSuccessSet()
-	{
+	public int getSuccessSet() {
 		return SuccessSet;
 	}
-	public int GetMistakeSet()
-	{
+	public int getMistakeSet() {
 		return MistakeSet;
 	}
 
-    public void SetSuccessAttack(int x)
-    {
+    public void setSuccessAttack(int x) {
         SuccessAttack = x;
     }
-    public void SetMistakeAttack(int x)
-    {
+    public void setMistakeAttack(int x) {
         MistakeAttack = x;
     }
-    public void SetAllAttack(int x)
-    {
+    public void setAllAttack(int x) {
         TotalAttack = x;
     }
-    public void SetSuccessDefence(int x)
-    {
+    public void setSuccessDefence(int x) {
         SuccessDefence = x;
     }
-    public void SetMistakeDefence(int x)
-    {
+    public void setMistakeDefence(int x) {
         MistakeDefence = x;
     }
-    public void SetAllDefence(int x)
-    {
+    public void setAllDefence(int x) {
         TotalDefence = x;
     }
-    public void SetSuccessBlock(int x)
-    {
+    public void setSuccessBlock(int x) {
         SuccessBlock = x;
     }
-    public void SetMistakeBlock(int x)
-    {
+    public void setMistakeBlock(int x) {
         MistakeBlock = x;
     }
-    public void SetAllBlock(int x)
-    {
+    public void setAllBlock(int x) {
         TotalBlock = x;
     }
-    public void SetTouchBlock(int x)
-    {
+    public void setTouchBlock(int x) {
         TouchBlock = x;
     }
-    public void SetSuccessServe(int x)
-    {
+    public void setSuccessServe(int x) {
         SuccessServe = x;
     }
-    public void SetMistakeServe(int x)
-    {
+    public void setMistakeServe(int x) {
         MistakeServe = x;
     }
-    public void SetAllServe(int x)
-    {
+    public void setAllServe(int x) {
         TotalServe = x;
     }
-    public void SetSuccessSet(int x)
-    {
+    public void setSuccessSet(int x) {
         SuccessSet = x;
     }
-    public void SetMistakeSet(int x)
-    {
+    public void setMistakeSet(int x) {
         MistakeSet = x;
     }
-    public void SetAllSet(int x)
-    {
+    public void setAllSet(int x) {
         TotalSet = x;
     }
 
-	public String GetAttack()
-	{
-		float tmp;
-        DecimalFormat df = new DecimalFormat("#.##");
 
-        if(TotalAttack == 0)
-		{
-            String s = df.format(TotalAttack);
-			return s;
+	private DecimalFormat df = new DecimalFormat("#.##");
+	public String getAttack() {
+        if(TotalAttack == 0) {
+			return df.format(TotalAttack);
 		}
-		else 
-		{
-			tmp = (float) SuccessAttack/TotalAttack;
-            String s = df.format(tmp);
-			return s;
-		}
-		
-	}
-	public String GetServe()
-	{
-		float tmp;
-        DecimalFormat df = new DecimalFormat("#.##");
-		
-		if(TotalServe == 0)
-		{
-            String s = df.format(TotalServe);
-			return s;
-		}
-		else
-		{
-			tmp = (float) SuccessServe/TotalServe;
-            String s = df.format(tmp);
-            return s;
-		}
-		
-	}
-	public String GetDefence()
-	{
-		float tmp;
-        DecimalFormat df = new DecimalFormat("#.##");
-		
-		if(TotalDefence == 0)
-		{
-            String s = df.format(TotalDefence);
-			return s;
-		}
-		else
-		{
-			tmp = (float) SuccessDefence/TotalDefence;
-            String s = df.format(tmp);
-            return s;
+		else {
+			return df.format((float)SuccessAttack/TotalAttack);
 		}
 	}
-	public String GetBlock()
-	{
-		float tmp;
-        DecimalFormat df = new DecimalFormat("#.##");
-		
-		if(TotalBlock == 0)
-		{
-            String s = df.format(TotalBlock);
-            return s;
+	public String getServe() {
+		if(TotalServe == 0) {
+			return df.format(TotalServe);
 		}
-		else
-		{
-			tmp = (float) SuccessBlock/TotalBlock;
-            String s = df.format(tmp);
-            return s;
+		else {
+            return df.format((float) SuccessServe/TotalServe);
 		}
 	}
-	public String GetSet()
-	{
-		float tmp;
-        DecimalFormat df = new DecimalFormat("#.##");
-		
-		if(TotalSet == 0)
-		{
-            String s = df.format(TotalSet);
-            return s;
+
+	public String getDefence() {
+		if(TotalDefence == 0) {
+			return df.format(TotalDefence);
 		}
-		else
-		{
-			tmp = (float) SuccessSet/TotalSet;
-            String s = df.format(tmp);
-            return s;
+		else {
+            return df.format((float) SuccessDefence/TotalDefence);
+		}
+	}
+
+	public String getBlock() {
+		if(TotalBlock == 0) {
+            return df.format(TotalBlock);
+		}
+		else {
+            return df.format((float) SuccessBlock/TotalBlock);
+		}
+	}
+
+	public String getSet() {
+		if(TotalSet == 0) {
+            return df.format(TotalSet);
+		}
+		else {
+            return df.format((float) SuccessSet/TotalSet);
 		}
 	}
 
