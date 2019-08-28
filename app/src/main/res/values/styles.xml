@@ -9,6 +9,7 @@
         <item name="android:background">#303F9F</item>
         <item name="android:titleTextStyle">@style/MyTitleSize</item>
         <item name="android:height">55dp</item>
+        <item name="android:icon">@android:color/transparent</item>
     </style>
 
     <style name="MyTitleSize"

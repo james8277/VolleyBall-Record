@@ -29,6 +29,7 @@ public class Activity_Start extends Activity {
         getWindowManager().getDefaultDisplay().getMetrics(metrics);
         Log.w("windows_size", metrics.widthPixels + " X " + metrics.heightPixels);
 
+
         //Setup intent to go to next activity
         Intent intent = new Intent();
         //Go to MainMenu activity
